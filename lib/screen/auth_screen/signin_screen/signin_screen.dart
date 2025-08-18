@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:red_tangerine/constant/app_colors.dart';
 import 'package:red_tangerine/constant/app_strings.dart';
-import 'package:red_tangerine/routes/app_routes.dart';
 import 'package:red_tangerine/screen/auth_screen/signin_screen/controller/signin_controller.dart';
+import 'package:red_tangerine/utils/app_validator.dart';
 import 'package:red_tangerine/widgets/Button_widget.dart';
 import 'package:red_tangerine/widgets/auth_screen_widget.dart';
 import 'package:red_tangerine/widgets/richtext_widget.dart';
@@ -16,10 +16,10 @@ class SigninScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AuthScreenWidget(
-      body: GetBuilder(
-        init: SigninController(),
-        builder: (controller) => Column(
+    return GetBuilder(
+      init: SigninController(),
+      builder: (controller) => AuthScreenWidget(
+        body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextWidget.header(text: AppStrings.signin),
@@ -34,11 +34,7 @@ class SigninScreen extends StatelessWidget {
                     label: AppStrings.email,
                     controller: controller.emailController,
                     validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return AppStrings.pleaseEnterEmailAddress;
-                      } else {
-                        return controller.emailValidate(value);
-                      }
+                      return AppValidator.emailValidate(value);
                     },
                   ),
                   SpaceWidget(height: 10),
@@ -46,10 +42,10 @@ class SigninScreen extends StatelessWidget {
                     label: AppStrings.password,
                     controller: controller.passwordController,
                     validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return AppStrings.pleaseEnterPassword;
-                      }
-                      return null;
+                      return AppValidator.defaultvalidator(
+                        value: value,
+                        message: AppStrings.pleaseEnterYourPassword,
+                      );
                     },
                   ),
                   Row(
@@ -64,8 +60,7 @@ class SigninScreen extends StatelessWidget {
                                 MaterialTapTargetSize.shrinkWrap,
                             value: controller.isRememberedMe.value,
                             onChanged: (value) {
-                              controller.isRememberedMe.value =
-                                  !controller.isRememberedMe.value;
+                              controller.onRememberMe();
                             },
                           ),
                         ),
@@ -77,7 +72,7 @@ class SigninScreen extends StatelessWidget {
                       Spacer(),
                       ButtonWidget.text(
                         text: AppStrings.forgotPassword,
-                        ontap: () {},
+                        ontap: controller.onForgetPassword,
                         fontSize: 0.23,
                       ),
                     ],
@@ -93,14 +88,13 @@ class SigninScreen extends StatelessWidget {
             ),
           ],
         ),
-      ),
-      footer: RichtextWidget(
-        title: AppStrings.dontHaveAccount,
-        buttonTitle: AppStrings.signUp,
-        fontColor: AppColors.grey_900,
-        ontap: () {
-          Get.toNamed(AppRoutes.signupScreen);
-        },
+
+        footer: RichtextWidget(
+          title: AppStrings.dontHaveAccount,
+          buttonTitle: AppStrings.signUp,
+          fontColor: AppColors.grey_900,
+          ontap: controller.onSignUp,
+        ),
       ),
     );
   }

@@ -8,4 +8,6 @@ class AppColors {
   static const Color white_900 = Color(0xFF646464);
   static const Color white_700 = Color(0xFFA8A8A8);
   static const Color red = Colors.red;
+  static const Color red_900 = Color(0xFFCD8085);
+  static const Color transparent = Color.fromARGB(0, 255, 255, 255);
 }

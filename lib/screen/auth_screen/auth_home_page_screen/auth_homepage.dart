@@ -38,6 +38,7 @@ class AuthHomepage extends StatelessWidget {
               children: [
                 ButtonWidget(
                   text: AppStrings.register,
+                  margin: EdgeInsets.symmetric(horizontal: 20),
                   ontap: () {
                     Get.toNamed(AppRoutes.signupScreen);
                   },

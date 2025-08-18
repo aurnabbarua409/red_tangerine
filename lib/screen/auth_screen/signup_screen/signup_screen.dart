@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:red_tangerine/constant/app_colors.dart';
 import 'package:red_tangerine/constant/app_strings.dart';
-import 'package:red_tangerine/routes/app_routes.dart';
 import 'package:red_tangerine/screen/auth_screen/signup_screen/controller/signup_controller.dart';
+import 'package:red_tangerine/utils/app_validator.dart';
 import 'package:red_tangerine/widgets/Button_widget.dart';
 import 'package:red_tangerine/widgets/auth_screen_widget.dart';
 import 'package:red_tangerine/widgets/richtext_widget.dart';
@@ -16,10 +16,10 @@ class SignupScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AuthScreenWidget(
-      body: GetBuilder(
-        init: SignupController(),
-        builder: (controller) => Form(
+    return GetBuilder(
+      init: SignupController(),
+      builder: (controller) => AuthScreenWidget(
+        body: Form(
           key: controller.formKey,
           child: SingleChildScrollView(
             child: Column(
@@ -28,7 +28,7 @@ class SignupScreen extends StatelessWidget {
               children: [
                 TextWidget.header(text: AppStrings.signUp),
                 TextWidget.blackLight(text: AppStrings.createAccountOrLogin),
-                SpaceWidget(height: 20),
+                SpaceWidget(height: 40),
                 Row(
                   children: [
                     Expanded(
@@ -36,10 +36,10 @@ class SignupScreen extends StatelessWidget {
                         label: AppStrings.firstName,
                         controller: controller.firstNameController,
                         validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please write your first name';
-                          }
-                          return null;
+                          return AppValidator.defaultvalidator(
+                            value: value,
+                            message: AppStrings.pleaseWriteYourFirstName,
+                          );
                         },
                       ),
                     ),
@@ -48,10 +48,10 @@ class SignupScreen extends StatelessWidget {
                       child: TextformfieldWidget(
                         controller: controller.lastNameController,
                         validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please write your last name';
-                          }
-                          return null;
+                          return AppValidator.defaultvalidator(
+                            value: value,
+                            message: AppStrings.pleaseWriteYourLastName,
+                          );
                         },
                         label: AppStrings.lastName,
                       ),
@@ -62,10 +62,10 @@ class SignupScreen extends StatelessWidget {
                 TextformfieldWidget(
                   controller: controller.dateofBirthController,
                   validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'PLease enter your date of birth';
-                    }
-                    return null;
+                    return AppValidator.defaultvalidator(
+                      value: value,
+                      message: AppStrings.pleaseEnterDateOfBirth,
+                    );
                   },
                   label: AppStrings.dateofBirth,
                 ),
@@ -73,11 +73,7 @@ class SignupScreen extends StatelessWidget {
                 TextformfieldWidget(
                   controller: controller.emailController,
                   validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'PLease enter your e-mail';
-                    } else {
-                      return controller.emailValidate(value);
-                    }
+                    return AppValidator.emailValidate(value);
                   },
                   label: AppStrings.email,
                 ),
@@ -85,10 +81,7 @@ class SignupScreen extends StatelessWidget {
                 TextformfieldWidget(
                   controller: controller.setPasswordController,
                   validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'PLease enter a password';
-                    }
-                    return null;
+                    return AppValidator.passwordValidator(value);
                   },
                   label: AppStrings.pleaseEnterPassword,
                 ),
@@ -96,10 +89,10 @@ class SignupScreen extends StatelessWidget {
                 TextformfieldWidget(
                   controller: controller.confirmPasswordController,
                   validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'PLease enter your password again';
-                    }
-                    return null;
+                    return AppValidator.confirmPasswordValidator(
+                      value: value,
+                      password: controller.setPasswordController.text,
+                    );
                   },
                   label: AppStrings.confirmPassword,
                 ),
@@ -113,15 +106,13 @@ class SignupScreen extends StatelessWidget {
             ),
           ),
         ),
-      ),
 
-      footer: RichtextWidget(
-        title: AppStrings.alreadyHavaAccount,
-        buttonTitle: AppStrings.signin,
-        fontColor: AppColors.grey_900,
-        ontap: () {
-          Get.toNamed(AppRoutes.signinScreen);
-        },
+        footer: RichtextWidget(
+          title: AppStrings.alreadyHavaAccount,
+          buttonTitle: AppStrings.signin,
+          fontColor: AppColors.grey_900,
+          ontap: controller.onSignin,
+        ),
       ),
     );
   }
