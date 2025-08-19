@@ -13,7 +13,7 @@ class SplashController extends GetxController {
   void onInitialize() async {
     await Future.delayed(const Duration(seconds: 2));
     appLogger(title: "Splash Screen", message: "Splash Screen initializer");
-    Get.offAllNamed(AppRoutes.authHomePage);
+    Get.offAllNamed(AppRoutes.authHomePageScreen);
   }
 
   @override

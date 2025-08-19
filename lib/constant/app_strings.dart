@@ -69,7 +69,14 @@ class AppStrings {
       'Check any that reflect you or your family. These help others get to know you better. ';
   static const interestWhatyouEnjoyWithChild =
       'Interests (What you enjoy doing with your child)';
-  static const natureWalks = 'Nature walks';
+  static const valuesLifeStyle = 'Values & Lifestyle';
+  static const addProfilePicture = 'Add Profile Picture';
+  static const makeProfileFeelPersonal =
+      ' Make your profile feel more personal.';
+  static const addMorePhotoLater =
+      'You can add more photos later under the Profile tab.';
+  static const addMorePhoto = "Add More Photos";
+
   // Error message
   static const pleaseEnterYourPassword = 'Please enter your password';
   static const passwordMismatchedError = 'Password mismatched error';

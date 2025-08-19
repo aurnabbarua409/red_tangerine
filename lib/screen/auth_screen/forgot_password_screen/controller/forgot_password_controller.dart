@@ -6,11 +6,12 @@ class ForgotPasswordController extends GetxController {
   final forgotPasswordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
-  void onSend(){
-    if(formKey.currentState!.validate()){
-      Get.toNamed(AppRoutes.createNewPassword);
+  void onSend() {
+    if (formKey.currentState!.validate()) {
+      Get.toNamed(AppRoutes.createNewPasswordScreen);
     }
   }
+
   @override
   void onClose() {
     // TODO: implement onClose

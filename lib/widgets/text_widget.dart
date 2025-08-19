@@ -51,6 +51,8 @@ class TextWidget extends StatelessWidget {
     return Text(
       text,
       textAlign: textAlign ?? TextAlign.center,
+      softWrap: true,
+      maxLines: null,
       style: TextStyle(
         fontSize: ResponsiveSize.fontSize(fontSize ?? 0.35),
         color: fontColor,

@@ -31,6 +31,6 @@ class WhereParentingJourneyController extends GetxController {
   }
 
   void onNext() {
-    Get.toNamed(AppRoutes.whatEnjoyAsParent);
+    Get.toNamed(AppRoutes.whatEnjoyAsParentScreen);
   }
 }

@@ -6,6 +6,7 @@ import 'package:red_tangerine/screen/auth_screen/forgot_password_screen/forgot_p
 import 'package:red_tangerine/screen/auth_screen/signin_screen/signin_screen.dart';
 import 'package:red_tangerine/screen/auth_screen/signup_screen/signup_screen.dart';
 import 'package:red_tangerine/screen/auth_screen/verification_screen/verification_screen.dart';
+import 'package:red_tangerine/screen/preference_screen/add_profile_picture_screen/add_profile_picture_screen.dart';
 import 'package:red_tangerine/screen/preference_screen/child_age_screen/child_age_screen.dart';
 import 'package:red_tangerine/screen/preference_screen/child_diagnosis_screen/child_diagnosis_screen.dart';
 import 'package:red_tangerine/screen/preference_screen/preference_home_screen/preference_home_screen.dart';
@@ -19,7 +20,7 @@ class RouteManager {
   static List<GetPage> getPages() {
     return [
       GetPage(name: AppRoutes.splashScreen, page: () => SplashScreen()),
-      GetPage(name: AppRoutes.authHomePage, page: () => AuthHomepage()),
+      GetPage(name: AppRoutes.authHomePageScreen, page: () => AuthHomepage()),
       GetPage(name: AppRoutes.signinScreen, page: () => SigninScreen()),
       GetPage(name: AppRoutes.signupScreen, page: () => SignupScreen()),
       GetPage(
@@ -31,7 +32,7 @@ class RouteManager {
         page: () => ForgotPasswordScreen(),
       ),
       GetPage(
-        name: AppRoutes.createNewPassword,
+        name: AppRoutes.createNewPasswordScreen,
         page: () => CreateNewPasswordScreen(),
       ),
       GetPage(
@@ -52,8 +53,12 @@ class RouteManager {
         page: () => WhereParentingJourneyScreen(),
       ),
       GetPage(
-        name: AppRoutes.whatEnjoyAsParent,
+        name: AppRoutes.whatEnjoyAsParentScreen,
         page: () => WhatEnjoyAsParent(),
+      ),
+      GetPage(
+        name: AppRoutes.addProfilePictureScreen,
+        page: () => AddProfilePictureScreen(),
       ),
     ];
   }
