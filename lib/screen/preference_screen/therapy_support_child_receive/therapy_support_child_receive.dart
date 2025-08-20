@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:red_tangerine/constant/app_colors.dart';
 import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/screen/preference_screen/therapy_support_child_receive/controller/therapy_support_controller.dart';
 import 'package:red_tangerine/widgets/Button_widget.dart';
 import 'package:red_tangerine/widgets/auth_screen_widget.dart';
 import 'package:red_tangerine/widgets/drop_down_button_form_field_widget.dart';
+import 'package:red_tangerine/widgets/preference_header_important_widget.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
 import 'package:red_tangerine/widgets/text_widget.dart';
 
@@ -19,10 +21,10 @@ class TherapySupportChildReceive extends StatelessWidget {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextWidget.header(
+            PreferenceHeaderImportantWidget(
               text: AppStrings.whatTypeTherapySupportChildReceive,
             ),
-            SpaceWidget(height: 10),
+            SpaceWidget(height: 20),
             TextWidget.blackLight(text: AppStrings.selectAllThatApply),
             SpaceWidget(height: 30),
             DropDownButtonFormFieldWidget(items: [], onChanged: (value) {}),

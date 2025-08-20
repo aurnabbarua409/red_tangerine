@@ -6,6 +6,7 @@ import 'package:red_tangerine/screen/preference_screen/what_enjoy_as_parent/widg
 import 'package:red_tangerine/screen/preference_screen/what_enjoy_as_parent/widget/parent_button_widget.dart';
 import 'package:red_tangerine/widgets/Button_widget.dart';
 import 'package:red_tangerine/widgets/auth_screen_widget.dart';
+import 'package:red_tangerine/widgets/preference_header_important_widget.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
 import 'package:red_tangerine/widgets/text_widget.dart';
 
@@ -20,7 +21,9 @@ class WhatEnjoyAsParent extends StatelessWidget {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextWidget.header(text: AppStrings.whatYouEnjoyOrValueAsParent),
+            PreferenceHeaderImportantWidget(
+              text: AppStrings.whatYouEnjoyOrValueAsParent,
+            ),
             SpaceWidget(height: 20),
             TextWidget.blackLight(text: AppStrings.checkAnyThatReflect),
             SpaceWidget(height: 30),

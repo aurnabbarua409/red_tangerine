@@ -5,6 +5,7 @@ import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/screen/preference_screen/where_parenting_journey_screen/controller/where_parenting_journey_controller.dart';
 import 'package:red_tangerine/widgets/Button_widget.dart';
 import 'package:red_tangerine/widgets/auth_screen_widget.dart';
+import 'package:red_tangerine/widgets/preference_header_important_widget.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
 import 'package:red_tangerine/widgets/text_widget.dart';
 
@@ -19,8 +20,10 @@ class WhereParentingJourneyScreen extends StatelessWidget {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextWidget.header(text: AppStrings.whereParentingJourney),
-            SpaceWidget(height: 10),
+            PreferenceHeaderImportantWidget(
+              text: AppStrings.whereParentingJourney,
+            ),
+            SpaceWidget(height: 20),
             TextWidget.blackLight(text: AppStrings.everyoneExperienceDifferent),
             SpaceWidget(height: 40),
             ButtonWidget.normal(

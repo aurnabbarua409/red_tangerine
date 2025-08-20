@@ -68,6 +68,7 @@ class ButtonWidget extends StatelessWidget {
         child: TextWidget.red(
           text: text!,
           fontSize: fontSize ?? 0.23,
+          fontColor: textColor,
           textDecoration: textDecoration ?? TextDecoration.none,
         ),
       );

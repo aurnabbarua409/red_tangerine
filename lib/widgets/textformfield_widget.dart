@@ -8,10 +8,16 @@ class TextformfieldWidget extends StatelessWidget {
     required this.controller,
     required this.validator,
     required this.label,
+    this.maxlines = 1,
+    this.borderRadius = 25,
+    this.suffixIcon,
   });
   final TextEditingController controller;
   final String? Function(String? value) validator;
   final String label;
+  final int maxlines;
+  final double borderRadius;
+  final Widget? suffixIcon;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -20,22 +26,25 @@ class TextformfieldWidget extends StatelessWidget {
         TextWidget.black(text: label),
         TextFormField(
           controller: controller,
+          maxLines: maxlines,
           validator: validator,
+
           decoration: InputDecoration(
+            suffixIcon: suffixIcon,
             enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(25),
+              borderRadius: BorderRadius.circular(borderRadius),
               borderSide: BorderSide(color: AppColors.white_700),
             ),
             focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(25),
+              borderRadius: BorderRadius.circular(borderRadius),
               borderSide: BorderSide(color: AppColors.white_700),
             ),
             errorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(25),
+              borderRadius: BorderRadius.circular(borderRadius),
               borderSide: BorderSide(color: AppColors.white_700),
             ),
             focusedErrorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(25),
+              borderRadius: BorderRadius.circular(borderRadius),
               borderSide: BorderSide(color: AppColors.white_700),
             ),
           ),

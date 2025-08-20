@@ -6,13 +6,17 @@ import 'package:red_tangerine/screen/auth_screen/forgot_password_screen/forgot_p
 import 'package:red_tangerine/screen/auth_screen/signin_screen/signin_screen.dart';
 import 'package:red_tangerine/screen/auth_screen/signup_screen/signup_screen.dart';
 import 'package:red_tangerine/screen/auth_screen/verification_screen/verification_screen.dart';
+import 'package:red_tangerine/screen/main_layout_screen/main_layout_screen.dart';
 import 'package:red_tangerine/screen/preference_screen/add_profile_picture_screen/add_profile_picture_screen.dart';
 import 'package:red_tangerine/screen/preference_screen/child_age_screen/child_age_screen.dart';
 import 'package:red_tangerine/screen/preference_screen/child_diagnosis_screen/child_diagnosis_screen.dart';
+import 'package:red_tangerine/screen/preference_screen/let_other_know_about_u_screen/let_other_know_about_u_screen.dart';
+import 'package:red_tangerine/screen/preference_screen/please_share_your_location_screen/please_share_your_location_screen.dart';
 import 'package:red_tangerine/screen/preference_screen/preference_home_screen/preference_home_screen.dart';
 import 'package:red_tangerine/screen/preference_screen/therapy_support_child_receive/therapy_support_child_receive.dart';
 import 'package:red_tangerine/screen/preference_screen/what_enjoy_as_parent/what_enjoy_as_parent.dart';
 import 'package:red_tangerine/screen/preference_screen/where_parenting_journey_screen/where_parenting_journey_screen.dart';
+import 'package:red_tangerine/screen/preference_screen/your_privacy_matters_screen/your_privacy_matters_screen.dart';
 import 'package:red_tangerine/screen/splash_screen/splash_screen.dart';
 
 class RouteManager {
@@ -60,6 +64,19 @@ class RouteManager {
         name: AppRoutes.addProfilePictureScreen,
         page: () => AddProfilePictureScreen(),
       ),
+      GetPage(
+        name: AppRoutes.letOtherKnowAboutUScreen,
+        page: () => LetOtherKnowAboutUScreen(),
+      ),
+      GetPage(
+        name: AppRoutes.pleaseShareYourLocationScreen,
+        page: () => PleaseShareYourLocationScreen(),
+      ),
+      GetPage(
+        name: AppRoutes.yourPrivacyMattersScreen,
+        page: () => YourPrivacyMattersScreen(),
+      ),
+      GetPage(name: AppRoutes.mainlayoutScreen, page: () => MainLayoutScreen(),)
     ];
   }
 }

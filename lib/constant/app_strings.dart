@@ -59,7 +59,7 @@ class AppStrings {
   static const whereParentingJourney =
       'Where are you in your parenting journey?';
   static const everyoneExperienceDifferent =
-      'Everyone’s experience is different. We\'ll use this to help connect you with parents who truly understand.';
+      'Everyone\'s experience is different. We\'ll use this to help connect you with parents who truly understand.';
   static const justStarting = 'Just Starting';
   static const managingdayToday = 'Managing Day-to-Day';
   static const mentorReady = 'Mentor-Ready';
@@ -76,6 +76,22 @@ class AppStrings {
   static const addMorePhotoLater =
       'You can add more photos later under the Profile tab.';
   static const addMorePhoto = "Add More Photos";
+  static const takePhoto = 'Take Photo';
+  static const chooseFromGallery = 'Choose From Gallery';
+  static const letOtherKnowAboutYou = 'Let others know a little about you';
+  static const shortIntroHelpsOther =
+      'A short intro helps other parents connect with you faster.';
+  static const skip = 'Skip';
+  static const pleaseShareYourLocation = 'Please Share Your Location';
+  static const weCanHelpConnectWithParent =
+      'We can help you connect with parents in your area.';
+  static const useMyCurrentLocation = 'Use My Current Location';
+  static const yourPrivacyMatters = 'Your Privacy Matters';
+  static const toHelpConnectYou =
+      'To help connect you with other parents in similar situations, we\'ll ask for details about your child\'s condition and related needs. This information is considered sensitive health data, and we will only use it to provide better matches and improve your experience in the app.';
+  static const weWillNeverShare =
+      'We will never share your personal details publicly without your consent, and you can update or delete this information at any time.';
+  static const underStandAgree = 'I Understand and Agree';
 
   // Error message
   static const pleaseEnterYourPassword = 'Please enter your password';
@@ -85,4 +101,5 @@ class AppStrings {
   static const pleaseEnterDateOfBirth = 'Please enter your date of birth';
   static const pleaseEnterChildDateOfBirth =
       'Please enter your child\'s date of birth';
+  static const pleaseEnterSomething = 'Please Write Something';
 }

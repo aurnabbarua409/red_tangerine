@@ -7,7 +7,6 @@ import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/screen/preference_screen/add_profile_picture_screen/controller/add_profile_picture_controller.dart';
 import 'package:red_tangerine/widgets/Button_widget.dart';
 import 'package:red_tangerine/widgets/auth_screen_widget.dart';
-import 'package:red_tangerine/widgets/icon_widget.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
 import 'package:red_tangerine/widgets/text_widget.dart';
 
@@ -32,8 +31,20 @@ class AddProfilePictureScreen extends StatelessWidget {
               decoration: BoxDecoration(
                 color: AppColors.grey_50,
                 borderRadius: BorderRadius.circular(20),
+                image: controller.image != null
+                    ? DecorationImage(
+                        image: FileImage(controller.image!),
+                        fit: BoxFit.cover,
+                      )
+                    : null,
               ),
-              child: ButtonWidget.icon(icon: AppIcons.cameraIcon, ontap: () {}),
+
+              child: ButtonWidget.icon(
+                icon: AppIcons.cameraIcon,
+                ontap: () {
+                  controller.onClickCamera(context);
+                },
+              ),
             ),
             SpaceWidget(height: 30),
             TextWidget(

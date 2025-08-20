@@ -15,4 +15,9 @@ class AppRoutes {
   static const whereParentingJourneyScreen = '/where_parenting_journey_screen';
   static const whatEnjoyAsParentScreen = '/what_enjoy_as_parent';
   static const addProfilePictureScreen = '/add_profile_picture_screen';
+  static const letOtherKnowAboutUScreen = '/let_other_know_about_u';
+  static const pleaseShareYourLocationScreen =
+      '/please_share_your_location_screen';
+  static const yourPrivacyMattersScreen = '/your_privacy_matter_screen';
+  static const mainlayoutScreen = '/main_layout_screen';
 }
