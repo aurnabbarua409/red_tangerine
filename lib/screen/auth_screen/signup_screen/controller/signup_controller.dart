@@ -9,18 +9,19 @@ class SignupController extends GetxController {
   final emailController = TextEditingController();
   final setPasswordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
-  final formKey = GlobalKey<FormState>();
+  var formKey = GlobalKey<FormState>();
 
   void onSignUp() {
-    if (formKey.currentState!.validate()) {
-      Get.toNamed(AppRoutes.verificationScreen);
-    } else {
-      return;
-    }
+    // if (formKey.currentState!.validate()) {
+    //   Get.toNamed(AppRoutes.verificationScreen);
+    // } else {
+    //   return;
+    // }
     // unhide the above part
-    // Get.toNamed(AppRoutes.verificationScreen, arguments: {
-    //   'email': emailController.text
-    // });
+    Get.toNamed(
+      AppRoutes.verificationScreen,
+      arguments: {'email': emailController.text},
+    );
   }
 
   void onSignin() {

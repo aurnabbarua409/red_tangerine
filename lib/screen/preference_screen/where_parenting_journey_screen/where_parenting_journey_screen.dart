@@ -17,48 +17,42 @@ class WhereParentingJourneyScreen extends StatelessWidget {
     return GetBuilder(
       init: WhereParentingJourneyController(),
       builder: (controller) => AuthScreenWidget(
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            PreferenceHeaderImportantWidget(
-              text: AppStrings.whereParentingJourney,
-            ),
-            SpaceWidget(height: 20),
-            TextWidget.blackLight(text: AppStrings.everyoneExperienceDifferent),
-            SpaceWidget(height: 40),
-            ButtonWidget.normal(
-              text: AppStrings.justStarting,
-              textColor: controller.isParenting[0]
-                  ? AppColors.white
-                  : AppColors.grey_900,
-              backgroundColor: controller.isParenting[0]
-                  ? AppColors.red_900
-                  : AppColors.transparent,
-              ontap: controller.onJustStarting,
-            ),
-            ButtonWidget.normal(
-              text: AppStrings.managingdayToday,
-              textColor: controller.isParenting[1]
-                  ? AppColors.white
-                  : AppColors.grey_900,
-              backgroundColor: controller.isParenting[1]
-                  ? AppColors.red_900
-                  : AppColors.transparent,
-              ontap: controller.onmanagingDayToDay,
-            ),
-            ButtonWidget.normal(
-              text: AppStrings.mentorReady,
-              textColor: controller.isParenting[2]
-                  ? AppColors.white
-                  : AppColors.grey_900,
-              backgroundColor: controller.isParenting[2]
-                  ? AppColors.red_900
-                  : AppColors.transparent,
-              ontap: controller.mentorReady,
-            ),
-          ],
-        ),
-        footer: ButtonWidget(text: AppStrings.next, ontap: controller.onNext),
+        title: AppStrings.whereParentingJourney,
+        subtitle: AppStrings.everyoneExperienceDifferent,
+        body: [
+          ButtonWidget.normal(
+            text: AppStrings.justStarting,
+            textColor: controller.isParenting[0]
+                ? AppColors.white
+                : AppColors.grey_900,
+            backgroundColor: controller.isParenting[0]
+                ? AppColors.red_900
+                : AppColors.transparent,
+            ontap: controller.onJustStarting,
+          ),
+          ButtonWidget.normal(
+            text: AppStrings.managingdayToday,
+            textColor: controller.isParenting[1]
+                ? AppColors.white
+                : AppColors.grey_900,
+            backgroundColor: controller.isParenting[1]
+                ? AppColors.red_900
+                : AppColors.transparent,
+            ontap: controller.onmanagingDayToDay,
+          ),
+          ButtonWidget.normal(
+            text: AppStrings.mentorReady,
+            textColor: controller.isParenting[2]
+                ? AppColors.white
+                : AppColors.grey_900,
+            backgroundColor: controller.isParenting[2]
+                ? AppColors.red_900
+                : AppColors.transparent,
+            ontap: controller.mentorReady,
+          ),
+        ],
+
+        onTap: controller.onNext,
       ),
     );
   }

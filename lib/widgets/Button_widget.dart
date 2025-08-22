@@ -60,7 +60,10 @@ class ButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (buttonType == ButtonType.icon) {
-      return InkWell(onTap: ontap, child: Image.asset(icon!));
+      return InkWell(
+        onTap: ontap,
+        child: Image.asset(icon!, height: height, width: width),
+      );
     }
     if (buttonType == ButtonType.text) {
       return InkWell(

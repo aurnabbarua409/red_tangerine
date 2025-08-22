@@ -6,7 +6,6 @@ import 'package:red_tangerine/utils/app_validator.dart';
 import 'package:red_tangerine/widgets/Button_widget.dart';
 import 'package:red_tangerine/widgets/auth_screen_widget.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
-import 'package:red_tangerine/widgets/text_widget.dart';
 import 'package:red_tangerine/widgets/textformfield_widget.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
@@ -14,32 +13,23 @@ class ForgotPasswordScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AuthScreenWidget(
-      body: GetBuilder(
-        init: ForgotPasswordController(),
-        builder: (controller) => Form(
-          key: controller.formKey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              TextWidget.header(text: AppStrings.forgotPassword),
-              SpaceWidget(height: 10),
-              TextWidget.blackLight(
-                text: AppStrings.provideEmailChangePassword,
-              ),
-              SpaceWidget(height: 30),
-              TextformfieldWidget(
-                controller: controller.forgotPasswordController,
-                validator: (value) {
-                  return AppValidator.emailValidate(value);
-                },
-                label: AppStrings.email,
-              ),
-              SpaceWidget(height: 20),
-              ButtonWidget(text: AppStrings.send, ontap: controller.onSend),
-            ],
+    return GetBuilder(
+      init: ForgotPasswordController(),
+      builder: (controller) => AuthScreenWidget(
+        title: AppStrings.forgotPassword,
+        subtitle: AppStrings.provideEmailChangePassword,
+        formKey: controller.formKey,
+        body: [
+          TextformfieldWidget(
+            controller: controller.forgotPasswordController,
+            validator: (value) {
+              return AppValidator.emailValidate(value);
+            },
+            label: AppStrings.email,
           ),
-        ),
+          SpaceWidget(height: 20),
+          ButtonWidget(text: AppStrings.send, ontap: controller.onSend),
+        ],
       ),
     );
   }

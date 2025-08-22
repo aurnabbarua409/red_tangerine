@@ -18,79 +18,69 @@ class WhatEnjoyAsParent extends StatelessWidget {
     return GetBuilder(
       init: WhatEnjoyAsParentController(),
       builder: (controller) => AuthScreenWidget(
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            PreferenceHeaderImportantWidget(
-              text: AppStrings.whatYouEnjoyOrValueAsParent,
+        title: AppStrings.whatYouEnjoyOrValueAsParent,
+        subtitle: AppStrings.checkAnyThatReflect,
+        body: [
+          BulletTextWidget(text: AppStrings.interestWhatyouEnjoyWithChild),
+          SpaceWidget(height: 10),
+          for (int i = 0; i < controller.interests.length; i = i + 2)
+            Row(
+              children: [
+                ParentButtonWidget(
+                  label: controller.interests[i],
+                  isSelected: controller.isSelectedInterest[i],
+                  ontap: () => controller.onSelectedInterest(i),
+                ),
+                SpaceWidget(width: 7),
+                Expanded(
+                  child: ParentButtonWidget(
+                    label: controller.interests[i + 1],
+                    isSelected: controller.isSelectedInterest[i + 1],
+                    ontap: () => controller.onSelectedInterest(i + 1),
+                  ),
+                ),
+              ],
             ),
-            SpaceWidget(height: 20),
-            TextWidget.blackLight(text: AppStrings.checkAnyThatReflect),
-            SpaceWidget(height: 30),
-            BulletTextWidget(text: AppStrings.interestWhatyouEnjoyWithChild),
-            SpaceWidget(height: 10),
-            for (int i = 0; i < controller.interests.length; i = i + 2)
-              Row(
-                children: [
-                  ParentButtonWidget(
-                    label: controller.interests[i],
-                    isSelected: controller.isSelectedInterest[i],
-                    ontap: () => controller.onSelectedInterest(i),
+          SpaceWidget(height: 30),
+          BulletTextWidget(text: AppStrings.valuesLifeStyle),
+          SpaceWidget(height: 10),
+          for (int i = 0; i < controller.valuesLifeStyle.length - 2; i = i + 2)
+            Row(
+              children: [
+                ParentButtonWidget(
+                  label: controller.valuesLifeStyle[i],
+                  isSelected: controller.isSelectedValuesLifeStyle[i],
+                  ontap: () => controller.onSelectedValuesLifeStyle(i),
+                ),
+                SpaceWidget(width: 7),
+                Expanded(
+                  child: ParentButtonWidget(
+                    label: controller.valuesLifeStyle[i + 1],
+                    isSelected: controller.isSelectedValuesLifeStyle[i + 1],
+                    ontap: () => controller.onSelectedValuesLifeStyle(i + 1),
                   ),
-                  SpaceWidget(width: 7),
-                  Expanded(
-                    child: ParentButtonWidget(
-                      label: controller.interests[i + 1],
-                      isSelected: controller.isSelectedInterest[i + 1],
-                      ontap: () => controller.onSelectedInterest(i + 1),
-                    ),
-                  ),
-                ],
-              ),
-            SpaceWidget(height: 30),
-            BulletTextWidget(text: AppStrings.valuesLifeStyle),
-            SpaceWidget(height: 10),
-            for (
-              int i = 0;
-              i < controller.valuesLifeStyle.length - 2;
-              i = i + 2
-            )
-              Row(
-                children: [
-                  ParentButtonWidget(
-                    label: controller.valuesLifeStyle[i],
-                    isSelected: controller.isSelectedValuesLifeStyle[i],
-                    ontap: () => controller.onSelectedValuesLifeStyle(i),
-                  ),
-                  SpaceWidget(width: 7),
-                  Expanded(
-                    child: ParentButtonWidget(
-                      label: controller.valuesLifeStyle[i + 1],
-                      isSelected: controller.isSelectedValuesLifeStyle[i + 1],
-                      ontap: () => controller.onSelectedValuesLifeStyle(i + 1),
-                    ),
-                  ),
-                ],
-              ),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: ParentButtonWidget(
-                label: controller.valuesLifeStyle[4],
-                isSelected: controller.isSelectedValuesLifeStyle[4],
-                ontap: () => controller.onSelectedValuesLifeStyle(4),
-              ),
+                ),
+              ],
             ),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: ParentButtonWidget(
-                label: controller.valuesLifeStyle[5],
-                isSelected: controller.isSelectedValuesLifeStyle[5],
-                ontap: () => controller.onSelectedValuesLifeStyle(5),
-              ),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: ParentButtonWidget(
+              label: controller.valuesLifeStyle[4],
+              isSelected: controller.isSelectedValuesLifeStyle[4],
+              ontap: () => controller.onSelectedValuesLifeStyle(4),
             ),
-          ],
-        ),
-        footer: ButtonWidget(text: AppStrings.next, ontap: controller.onNext),
+          ),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: ParentButtonWidget(
+              label: controller.valuesLifeStyle[5],
+              isSelected: controller.isSelectedValuesLifeStyle[5],
+              ontap: () => controller.onSelectedValuesLifeStyle(5),
+            ),
+          ),
+        ],
+
+        onTap: controller.onNext,
       ),
     );
   }

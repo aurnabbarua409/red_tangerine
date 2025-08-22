@@ -18,54 +18,49 @@ class TherapySupportChildReceive extends StatelessWidget {
     return GetBuilder(
       init: TherapySupportController(),
       builder: (controller) => AuthScreenWidget(
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            PreferenceHeaderImportantWidget(
-              text: AppStrings.whatTypeTherapySupportChildReceive,
-            ),
-            SpaceWidget(height: 20),
-            TextWidget.blackLight(text: AppStrings.selectAllThatApply),
-            SpaceWidget(height: 30),
-            DropDownButtonFormFieldWidget(items: [], onChanged: (value) {}),
-            SpaceWidget(height: 20),
-            DropDownButtonFormFieldWidget(items: [], onChanged: (value) {}),
-            SpaceWidget(height: 10),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: TextWidget.black(text: AppStrings.ifOtherTypeHere),
-            ),
-            TextFormField(),
-            SpaceWidget(height: 30),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Obx(
-                    () => Transform.scale(
-                      alignment: Alignment.centerLeft,
-                      scale: 0.8,
-                      child: Checkbox.adaptive(
-                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        value: controller.isWaiting.value,
-                        onChanged: (value) {
-                          controller.onIsWaiting();
-                        },
-                      ),
+        title: AppStrings.whatTypeTherapySupportChildReceive,
+        subtitle: AppStrings.selectAllThatApply,
+
+        body: [
+          DropDownButtonFormFieldWidget(items: [], onChanged: (value) {}),
+          SpaceWidget(height: 20),
+          DropDownButtonFormFieldWidget(items: [], onChanged: (value) {}),
+          SpaceWidget(height: 10),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: TextWidget.black(text: AppStrings.ifOtherTypeHere),
+          ),
+          TextFormField(),
+          SpaceWidget(height: 30),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Obx(
+                  () => Transform.scale(
+                    alignment: Alignment.centerLeft,
+                    scale: 0.8,
+                    child: Checkbox.adaptive(
+                      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      value: controller.isWaiting.value,
+                      onChanged: (value) {
+                        controller.onIsWaiting();
+                      },
                     ),
                   ),
+                ),
 
-                  TextWidget.black(
-                    text: AppStrings.weAreStillWaitingOnDiagnosis,
-                    fontSize: 0.25,
-                  ),
-                ],
-              ),
+                TextWidget.black(
+                  text: AppStrings.weAreStillWaitingOnDiagnosis,
+                  fontSize: 0.25,
+                ),
+              ],
             ),
-          ],
-        ),
-        footer: ButtonWidget(text: AppStrings.next, ontap: controller.onNext),
+          ),
+        ],
+
+        onTap: controller.onNext,
       ),
     );
   }

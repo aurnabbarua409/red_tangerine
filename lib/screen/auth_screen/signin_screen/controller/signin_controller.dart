@@ -6,7 +6,7 @@ class SigninController extends GetxController {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final isRememberedMe = false.obs;
-  final formKey = GlobalKey<FormState>();
+  var formKey = GlobalKey<FormState>();
 
   void onSignin() {
     // if (formKey.currentState!.validate()) {

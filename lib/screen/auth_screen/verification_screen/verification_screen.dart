@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:red_tangerine/constant/app_colors.dart';
 import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/screen/auth_screen/verification_screen/controller/verification_controller.dart';
 import 'package:red_tangerine/screen/auth_screen/verification_screen/widgets/custom_otp_widget.dart';
@@ -13,55 +14,46 @@ class VerificationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AuthScreenWidget(
-      body: GetBuilder(
-        init: VerificationController(),
-        builder: (controller) => Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            TextWidget.header(text: AppStrings.verification),
-            TextWidget.blackLight(
-              
-              text:
-                  '${AppStrings.weSendVerificationCode} ${controller.email.value}',
-            ),
-            SpaceWidget(height: 10),
-            ButtonWidget.text(
-              text: AppStrings.notYours,
-              textDecoration: TextDecoration.underline,
-              fontSize: 0.24,
-              ontap: () {},
-            ),
-            SpaceWidget(height: 10),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: TextWidget.blackLight(
-                text: AppStrings.code,
-                fontSize: 0.27,
-              ),
-            ),
-            SpaceWidget(height: 30),
-            CustomOtpWidget(
-              onSubmit: (value) {
-                controller.otpValue.value = value;
-              },
-            ),
-            SpaceWidget(height: 30),
-            ButtonWidget(
-              text: AppStrings.verify,
-              margin: EdgeInsets.all(0),
-              ontap: () {},
-            ),
-            SpaceWidget(height: 15),
-            ButtonWidget.text(
-              text: AppStrings.resendCode,
-              fontSize: 0.26,
-              ontap: () {},
-            ),
-          ],
-        ),
+    return GetBuilder(
+      init: VerificationController(),
+      builder: (controller) => AuthScreenWidget(
+        title: AppStrings.verification,
+        subtitle:
+            '${AppStrings.weSendVerificationCode} ${controller.email.value}',
+        body: [
+          ButtonWidget.text(
+            text: AppStrings.notYours,
+            textColor: AppColors.red,
+            textDecoration: TextDecoration.underline,
+            fontSize: 0.24,
+            ontap: () {},
+          ),
+          SpaceWidget(height: 10),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: TextWidget.blackLight(text: AppStrings.code, fontSize: 0.27),
+          ),
+          SpaceWidget(height: 30),
+          CustomOtpWidget(
+            onSubmit: (value) {
+              controller.otpValue.value = value;
+            },
+          ),
+          SpaceWidget(height: 30),
+          ButtonWidget(
+            text: AppStrings.verify,
+            margin: EdgeInsets.all(0),
+            ontap: controller.onVerify,
+          ),
+          SpaceWidget(height: 15),
+          ButtonWidget.text(
+            textColor: AppColors.red,
+            text: AppStrings.resendCode,
+            fontSize: 0.26,
+            ontap: () {},
+          ),
+        ],
       ),
-      footer: null,
     );
   }
 }

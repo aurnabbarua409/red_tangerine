@@ -19,100 +19,87 @@ class SignupScreen extends StatelessWidget {
     return GetBuilder(
       init: SignupController(),
       builder: (controller) => AuthScreenWidget(
-        body: Form(
-          key: controller.formKey,
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                TextWidget.header(text: AppStrings.signUp),
-                TextWidget.blackLight(text: AppStrings.createAccountOrLogin),
-                SpaceWidget(height: 40),
-                Row(
-                  children: [
-                    Expanded(
-                      child: TextformfieldWidget(
-                        label: AppStrings.firstName,
-                        controller: controller.firstNameController,
-                        validator: (value) {
-                          return AppValidator.defaultvalidator(
-                            value: value,
-                            message: AppStrings.pleaseWriteYourFirstName,
-                          );
-                        },
-                      ),
-                    ),
-                    SpaceWidget(width: 10),
-                    Expanded(
-                      child: TextformfieldWidget(
-                        controller: controller.lastNameController,
-                        validator: (value) {
-                          return AppValidator.defaultvalidator(
-                            value: value,
-                            message: AppStrings.pleaseWriteYourLastName,
-                          );
-                        },
-                        label: AppStrings.lastName,
-                      ),
-                    ),
-                  ],
-                ),
-                SpaceWidget(height: 10),
-                TextformfieldWidget(
-                  controller: controller.dateofBirthController,
+        title: AppStrings.signUp,
+        subtitle: AppStrings.createAccountOrLogin,
+        formKey: controller.formKey,
+        body: [
+          Row(
+            children: [
+              Expanded(
+                child: TextformfieldWidget(
+                  label: AppStrings.firstName,
+                  controller: controller.firstNameController,
                   validator: (value) {
                     return AppValidator.defaultvalidator(
                       value: value,
-                      message: AppStrings.pleaseEnterDateOfBirth,
+                      message: AppStrings.pleaseWriteYourFirstName,
                     );
                   },
-                  label: AppStrings.dateofBirth,
                 ),
-                SpaceWidget(height: 10),
-                TextformfieldWidget(
-                  controller: controller.emailController,
+              ),
+              SpaceWidget(width: 10),
+              Expanded(
+                child: TextformfieldWidget(
+                  controller: controller.lastNameController,
                   validator: (value) {
-                    return AppValidator.emailValidate(value);
-                  },
-                  label: AppStrings.email,
-                ),
-                SpaceWidget(height: 10),
-                TextformfieldWidget(
-                  controller: controller.setPasswordController,
-                  validator: (value) {
-                    return AppValidator.passwordValidator(value);
-                  },
-                  label: AppStrings.pleaseEnterPassword,
-                ),
-                SpaceWidget(height: 10),
-                TextformfieldWidget(
-                  controller: controller.confirmPasswordController,
-                  validator: (value) {
-                    return AppValidator.confirmPasswordValidator(
+                    return AppValidator.defaultvalidator(
                       value: value,
-                      password: controller.setPasswordController.text,
+                      message: AppStrings.pleaseWriteYourLastName,
                     );
                   },
-                  label: AppStrings.confirmPassword,
+                  label: AppStrings.lastName,
                 ),
-                SpaceWidget(height: 20),
-                ButtonWidget(
-                  text: AppStrings.signUp,
-                  ontap: controller.onSignUp,
-                  margin: EdgeInsets.all(0),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
-        ),
-
-        footer: RichtextWidget(
-          title: AppStrings.alreadyHavaAccount,
-          buttonTitle: AppStrings.signin,
-          fontColor: AppColors.grey_900,
-          ontap: controller.onSignin,
-        ),
+          SpaceWidget(height: 10),
+          TextformfieldWidget(
+            controller: controller.dateofBirthController,
+            validator: (value) {
+              return AppValidator.defaultvalidator(
+                value: value,
+                message: AppStrings.pleaseEnterDateOfBirth,
+              );
+            },
+            label: AppStrings.dateofBirth,
+          ),
+          SpaceWidget(height: 10),
+          TextformfieldWidget(
+            controller: controller.emailController,
+            validator: (value) {
+              return AppValidator.emailValidate(value);
+            },
+            label: AppStrings.email,
+          ),
+          SpaceWidget(height: 10),
+          TextformfieldWidget(
+            controller: controller.setPasswordController,
+            validator: (value) {
+              return AppValidator.passwordValidator(value);
+            },
+            label: AppStrings.setAPassword,
+          ),
+          SpaceWidget(height: 10),
+          TextformfieldWidget(
+            controller: controller.confirmPasswordController,
+            validator: (value) {
+              return AppValidator.confirmPasswordValidator(
+                value: value,
+                password: controller.setPasswordController.text,
+              );
+            },
+            label: AppStrings.confirmPassword,
+          ),
+          SpaceWidget(height: 20),
+          ButtonWidget(
+            text: AppStrings.signUp,
+            ontap: controller.onSignUp,
+            margin: EdgeInsets.all(0),
+          ),
+        ],
+        footerTextTitle: AppStrings.alreadyHavaAccount,
+        footerTextSubtitle: AppStrings.signin,
+        onTapSign: () => controller.onSignin,
       ),
     );
   }

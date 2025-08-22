@@ -10,6 +10,7 @@ class AppBackgroundWidget extends StatelessWidget {
     return Scaffold(
       body: Container(
         width: ResponsiveSize.width(double.infinity),
+        height: ResponsiveSize.height(double.infinity),
         padding: EdgeInsets.symmetric(horizontal: 20),
         decoration: BoxDecoration(
           image: DecorationImage(

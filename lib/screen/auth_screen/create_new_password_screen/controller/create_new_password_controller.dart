@@ -8,9 +8,9 @@ class CreateNewPasswordController extends GetxController {
   final formKey = GlobalKey<FormState>();
 
   void onResetPassword() {
-    if (formKey.currentState!.validate()) {
-      Get.toNamed(AppRoutes.signinScreen);
-    }
+    // if (formKey.currentState!.validate()) {
+    Get.toNamed(AppRoutes.signinScreen);
+    // }
   }
 
   @override

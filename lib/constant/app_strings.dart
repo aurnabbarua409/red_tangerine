@@ -93,6 +93,11 @@ class AppStrings {
       'We will never share your personal details publicly without your consent, and you can update or delete this information at any time.';
   static const underStandAgree = 'I Understand and Agree';
 
+  // bottom nav bar
+  static const home = 'Home';
+  static const matches = 'Matches';
+  static const chats = 'Chats';
+  static const profile = 'Profile';
   // Error message
   static const pleaseEnterYourPassword = 'Please enter your password';
   static const passwordMismatchedError = 'Password mismatched error';

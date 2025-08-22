@@ -32,7 +32,9 @@ class DropDownButtonFormFieldWidget extends StatelessWidget {
       ),
       items: items,
       onChanged: (value) {
-        onChanged(value);
+        if(value != null) {
+          onChanged(value.toString());
+        }
       },
     );
   }

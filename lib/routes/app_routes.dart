@@ -19,5 +19,5 @@ class AppRoutes {
   static const pleaseShareYourLocationScreen =
       '/please_share_your_location_screen';
   static const yourPrivacyMattersScreen = '/your_privacy_matter_screen';
-  static const mainlayoutScreen = '/main_layout_screen';
+  static const bottomNavBarScreen = '/bottom_nav_bar_screen';
 }

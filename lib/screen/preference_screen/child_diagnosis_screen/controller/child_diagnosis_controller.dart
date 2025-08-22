@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:red_tangerine/routes/app_routes.dart';
+import 'package:red_tangerine/utils/app_log.dart';
 
 class ChildDiagnosisController extends GetxController {
   final isWaiting = false.obs;
@@ -42,9 +43,41 @@ class ChildDiagnosisController extends GetxController {
       "Undiagnosed - Awaiting Evaluation",
     ],
   };
+  final selectedDiagnosisType = [].obs;
+  final allDiagnosisType = [].obs;
+  final selectedDiagnosis = "".obs;
 
   void onIsWaiting() {
     isWaiting.value = !isWaiting.value;
+  }
+
+  void onSelectDiagnosis(String value) {
+    try {
+      selectedDiagnosis.value = value;
+      appLogger(
+        title: 'On selected diagnosis',
+        message: selectedDiagnosis.value,
+      );
+
+      if (diagnosesByCategory.containsKey(value)) {
+        allDiagnosisType.value = diagnosesByCategory[value] ?? [];
+      } else {
+        allDiagnosisType.clear();
+      }
+      appLogger(title: 'On selected diagnosis', message: allDiagnosisType);
+
+      update();
+    } catch (e) {
+      appLogger(title: 'Error on selected diagnosis', message: e);
+    }
+  }
+
+  void onSelectedDiagonisType(List<dynamic> values) {
+    selectedDiagnosisType.value = values;
+    appLogger(
+      title: 'On selected diagnosis type',
+      message: selectedDiagnosisType,
+    );
   }
 
   void onNext() {

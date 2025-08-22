@@ -18,27 +18,21 @@ class PleaseShareYourLocationScreen extends StatelessWidget {
     return GetBuilder(
       init: PleaseShareYourLocationController(),
       builder: (controller) => AuthScreenWidget(
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            PreferenceHeaderImportantWidget(
-              text: AppStrings.pleaseShareYourLocation,
+        title: AppStrings.pleaseShareYourLocation,
+        subtitle: AppStrings.weCanHelpConnectWithParent,
+        body: [
+          TextformfieldWidget(
+            controller: controller.locationController,
+            validator: (value) {},
+            label: AppStrings.useMyCurrentLocation,
+            suffixIcon: ButtonWidget.icon(
+              icon: AppIcons.locationFixedIcon,
+              ontap: () {},
             ),
-            SpaceWidget(height: 20),
-            TextWidget.blackLight(text: AppStrings.weCanHelpConnectWithParent),
-            SpaceWidget(height: 30),
-            TextformfieldWidget(
-              controller: controller.locationController,
-              validator: (value) {},
-              label: AppStrings.useMyCurrentLocation,
-              suffixIcon: ButtonWidget.icon(
-                icon: AppIcons.locationFixedIcon,
-                ontap: () {},
-              ),
-            ),
-          ],
-        ),
-        footer: ButtonWidget(text: AppStrings.next, ontap: controller.onNext),
+          ),
+        ],
+
+        onTap: controller.onNext,
       ),
     );
   }

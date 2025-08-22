@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:red_tangerine/constant/app_colors.dart';
+import 'package:red_tangerine/utils/responsive_size.dart';
 
 class CustomOtpWidget extends StatelessWidget {
   const CustomOtpWidget({super.key, required this.onSubmit});
@@ -13,8 +14,8 @@ class CustomOtpWidget extends StatelessWidget {
       borderColor: AppColors.grey_900,
       focusedBorderColor: AppColors.grey_900,
       showFieldAsBox: true,
-      fieldWidth: 50,
-      fieldHeight: 50,
+      fieldWidth: ResponsiveSize.width(12),
+      fieldHeight: ResponsiveSize.width(12),
       borderRadius: BorderRadius.circular(100),
       decoration: InputDecoration(
         counterText: "",

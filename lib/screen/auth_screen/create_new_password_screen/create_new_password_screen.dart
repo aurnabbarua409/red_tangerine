@@ -17,47 +17,40 @@ class CreateNewPasswordScreen extends StatelessWidget {
     return GetBuilder(
       init: CreateNewPasswordController(),
       builder: (controller) => AuthScreenWidget(
-        body: Form(
-          key: controller.formKey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              TextWidget.header(text: AppStrings.createNewPassword),
-              SpaceWidget(height: 10),
-              TextWidget.blackLight(text: AppStrings.setNewPasswordToContinue),
-              SpaceWidget(height: 40),
-              TextformfieldWidget(
-                controller: controller.setPasswordController,
-                validator: (value) {
-                  return AppValidator.defaultvalidator(
-                    value: value,
-                    message: AppStrings.pleaseEnterYourPassword,
-                  );
-                },
-                label: AppStrings.setPassword,
-              ),
-              SpaceWidget(height: 10),
-              TextformfieldWidget(
-                controller: controller.confirmPasswordController,
-                validator: (value) {
-                  if (value != controller.setPasswordController.text) {
-                    return AppStrings.passwordMismatchedError;
-                  }
-                  return AppValidator.defaultvalidator(
-                    value: value,
-                    message: AppStrings.pleaseEnterYourPassword,
-                  );
-                },
-                label: AppStrings.confirmPassword,
-              ),
-              SpaceWidget(height: 30),
-              ButtonWidget(
-                text: AppStrings.resetPassword,
-                ontap: controller.onResetPassword,
-              ),
-            ],
+        title: AppStrings.createNewPassword,
+        subtitle: AppStrings.setNewPasswordToContinue,
+        formKey: controller.formKey,
+        body: [
+          TextformfieldWidget(
+            controller: controller.setPasswordController,
+            validator: (value) {
+              return AppValidator.defaultvalidator(
+                value: value,
+                message: AppStrings.pleaseEnterYourPassword,
+              );
+            },
+            label: AppStrings.setPassword,
           ),
-        ),
+          SpaceWidget(height: 10),
+          TextformfieldWidget(
+            controller: controller.confirmPasswordController,
+            validator: (value) {
+              if (value != controller.setPasswordController.text) {
+                return AppStrings.passwordMismatchedError;
+              }
+              return AppValidator.defaultvalidator(
+                value: value,
+                message: AppStrings.pleaseEnterYourPassword,
+              );
+            },
+            label: AppStrings.confirmPassword,
+          ),
+          SpaceWidget(height: 30),
+          ButtonWidget(
+            text: AppStrings.resetPassword,
+            ontap: controller.onResetPassword,
+          ),
+        ],
       ),
     );
   }

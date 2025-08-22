@@ -6,7 +6,7 @@ import 'package:red_tangerine/screen/auth_screen/forgot_password_screen/forgot_p
 import 'package:red_tangerine/screen/auth_screen/signin_screen/signin_screen.dart';
 import 'package:red_tangerine/screen/auth_screen/signup_screen/signup_screen.dart';
 import 'package:red_tangerine/screen/auth_screen/verification_screen/verification_screen.dart';
-import 'package:red_tangerine/screen/main_layout_screen/main_layout_screen.dart';
+import 'package:red_tangerine/screen/main_layout_screens/bottom_nav_bar_screen/bottom_nav_bar_screen.dart';
 import 'package:red_tangerine/screen/preference_screen/add_profile_picture_screen/add_profile_picture_screen.dart';
 import 'package:red_tangerine/screen/preference_screen/child_age_screen/child_age_screen.dart';
 import 'package:red_tangerine/screen/preference_screen/child_diagnosis_screen/child_diagnosis_screen.dart';
@@ -76,7 +76,7 @@ class RouteManager {
         name: AppRoutes.yourPrivacyMattersScreen,
         page: () => YourPrivacyMattersScreen(),
       ),
-      GetPage(name: AppRoutes.mainlayoutScreen, page: () => MainLayoutScreen(),)
+      GetPage(name: AppRoutes.bottomNavBarScreen, page: () => BottomNavBarScreen(),)
     ];
   }
 }

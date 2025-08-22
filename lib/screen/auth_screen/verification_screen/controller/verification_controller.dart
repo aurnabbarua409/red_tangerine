@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:red_tangerine/routes/app_routes.dart';
 
 class VerificationController extends GetxController {
   final otpValue = ''.obs;
@@ -12,5 +13,7 @@ class VerificationController extends GetxController {
     email.value = args['email'];
   }
 
-  void onVerify() {}
+  void onVerify() {
+    Get.toNamed(AppRoutes.preferenceHomeScreen);
+  }
 }
