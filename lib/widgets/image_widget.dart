@@ -9,12 +9,14 @@ class ImageWidget extends StatelessWidget {
     this.height = double.infinity,
     this.width = double.infinity,
     this.fit = BoxFit.cover,
+    this.color,
   });
   final bool fromNetwork;
   final String image;
   final double height;
   final double width;
-  final BoxFit fit;
+  final BoxFit? fit;
+  final Color? color;
   @override
   Widget build(BuildContext context) {
     if (fromNetwork) {
@@ -28,7 +30,8 @@ class ImageWidget extends StatelessWidget {
         image,
         height: ResponsiveSize.height(height),
         width: ResponsiveSize.width(width),
-        fit: BoxFit.fill,
+        color: color,
+        fit: fit ?? BoxFit.fill,
       );
     }
   }

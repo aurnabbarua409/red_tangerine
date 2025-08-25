@@ -12,4 +12,7 @@ class AppColors {
   static const Color transparent = Color.fromARGB(0, 255, 255, 255);
   static const Color grey_50 = Color(0xFFE9E9E9);
   static const Color grey_100 = Color(0xFFBABABA);
+  static const Color grey_700 = Color(0xFF1A1A1A);
+  static const Color lightTransparent = Color.fromARGB(69, 0, 0, 0);
+  static const Color brown_100 = Color(0xFFF9EEE7);
 }

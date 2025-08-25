@@ -25,6 +25,7 @@ class ButtonWidget extends StatelessWidget {
     this.textColor,
     this.fontSize,
     this.backgroundColor,
+    this.borderColor,
     required this.ontap,
   }) : buttonType = ButtonType.normal;
   ButtonWidget.icon({
@@ -56,6 +57,7 @@ class ButtonWidget extends StatelessWidget {
   final void Function() ontap;
   String? icon;
   ButtonType buttonType;
+  Color? borderColor;
   Color? backgroundColor;
   @override
   Widget build(BuildContext context) {
@@ -85,7 +87,7 @@ class ButtonWidget extends StatelessWidget {
           height: ResponsiveSize.height(height ?? 5),
           decoration: BoxDecoration(
             color: backgroundColor ?? const Color.fromARGB(0, 255, 255, 255),
-            border: Border.all(color: AppColors.white_900),
+            border: Border.all(color: borderColor ?? AppColors.white_900),
             borderRadius: BorderRadius.circular(25),
           ),
           child: Center(

@@ -98,6 +98,29 @@ class AppStrings {
   static const matches = 'Matches';
   static const chats = 'Chats';
   static const profile = 'Profile';
+
+  // Profle Screen
+  static const myProfile = 'My Profile';
+  static const childAge = "Child's Age";
+  static const diagnosis = "Diagnosis";
+  static const therapy = "Therapy";
+  static const parentingJourney = "Parenting Journey";
+  static const interestOrValue = "Interests/Values";
+  static const photos = "Photos";
+  static const yourBio = "Your bio";
+  static const location = "Location";
+  static const editProfile = "Edit Profile";
+
+  // Edit Profile Screen
+  static const profileInformation = "Profile Information";
+  static const update = "Update";
+
+  // Matches Screen
+  static const rightSupportTakesTime =
+      "The right support takes a little time. We'll notify you as soon as a match is ready.";
+  static const sorryNoMatchesYet = "Sorry, no matches yet";
+  
+
   // Error message
   static const pleaseEnterYourPassword = 'Please enter your password';
   static const passwordMismatchedError = 'Password mismatched error';

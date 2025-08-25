@@ -20,4 +20,7 @@ class AppRoutes {
       '/please_share_your_location_screen';
   static const yourPrivacyMattersScreen = '/your_privacy_matter_screen';
   static const bottomNavBarScreen = '/bottom_nav_bar_screen';
+  static const editProfileScreen = '/edit_profile_screen';
+  static const editChildAgeScreen = '/edit_child_age_screen';
+ 
 }

@@ -10,4 +10,14 @@ class AppIcons {
   static const profileIcon = 'assets/icons/profile_icon.png';
   static const sproutIcon = 'assets/icons/sprout_icon.png';
   static const homeIcon = 'assets/icons/home_icon.png';
+  static const mapPinIcon = 'assets/icons/map_pin_icon.png';
+  static const heartIcon = 'assets/icons/heart_icon.png';
+  static const babyIcon = "assets/icons/baby_icon.png";
+  static const bandageIcon = "assets/icons/bandage_icon.png";
+  static const briefcaseMedicalIcon = "assets/icons/briefcase_medical_icon.png";
+  static const imageIcon = "assets/icons/image_icon.png";
+  static const mapPinkIcon = "assets/icons/map_pin_pink_icon.png";
+  static const messageIcon = "assets/icons/message_circle_heart_icon.png";
+  static const testTubeIcon = "assets/icons/test_tube_diagonal_icon.png";
+  static const userRoundPenIcon = "assets/icons/user_round_pen_icon.png";
 }

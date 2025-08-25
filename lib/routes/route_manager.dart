@@ -7,6 +7,9 @@ import 'package:red_tangerine/screen/auth_screen/signin_screen/signin_screen.dar
 import 'package:red_tangerine/screen/auth_screen/signup_screen/signup_screen.dart';
 import 'package:red_tangerine/screen/auth_screen/verification_screen/verification_screen.dart';
 import 'package:red_tangerine/screen/main_layout_screens/bottom_nav_bar_screen/bottom_nav_bar_screen.dart';
+import 'package:red_tangerine/screen/main_layout_screens/matches_screen/matches_screen.dart';
+import 'package:red_tangerine/screen/main_layout_screens/profile_screen/profile_screen_datails/edit_child_age_screen/edit_child_age_screen.dart';
+import 'package:red_tangerine/screen/main_layout_screens/profile_screen/profile_screen_datails/edit_profile_screen/edit_profile_screen.dart';
 import 'package:red_tangerine/screen/preference_screen/add_profile_picture_screen/add_profile_picture_screen.dart';
 import 'package:red_tangerine/screen/preference_screen/child_age_screen/child_age_screen.dart';
 import 'package:red_tangerine/screen/preference_screen/child_diagnosis_screen/child_diagnosis_screen.dart';
@@ -76,7 +79,18 @@ class RouteManager {
         name: AppRoutes.yourPrivacyMattersScreen,
         page: () => YourPrivacyMattersScreen(),
       ),
-      GetPage(name: AppRoutes.bottomNavBarScreen, page: () => BottomNavBarScreen(),)
+      GetPage(
+        name: AppRoutes.bottomNavBarScreen,
+        page: () => BottomNavBarScreen(),
+      ),
+      GetPage(
+        name: AppRoutes.editProfileScreen,
+        page: () => EditProfileScreen(),
+      ),
+      GetPage(
+        name: AppRoutes.editChildAgeScreen,
+        page: () => EditChildAgeScreen(),
+      ),
     ];
   }
 }

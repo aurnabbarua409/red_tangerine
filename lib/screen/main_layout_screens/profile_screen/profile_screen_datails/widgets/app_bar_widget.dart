@@ -1,0 +1,43 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:red_tangerine/constant/app_colors.dart';
+import 'package:red_tangerine/constant/app_strings.dart';
+import 'package:red_tangerine/widgets/space_widget.dart';
+import 'package:red_tangerine/widgets/text_widget.dart';
+
+class AppBarWidget extends StatelessWidget {
+  const AppBarWidget({super.key, required this.title});
+  final String title;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 50,
+      decoration: BoxDecoration(
+        border: Border.all(color: AppColors.red_900),
+        color: AppColors.red_900,
+      ),
+
+      child: Row(
+        children: [
+          IconButton(
+            onPressed: () {
+              Get.back();
+            },
+            icon: Icon(Icons.arrow_back, color: AppColors.white),
+          ),
+          const Spacer(),
+          TextWidget.white(
+            textAlign: TextAlign.center,
+            text: title,
+            fontWeight: FontWeight.w600,
+          ),
+          const Spacer(),
+          Opacity(
+            opacity: 0, // invisible placeholder to balance arrow
+            child: Icon(Icons.arrow_back, color: AppColors.white),
+          ),
+        ],
+      ),
+    );
+  }
+}

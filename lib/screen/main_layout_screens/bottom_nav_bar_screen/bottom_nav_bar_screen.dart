@@ -4,6 +4,8 @@ import 'package:red_tangerine/constant/app_colors.dart';
 import 'package:red_tangerine/constant/app_icons.dart';
 import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/screen/main_layout_screens/home_screen/home_screen.dart';
+import 'package:red_tangerine/screen/main_layout_screens/matches_screen/matches_screen.dart';
+import 'package:red_tangerine/screen/main_layout_screens/profile_screen/profile_screen/profile_screen.dart';
 import 'package:red_tangerine/widgets/icon_widget.dart';
 import 'package:red_tangerine/widgets/text_widget.dart';
 
@@ -114,21 +116,13 @@ class _MainLayoutScreenState extends State<BottomNavBarScreen> {
         },
         children: [
           HomeScreen(),
-          Container(
-            width: double.infinity,
-            height: double.infinity,
-            color: Colors.red,
-          ),
+          MatchesScreen(),
           Container(
             width: double.infinity,
             height: double.infinity,
             color: Colors.green,
           ),
-          Container(
-            width: double.infinity,
-            height: double.infinity,
-            color: Colors.blue,
-          ),
+          ProfileScreen(),
         ],
       ),
     );
