@@ -9,6 +9,7 @@ class TextWidget extends StatelessWidget {
     required this.fontSize,
     this.fontColor,
     this.fontWeight,
+    this.textAlign
   });
 
   TextWidget.header({
@@ -24,7 +25,8 @@ class TextWidget extends StatelessWidget {
     this.fontSize = 0.25,
     this.textAlign,
     this.fontColor = AppColors.white_900,
-  }) : fontWeight = FontWeight.w500;
+    this.fontWeight = FontWeight.w500,
+  });
   TextWidget.black({
     super.key,
     required this.text,

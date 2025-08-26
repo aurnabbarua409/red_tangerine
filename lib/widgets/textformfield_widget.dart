@@ -11,6 +11,7 @@ class TextformfieldWidget extends StatelessWidget {
     this.maxlines = 1,
     this.borderRadius = 25,
     this.suffixIcon,
+    this.hintText,
   });
   final TextEditingController controller;
   final String? Function(String? value) validator;
@@ -18,6 +19,7 @@ class TextformfieldWidget extends StatelessWidget {
   final int maxlines;
   final double borderRadius;
   final Widget? suffixIcon;
+  final String? hintText;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -30,6 +32,7 @@ class TextformfieldWidget extends StatelessWidget {
           validator: validator,
 
           decoration: InputDecoration(
+            hintText: hintText,
             suffixIcon: suffixIcon,
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(borderRadius),

@@ -33,6 +33,8 @@ class ButtonWidget extends StatelessWidget {
     this.height,
     this.width,
     this.margin,
+    this.iconColor,
+    this.scale,
     required this.icon,
     required this.ontap,
   }) : buttonType = ButtonType.icon;
@@ -59,12 +61,20 @@ class ButtonWidget extends StatelessWidget {
   ButtonType buttonType;
   Color? borderColor;
   Color? backgroundColor;
+  Color? iconColor;
+  double? scale;
   @override
   Widget build(BuildContext context) {
     if (buttonType == ButtonType.icon) {
       return InkWell(
         onTap: ontap,
-        child: Image.asset(icon!, height: height, width: width),
+        child: Image.asset(
+          icon!,
+          height: height,
+          width: width,
+          color: iconColor,
+          scale: scale,
+        ),
       );
     }
     if (buttonType == ButtonType.text) {

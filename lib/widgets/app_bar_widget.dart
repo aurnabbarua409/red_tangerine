@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:red_tangerine/constant/app_icons.dart';
+import 'package:red_tangerine/routes/app_routes.dart';
 import 'package:red_tangerine/widgets/app_background_widget.dart';
 import 'package:red_tangerine/widgets/icon_widget.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
@@ -24,7 +26,10 @@ class AppBarWidget extends StatelessWidget {
               Spacer(),
               IconWidget(icon: AppIcons.notificationIcon),
               SpaceWidget(width: 10),
-              IconWidget(icon: AppIcons.settingIcon),
+              InkWell(
+                onTap: () => Get.toNamed(AppRoutes.settingScreen),
+                child: IconWidget(icon: AppIcons.settingIcon),
+              ),
             ],
           ),
           SpaceWidget(height: 20),

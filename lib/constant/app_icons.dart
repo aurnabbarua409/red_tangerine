@@ -20,4 +20,14 @@ class AppIcons {
   static const messageIcon = "assets/icons/message_circle_heart_icon.png";
   static const testTubeIcon = "assets/icons/test_tube_diagonal_icon.png";
   static const userRoundPenIcon = "assets/icons/user_round_pen_icon.png";
+  static const popupmenuIcon = "assets/icons/popupmenu_icon.png";
+  static const sendIcon = "assets/icons/send_icon.png";
+  static const changePasswordIcon = "assets/icons/change_password_icon.png";
+  static const aboutUsIcon = "assets/icons/about_us_icon.png";
+  static const privacyPolicyIcon = "assets/icons/privacy_policy_icon.png";
+  static const termConditionIcon = "assets/icons/term_and_condition_icon.png";
+  static const faqIcon = "assets/icons/faq_icon.png";
+  static const blockedUserIcon = "assets/icons/blocked_user_icon.png";
+  static const deleteAccountIcon = "assets/icons/delete_icon.png";
+  static const logoutIcon = "assets/icons/logout_icon.png";
 }

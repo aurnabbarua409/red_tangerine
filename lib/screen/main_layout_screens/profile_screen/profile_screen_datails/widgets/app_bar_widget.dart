@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:red_tangerine/constant/app_colors.dart';
-import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
 import 'package:red_tangerine/widgets/text_widget.dart';
 
@@ -29,13 +28,11 @@ class AppBarWidget extends StatelessWidget {
           TextWidget.white(
             textAlign: TextAlign.center,
             text: title,
+            fontSize: 0.28,
             fontWeight: FontWeight.w600,
           ),
           const Spacer(),
-          Opacity(
-            opacity: 0, // invisible placeholder to balance arrow
-            child: Icon(Icons.arrow_back, color: AppColors.white),
-          ),
+          SpaceWidget(width: 40),
         ],
       ),
     );

@@ -119,7 +119,89 @@ class AppStrings {
   static const rightSupportTakesTime =
       "The right support takes a little time. We'll notify you as soon as a match is ready.";
   static const sorryNoMatchesYet = "Sorry, no matches yet";
-  
+  static const searchHere = "Search Here";
+  static const message = "Message";
+
+  // Chats Screen
+  static const recentMatches = "Recent matches";
+  static const active = "Active";
+  static const archive = "Archive";
+
+  // Setting Screen
+  static const settings = 'Settings';
+  static const changePassword = "Change Password";
+  static const aboutUs = "About Us";
+  static const privacyPolicy = "Privacy Policy";
+  static const termCondition = "Terms & Conditions";
+  static const faq = "FAQ";
+  static const report = "Report";
+  static const blockedUser = "Blocked Users";
+  static const deletedAccount = "Delete Account";
+  static const logout = "Log Out";
+
+  // Change password Screen
+  static const currentPassword = "Current Password";
+  static const writeYourPassword = "Write Your Password";
+
+  // About Us Screen
+  static const aboutusPara1 =
+      "We believe parenting should never feel like a lonely journey—especially for parents raising children with learning, physical, or mental disabilities. Our mission is to create a safe and supportive space where parents can connect, share experiences, and build lasting friendships based on understanding and empathy.";
+  static const aboutusPara2 =
+      "Unlike traditional social platforms, our app is designed with parents’ unique needs in mind. Whether you’re seeking advice, emotional support, or simply a friend who understands your journey, we make it easier to find the right connection.";
+  static const aboutUsPara3 =
+      "Through profile-based matching, real-time chat, and video calls, we aim to help parents bond over shared challenges and celebrate victories together. We are more than just an app—we are a growing community built on compassion, trust, and meaningful connections.";
+
+  // Privacy policy screen
+  static const privacyPolicyPara1 =
+      "We value your privacy and are committed to protecting your personal information.";
+  static const privacyPolicyPara2 =
+      "Information We Collect: When you create an account, we may collect your name, email, location, and details you choose to share about your child (such as age, diagnosis, and interests).";
+  static const privacyPolicyPara3 =
+      "How We Use It: This information is used only to help connect you with other parents, improve our services, and ensure a safe community.";
+  static const privacyPolicyPara4 =
+      "Data Sharing: We do not sell or share your personal data with third parties for marketing. Data is only shared if required by law or to protect community safety.";
+  static const privacyPolicyPara5 =
+      "Security: Your data is encrypted and stored securely. We take all reasonable steps to protect it from unauthorized access.";
+  static const privacyPolicyPara6 =
+      "Your Control: You can update or delete your profile at any time through the app settings.";
+  static const privacyPolicyPara7 =
+      "By using this app, you agree to this Privacy Policy. If you have any questions, please contact us at [support@email.com].";
+
+  // Faq screen
+  static const faqQuestion1 = "1. What is this app about?";
+  static const faqQuestion2 = "2. Who can use this app?";
+  static const faqQuestion3 = "3. How does the matching work?";
+  static const faqQuestion4 = "4. Can both parents use the same profile?";
+  static const faqQuestion5 = "5. Is my information private?";
+  static const faqQuestion6 = "6. Can I send pictures or files in chat?";
+  static const faqQuestion7 = "7. Is the app free?";
+  static const faqQuestion8 = "9. How do I report inappropriate behavior?";
+  static const faqQuestion9 = "10. How do I get support?";
+  static const faqAnswer1 =
+      "This app helps parents of children with disabilities connect, share experiences, and build supportive friendships.";
+  static const faqAnswer2 =
+      "Any parent or guardian raising a child with physical, learning, or developmental disabilities.";
+  static const faqAnswer3 =
+      "You create a profile, scroll through parent cards, and connect by tapping ❤️ or sending a “Hi.” If the other parent responds, you can start chatting.";
+  static const faqAnswer4 =
+      "Yes. Each parent can log in with their own username and password but access the same profile.";
+  static const faqAnswer5 =
+      "Absolutely. Your data is kept secure and will never be sold. You can edit or delete your information anytime.";
+  static const faqAnswer6 =
+      "Yes. You can share images, documents, or notes with other parents.";
+  static const faqAnswer7 =
+      "The basic version is free. In the future, we may add premium features and optional subscriptions.";
+  static const faqAnswer8 =
+      "You can block or report a user directly from their profile or chat. Our team will review all reports.";
+  static const faqAnswer9 =
+      "You can reach us anytime through the app's “Help & Support” section or email [support@email.com].";
+
+  // Report Screen
+  static const somethingNotRight = "Something not right? Let us know.";
+  static const sendReport = "Send Report";
+
+  // Blocked User Screen
+  static const unblock = "Unblock";
 
   // Error message
   static const pleaseEnterYourPassword = 'Please enter your password';

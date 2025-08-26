@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:red_tangerine/constant/app_colors.dart';
 import 'package:red_tangerine/constant/app_icons.dart';
 import 'package:red_tangerine/constant/app_strings.dart';
+import 'package:red_tangerine/screen/main_layout_screens/chats_screen/chats_screen/chats_screen.dart';
 import 'package:red_tangerine/screen/main_layout_screens/home_screen/home_screen.dart';
 import 'package:red_tangerine/screen/main_layout_screens/matches_screen/matches_screen.dart';
 import 'package:red_tangerine/screen/main_layout_screens/profile_screen/profile_screen/profile_screen.dart';
@@ -117,11 +118,7 @@ class _MainLayoutScreenState extends State<BottomNavBarScreen> {
         children: [
           HomeScreen(),
           MatchesScreen(),
-          Container(
-            width: double.infinity,
-            height: double.infinity,
-            color: Colors.green,
-          ),
+          ChatsScreen(),
           ProfileScreen(),
         ],
       ),

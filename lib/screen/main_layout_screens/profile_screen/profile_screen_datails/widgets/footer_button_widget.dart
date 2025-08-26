@@ -4,8 +4,14 @@ import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/widgets/Button_widget.dart';
 
 class FooterButtonWidget extends StatelessWidget {
-  const FooterButtonWidget({super.key, this.label, required this.onTap});
+  const FooterButtonWidget({
+    super.key,
+    this.label,
+    this.margin,
+    required this.onTap,
+  });
   final String? label;
+  final EdgeInsetsGeometry? margin;
   final void Function() onTap;
   @override
   Widget build(BuildContext context) {
@@ -14,7 +20,7 @@ class FooterButtonWidget extends StatelessWidget {
       backgroundColor: AppColors.red_900,
       textColor: AppColors.white,
       borderColor: AppColors.red_900,
-      margin: EdgeInsets.symmetric(horizontal: 20),
+      margin: margin ?? EdgeInsets.symmetric(horizontal: 20),
       ontap: onTap,
     );
   }

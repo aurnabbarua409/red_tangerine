@@ -22,5 +22,13 @@ class AppRoutes {
   static const bottomNavBarScreen = '/bottom_nav_bar_screen';
   static const editProfileScreen = '/edit_profile_screen';
   static const editChildAgeScreen = '/edit_child_age_screen';
- 
+  static const chatMessageScreen = '/chat_message_screen';
+  static const settingScreen = "/setting_screen";
+  static const changePasswordScreen = "/change_password_screen";
+  static const aboutUsScreen = "/about_us_screen";
+  static const privacyPolicyScreen = "/privacy_policy_screen";
+  static const termConditionScreen = "/term_and_condition_screen";
+  static const faqScreen = "/faq_screen";
+  static const reportScreen = "/report_screen";
+  static const blockedUserScreen = "/blocked_user_screen";
 }
