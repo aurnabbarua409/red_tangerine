@@ -8,7 +8,6 @@ import 'package:red_tangerine/routes/app_routes.dart';
 import 'package:red_tangerine/screen/main_layout_screens/profile_screen/profile_screen/widgets/profile_item_widget.dart';
 import 'package:red_tangerine/widgets/Button_widget.dart';
 import 'package:red_tangerine/widgets/app_bar_widget.dart';
-import 'package:red_tangerine/widgets/icon_widget.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
 import 'package:red_tangerine/widgets/text_widget.dart';
 
@@ -65,43 +64,81 @@ class ProfileScreen extends StatelessWidget {
           icon: AppIcons.babyIcon,
           text: AppStrings.childAge,
           onTap: () {
-            Get.toNamed(AppRoutes.editChildAgeScreen);
+            Get.toNamed(
+              AppRoutes.childAgeScreen,
+              arguments: {'fromUpdate': true},
+            );
           },
         ),
         ProfileItemWidget(
           icon: AppIcons.testTubeIcon,
           text: AppStrings.diagnosis,
-          onTap: () {},
+          onTap: () {
+            Get.toNamed(
+              AppRoutes.childDiagnosisScreen,
+              arguments: {'fromUpdate': true},
+            );
+          },
         ),
         ProfileItemWidget(
           icon: AppIcons.briefcaseMedicalIcon,
           text: AppStrings.therapy,
-          onTap: () {},
+          onTap: () {
+            Get.toNamed(
+              AppRoutes.therapySupportChildReceiveScreen,
+              arguments: {'fromUpdate': true},
+            );
+          },
         ),
         ProfileItemWidget(
           icon: AppIcons.bandageIcon,
           text: AppStrings.parentingJourney,
-          onTap: () {},
+          onTap: () {
+            Get.toNamed(
+              AppRoutes.whereParentingJourneyScreen,
+              arguments: {'fromUpdate': true},
+            );
+          },
         ),
         ProfileItemWidget(
           icon: AppIcons.messageIcon,
           text: AppStrings.interestOrValue,
-          onTap: () {},
+          onTap: () {
+            Get.toNamed(
+              AppRoutes.whatEnjoyAsParentScreen,
+              arguments: {'fromUpdate': true},
+            );
+          },
         ),
         ProfileItemWidget(
           icon: AppIcons.imageIcon,
           text: AppStrings.photos,
-          onTap: () {},
+          onTap: () {
+            Get.toNamed(
+              AppRoutes.addProfilePictureScreen,
+              arguments: {'fromUpdate': true},
+            );
+          },
         ),
         ProfileItemWidget(
           icon: AppIcons.userRoundPenIcon,
           text: AppStrings.yourBio,
-          onTap: () {},
+          onTap: () {
+            Get.toNamed(
+              AppRoutes.letOtherKnowAboutUScreen,
+              arguments: {'fromUpdate': true},
+            );
+          },
         ),
         ProfileItemWidget(
           icon: AppIcons.mapPinkIcon,
           text: AppStrings.location,
-          onTap: () {},
+          onTap: () {
+            Get.toNamed(
+              AppRoutes.pleaseShareYourLocationScreen,
+              arguments: {'fromUpdate': true},
+            );
+          },
         ),
       ],
     );

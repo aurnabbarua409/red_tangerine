@@ -9,92 +9,102 @@ import 'package:red_tangerine/widgets/drop_down_button_form_field_widget.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
 import 'package:red_tangerine/widgets/text_widget.dart';
 
-class ChildDiagnosisScreen extends StatelessWidget {
+class ChildDiagnosisScreen extends StatefulWidget {
   const ChildDiagnosisScreen({super.key});
 
   @override
+  State<ChildDiagnosisScreen> createState() => _ChildDiagnosisScreenState();
+}
+
+class _ChildDiagnosisScreenState extends State<ChildDiagnosisScreen> {
+  final _controller = Get.put(ChildDiagnosisController());
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _controller.onInitital();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return GetBuilder(
-      init: ChildDiagnosisController(),
-      builder: (controller) => AuthScreenWidget(
-        title: AppStrings.tellUsAboutChildDiagnosis,
-        subtitle: AppStrings.tellUsAboutChildDiagnosisDetails,
+    return AuthScreenWidget(
+      fromUpdate: _controller.fromUpdate.value,
+      appbarTitle: AppStrings.diagnosis,
+      title: AppStrings.tellUsAboutChildDiagnosis,
+      subtitle: AppStrings.tellUsAboutChildDiagnosisDetails,
 
-        body: [
-          Align(
-            alignment: Alignment.centerLeft,
-            child: TextWidget.black(text: AppStrings.whatChildDiagnosis),
-          ),
-          SpaceWidget(height: 10),
-          DropDownButtonFormFieldWidget(
-            items: controller.diagnosesByCategory.keys.map((key) {
-              return DropdownMenuItem(value: key, child: Text(key));
-            }).toList(),
-            onChanged: (value) {
-              controller.onSelectDiagnosis(value);
-            },
-          ),
-          SpaceWidget(height: 20),
-          DropDownMultiSelect(
-            options: controller.allDiagnosisType,
-            selectedValues: controller.selectedDiagnosisType,
-            decoration: InputDecoration(
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(25),
-                borderSide: BorderSide(color: AppColors.grey_900),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(25),
-                borderSide: BorderSide(color: AppColors.grey_900),
-              ),
-              errorBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(25),
-                borderSide: BorderSide(color: AppColors.grey_900),
-              ),
+      body: [
+        Align(
+          alignment: Alignment.centerLeft,
+          child: TextWidget.black(text: AppStrings.whatChildDiagnosis),
+        ),
+        SpaceWidget(height: 10),
+        DropDownButtonFormFieldWidget(
+          items: _controller.diagnosesByCategory.keys.toList(),
+          onChanged: (value) {
+            _controller.onSelectDiagnosis(value);
+          },
+        ),
+        SpaceWidget(height: 20),
+        DropDownMultiSelect(
+          options: _controller.allDiagnosisType,
+          selectedValues: _controller.selectedDiagnosisType,
+          decoration: InputDecoration(
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(25),
+              borderSide: BorderSide(color: AppColors.grey_900),
             ),
-
-            onChanged: (value) {
-              if (value.isNotEmpty) {
-                controller.onSelectedDiagonisType(value);
-              }
-            },
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(25),
+              borderSide: BorderSide(color: AppColors.grey_900),
+            ),
+            errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(25),
+              borderSide: BorderSide(color: AppColors.grey_900),
+            ),
           ),
 
-          SpaceWidget(height: 20),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: TextWidget.black(text: AppStrings.ifOtherTypeHere),
-          ),
-          TextFormField(),
-          SpaceWidget(height: 20),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Obx(
-                  () => Transform.scale(
-                    alignment: Alignment.centerLeft,
-                    scale: 0.8,
-                    child: Checkbox.adaptive(
-                      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      value: controller.isWaiting.value,
-                      onChanged: (value) {
-                        controller.onIsWaiting();
-                      },
-                    ),
+          onChanged: (value) {
+            _controller.onSelectedDiagonisType(value);
+          },
+        ),
+
+        SpaceWidget(height: 20),
+        Align(
+          alignment: Alignment.centerLeft,
+          child: TextWidget.black(text: AppStrings.ifOtherTypeHere),
+        ),
+        TextFormField(controller: _controller.otherTextController),
+        SpaceWidget(height: 20),
+        Align(
+          alignment: Alignment.centerLeft,
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Obx(
+                () => Transform.scale(
+                  alignment: Alignment.centerLeft,
+                  scale: 0.8,
+                  child: Checkbox.adaptive(
+                    materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    value: _controller.isWaiting.value,
+                    onChanged: (value) {
+                      _controller.onIsWaiting();
+                    },
                   ),
                 ),
-                TextWidget.black(
-                  text: AppStrings.weAreStillWaitingOnDiagnosis,
-                  fontSize: 0.25,
-                ),
-              ],
-            ),
+              ),
+              TextWidget.black(
+                text: AppStrings.weAreStillWaitingOnDiagnosis,
+                fontSize: 0.25,
+              ),
+            ],
           ),
-        ],        
-        onTap: controller.onNext,
-      ),
+        ),
+      ],
+      onTap: _controller.onNext,
+      onUpdate: _controller.onUpdate,
     );
   }
 }

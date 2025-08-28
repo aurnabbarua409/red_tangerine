@@ -21,7 +21,6 @@ class AppRoutes {
   static const yourPrivacyMattersScreen = '/your_privacy_matter_screen';
   static const bottomNavBarScreen = '/bottom_nav_bar_screen';
   static const editProfileScreen = '/edit_profile_screen';
-  static const editChildAgeScreen = '/edit_child_age_screen';
   static const chatMessageScreen = '/chat_message_screen';
   static const settingScreen = "/setting_screen";
   static const changePasswordScreen = "/change_password_screen";
@@ -31,4 +30,6 @@ class AppRoutes {
   static const faqScreen = "/faq_screen";
   static const reportScreen = "/report_screen";
   static const blockedUserScreen = "/blocked_user_screen";
+  static const deleteAccountScreen = "/delete_account_screen";
+  static const notificationScreen = "/notification_screen";
 }

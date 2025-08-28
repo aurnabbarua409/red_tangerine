@@ -3,12 +3,12 @@ import 'package:get/get.dart';
 import 'package:red_tangerine/constant/app_colors.dart';
 import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/screen/auth_screen/signup_screen/controller/signup_controller.dart';
+import 'package:red_tangerine/utils/app_common_functions.dart';
 import 'package:red_tangerine/utils/app_validator.dart';
 import 'package:red_tangerine/widgets/Button_widget.dart';
 import 'package:red_tangerine/widgets/auth_screen_widget.dart';
-import 'package:red_tangerine/widgets/richtext_widget.dart';
+import 'package:red_tangerine/widgets/calender_icon_widget.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
-import 'package:red_tangerine/widgets/text_widget.dart';
 import 'package:red_tangerine/widgets/textformfield_widget.dart';
 
 class SignupScreen extends StatelessWidget {
@@ -23,34 +23,26 @@ class SignupScreen extends StatelessWidget {
         subtitle: AppStrings.createAccountOrLogin,
         formKey: controller.formKey,
         body: [
-          Row(
-            children: [
-              Expanded(
-                child: TextformfieldWidget(
-                  label: AppStrings.firstName,
-                  controller: controller.firstNameController,
-                  validator: (value) {
-                    return AppValidator.defaultvalidator(
-                      value: value,
-                      message: AppStrings.pleaseWriteYourFirstName,
-                    );
-                  },
-                ),
-              ),
-              SpaceWidget(width: 10),
-              Expanded(
-                child: TextformfieldWidget(
-                  controller: controller.lastNameController,
-                  validator: (value) {
-                    return AppValidator.defaultvalidator(
-                      value: value,
-                      message: AppStrings.pleaseWriteYourLastName,
-                    );
-                  },
-                  label: AppStrings.lastName,
-                ),
-              ),
-            ],
+          TextformfieldWidget(
+            label: AppStrings.firstName,
+            controller: controller.firstNameController,
+            validator: (value) {
+              return AppValidator.defaultvalidator(
+                value: value,
+                message: AppStrings.pleaseWriteYourFirstName,
+              );
+            },
+          ),
+          SpaceWidget(height: 10),
+          TextformfieldWidget(
+            controller: controller.lastNameController,
+            validator: (value) {
+              return AppValidator.defaultvalidator(
+                value: value,
+                message: AppStrings.pleaseWriteYourLastName,
+              );
+            },
+            label: AppStrings.lastName,
           ),
           SpaceWidget(height: 10),
           TextformfieldWidget(
@@ -62,10 +54,15 @@ class SignupScreen extends StatelessWidget {
               );
             },
             label: AppStrings.dateofBirth,
+            suffixIcon: CalenderIconWidget(
+              onPressed: () => controller.onClickedCalender(context),
+            ),
           ),
           SpaceWidget(height: 10),
           TextformfieldWidget(
             controller: controller.emailController,
+            keyboardType: TextInputType.emailAddress,
+            autofillHints: [AutofillHints.email],
             validator: (value) {
               return AppValidator.emailValidate(value);
             },
@@ -99,7 +96,7 @@ class SignupScreen extends StatelessWidget {
         ],
         footerTextTitle: AppStrings.alreadyHavaAccount,
         footerTextSubtitle: AppStrings.signin,
-        onTapSign: () => controller.onSignin,
+        onTapSign: controller.onSignin,
       ),
     );
   }

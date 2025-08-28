@@ -10,6 +10,13 @@ import 'package:red_tangerine/utils/app_log.dart';
 class AddProfilePictureController extends GetxController {
   File? image;
   List<File> imageList = [];
+
+  final fromUpdate = false.obs;
+  void onInitital() {
+    var args = Get.arguments;
+    fromUpdate.value = args['fromUpdate'];
+  }
+
   void onClickCamera(BuildContext context) {
     showModalBottomSheet(
       context: context,
@@ -52,6 +59,10 @@ class AddProfilePictureController extends GetxController {
   }
 
   void onNext() {
-    Get.toNamed(AppRoutes.letOtherKnowAboutUScreen);
+    Get.toNamed(
+      AppRoutes.letOtherKnowAboutUScreen,
+      arguments: {'fromUpdate': false},
+    );
   }
+  void onUpdate(){}
 }

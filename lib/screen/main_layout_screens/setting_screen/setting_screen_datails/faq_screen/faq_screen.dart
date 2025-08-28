@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/screen/main_layout_screens/profile_screen/profile_screen_datails/widgets/app_bar_widget.dart';
-import 'package:red_tangerine/screen/main_layout_screens/setting_screen/setting_screen_datails/about_us_screen/widget/about_us_item.dart';
+import 'package:red_tangerine/screen/main_layout_screens/setting_screen/setting_screen_datails/widget/setting_item_widget.dart';
 import 'package:red_tangerine/widgets/app_background_widget.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
 
@@ -22,32 +22,32 @@ class FaqScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    AboutUsItem(text: AppStrings.faqQuestion1),
-                    AboutUsItem(text: AppStrings.faqAnswer1),
+                    SettingItemWidget(text: AppStrings.faqQuestion1),
+                    SettingItemWidget(text: AppStrings.faqAnswer1),
                     SpaceWidget(height: 20),
-                    AboutUsItem(text: AppStrings.faqQuestion2),
-                    AboutUsItem(text: AppStrings.faqAnswer2),
+                    SettingItemWidget(text: AppStrings.faqQuestion2),
+                    SettingItemWidget(text: AppStrings.faqAnswer2),
                     SpaceWidget(height: 20),
-                    AboutUsItem(text: AppStrings.faqQuestion3),
-                    AboutUsItem(text: AppStrings.faqAnswer3),
+                    SettingItemWidget(text: AppStrings.faqQuestion3),
+                    SettingItemWidget(text: AppStrings.faqAnswer3),
                     SpaceWidget(height: 20),
-                    AboutUsItem(text: AppStrings.faqQuestion4),
-                    AboutUsItem(text: AppStrings.faqAnswer4),
+                    SettingItemWidget(text: AppStrings.faqQuestion4),
+                    SettingItemWidget(text: AppStrings.faqAnswer4),
                     SpaceWidget(height: 20),
-                    AboutUsItem(text: AppStrings.faqQuestion5),
-                    AboutUsItem(text: AppStrings.faqAnswer5),
+                    SettingItemWidget(text: AppStrings.faqQuestion5),
+                    SettingItemWidget(text: AppStrings.faqAnswer5),
                     SpaceWidget(height: 20),
-                    AboutUsItem(text: AppStrings.faqQuestion6),
-                    AboutUsItem(text: AppStrings.faqAnswer6),
+                    SettingItemWidget(text: AppStrings.faqQuestion6),
+                    SettingItemWidget(text: AppStrings.faqAnswer6),
                     SpaceWidget(height: 20),
-                    AboutUsItem(text: AppStrings.faqQuestion7),
-                    AboutUsItem(text: AppStrings.faqAnswer7),
+                    SettingItemWidget(text: AppStrings.faqQuestion7),
+                    SettingItemWidget(text: AppStrings.faqAnswer7),
                     SpaceWidget(height: 20),
-                    AboutUsItem(text: AppStrings.faqQuestion8),
-                    AboutUsItem(text: AppStrings.faqAnswer8),
+                    SettingItemWidget(text: AppStrings.faqQuestion8),
+                    SettingItemWidget(text: AppStrings.faqAnswer8),
                     SpaceWidget(height: 20),
-                    AboutUsItem(text: AppStrings.faqQuestion9),
-                    AboutUsItem(text: AppStrings.faqAnswer9),
+                    SettingItemWidget(text: AppStrings.faqQuestion9),
+                    SettingItemWidget(text: AppStrings.faqAnswer9),
                     SpaceWidget(height: 20),
                   ],
                 ),

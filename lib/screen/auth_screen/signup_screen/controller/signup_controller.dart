@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:red_tangerine/routes/app_routes.dart';
+import 'package:red_tangerine/utils/app_common_functions.dart';
 
 class SignupController extends GetxController {
   final firstNameController = TextEditingController();
@@ -26,6 +28,12 @@ class SignupController extends GetxController {
 
   void onSignin() {
     Get.toNamed(AppRoutes.signinScreen);
+  }
+
+  void onClickedCalender(BuildContext context) async {
+    dateofBirthController.text = await AppCommonFunctions.onClickedCalender(
+      context,
+    );
   }
 
   @override

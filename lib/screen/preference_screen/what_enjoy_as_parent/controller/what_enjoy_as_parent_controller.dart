@@ -28,11 +28,11 @@ class WhatEnjoyAsParentController extends GetxController {
   ];
   RxList selectedValuesLifeStyle = [].obs;
   RxList<bool> isSelectedValuesLifeStyle = <bool>[].obs;
+  final fromUpdate = false.obs;
 
-  @override
-  void onInit() {
-    // TODO: implement onInit
-    super.onInit();
+  void onInitital() {
+    var args = Get.arguments;
+    fromUpdate.value = args['fromUpdate'];
     isSelectedInterest.value = List.generate(
       interests.length,
       (index) => false,
@@ -96,6 +96,10 @@ class WhatEnjoyAsParentController extends GetxController {
   }
 
   void onNext() {
-    Get.toNamed(AppRoutes.addProfilePictureScreen);
+    Get.toNamed(
+      AppRoutes.addProfilePictureScreen,
+      arguments: {'fromUpdate': false},
+    );
   }
+  void onUpdate(){}
 }

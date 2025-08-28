@@ -24,6 +24,8 @@ class SigninScreen extends StatelessWidget {
           TextformfieldWidget(
             label: AppStrings.email,
             controller: controller.emailController,
+            keyboardType: TextInputType.emailAddress,
+            autofillHints: [AutofillHints.email],
             validator: (value) {
               return AppValidator.emailValidate(value);
             },
@@ -32,6 +34,7 @@ class SigninScreen extends StatelessWidget {
           TextformfieldWidget(
             label: AppStrings.password,
             controller: controller.passwordController,
+            autofillHints: [AutofillHints.password],
             validator: (value) {
               return AppValidator.defaultvalidator(
                 value: value,

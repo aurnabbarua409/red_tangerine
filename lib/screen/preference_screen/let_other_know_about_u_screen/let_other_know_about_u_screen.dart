@@ -6,33 +6,48 @@ import 'package:red_tangerine/utils/app_validator.dart';
 import 'package:red_tangerine/widgets/auth_screen_widget.dart';
 import 'package:red_tangerine/widgets/textformfield_widget.dart';
 
-class LetOtherKnowAboutUScreen extends StatelessWidget {
+class LetOtherKnowAboutUScreen extends StatefulWidget {
   const LetOtherKnowAboutUScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return GetBuilder(
-      init: LetOtherKnowAboutUController(),
-      builder: (controller) => AuthScreenWidget(
-        showSkip: true,
-        onTapShowSkip: () => controller.onNext(),
-        title: AppStrings.letOtherKnowAboutYou,
-        subtitle: AppStrings.shortIntroHelpsOther,
-        body: [
-          TextformfieldWidget(
-            controller: controller.textEditingController,
-            validator: (value) => AppValidator.defaultvalidator(
-              value: value,
-              message: AppStrings.pleaseEnterSomething,
-            ),
-            label: '',
-            maxlines: 5,
-            borderRadius: 10,
-          ),
-        ],
+  State<LetOtherKnowAboutUScreen> createState() =>
+      _LetOtherKnowAboutUScreenState();
+}
 
-        onTap: controller.onNext,
-      ),
+class _LetOtherKnowAboutUScreenState extends State<LetOtherKnowAboutUScreen> {
+  final _controller = Get.put(LetOtherKnowAboutUController());
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _controller.onInitital();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AuthScreenWidget(
+      fromUpdate: _controller.fromUpdate.value,
+      appbarTitle: AppStrings.yourBio,
+      showSkip: true,
+      onTapShowSkip: () => _controller.onNext(),
+      title: AppStrings.letOtherKnowAboutYou,
+      subtitle: AppStrings.shortIntroHelpsOther,
+      body: [
+        TextformfieldWidget(
+          controller: _controller.textEditingController,
+          validator: (value) => AppValidator.defaultvalidator(
+            value: value,
+            message: AppStrings.pleaseEnterSomething,
+          ),
+          label: '',
+          maxlines: 5,
+          borderRadius: 10,
+        ),
+      ],
+
+      onTap: _controller.onNext,
+      onUpdate: _controller.onUpdate,
     );
   }
 }

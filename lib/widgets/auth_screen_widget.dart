@@ -4,13 +4,14 @@ import 'package:red_tangerine/constant/app_colors.dart';
 import 'package:red_tangerine/constant/app_icons.dart';
 import 'package:red_tangerine/constant/app_images.dart';
 import 'package:red_tangerine/constant/app_strings.dart';
+import 'package:red_tangerine/screen/main_layout_screens/profile_screen/profile_screen_datails/widgets/app_bar_widget.dart';
 import 'package:red_tangerine/widgets/Button_widget.dart';
 import 'package:red_tangerine/widgets/richtext_widget.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
 import 'package:red_tangerine/widgets/text_widget.dart';
 
 class AuthScreenWidget extends StatelessWidget {
-  const AuthScreenWidget({
+  AuthScreenWidget({
     super.key,
     required this.body,
     this.footer,
@@ -25,7 +26,11 @@ class AuthScreenWidget extends StatelessWidget {
     this.subtitle,
     this.formKey,
     this.onTapSign,
+    this.fromUpdate = false,
+    this.onUpdate,
+    this.appbarTitle,
   });
+
   final List<Widget> body;
   final Widget? footer;
   final String? footerTextTitle;
@@ -36,9 +41,13 @@ class AuthScreenWidget extends StatelessWidget {
   final String? title;
   final String? subtitle;
   final GlobalKey? formKey;
+  final bool fromUpdate;
+  String? appbarTitle;
   final void Function()? onTapShowSkip;
   final void Function()? onTap;
   final void Function()? onTapSign;
+  void Function()? onUpdate;
+
   @override
   Widget build(BuildContext context) {
     if (true) {
@@ -53,7 +62,9 @@ class AuthScreenWidget extends StatelessWidget {
               child: LayoutBuilder(
                 builder: (context, constraints) {
                   return SingleChildScrollView(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: fromUpdate ? 0 : 20,
+                    ),
                     child: ConstrainedBox(
                       constraints: BoxConstraints(
                         minHeight: constraints.maxHeight,
@@ -62,7 +73,7 @@ class AuthScreenWidget extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
-                            if (showLeading)
+                            if (showLeading && !fromUpdate)
                               Align(
                                 alignment: Alignment.centerLeft,
                                 child: ButtonWidget.icon(
@@ -72,21 +83,30 @@ class AuthScreenWidget extends StatelessWidget {
                                   ontap: () => Get.back(),
                                 ),
                               ),
-
+                            if (fromUpdate) AppBarWidget(title: appbarTitle!),
                             Expanded(
                               child: Center(
-                                child: Form(
-                                  key: formKey,
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      if (title != null)
-                                        TextWidget.header(text: title!),
-                                      if (subtitle != null)
-                                        TextWidget.blackLight(text: subtitle!),
-                                      SpaceWidget(height: 20),
-                                      ...body,
-                                    ],
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: fromUpdate ? 20 : 0,
+                                  ),
+                                  child: Form(
+                                    key: formKey,
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        if (title != null)
+                                          TextWidget.header(text: title!),
+                                        SpaceWidget(height: 10),
+                                        if (subtitle != null)
+                                          TextWidget.blackLight(
+                                            text: subtitle!,
+                                          ),
+                                        SpaceWidget(height: 20),
+                                        ...body,
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
@@ -102,10 +122,20 @@ class AuthScreenWidget extends StatelessWidget {
                                   ontap: onTapSign!,
                                 ),
                               ),
-                            if (onTap != null)
+                            if (onTap != null && !fromUpdate)
                               ButtonWidget(
                                 text: footerButtonText ?? AppStrings.next,
                                 ontap: onTap!,
+                              ),
+                            if (fromUpdate)
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 20,
+                                ),
+                                child: ButtonWidget(
+                                  text: AppStrings.update,
+                                  ontap: onUpdate!,
+                                ),
                               ),
                           ],
                         ),

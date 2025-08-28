@@ -1,9 +1,12 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:red_tangerine/routes/app_routes.dart';
 import 'package:red_tangerine/utils/app_log.dart';
 
 class ChildDiagnosisController extends GetxController {
   final isWaiting = false.obs;
+  final fromUpdate = false.obs;
+  var otherTextController = TextEditingController();
   Map<String, List<String>> diagnosesByCategory = {
     "Neurodevelopmental Disorder": [
       "Autism Spectrum Disorder (ASD)",
@@ -43,17 +46,24 @@ class ChildDiagnosisController extends GetxController {
       "Undiagnosed - Awaiting Evaluation",
     ],
   };
-  final selectedDiagnosisType = [].obs;
-  final allDiagnosisType = [].obs;
+  final selectedDiagnosisType = <String>[].obs;
+  final allDiagnosisType = <String>[].obs;
   final selectedDiagnosis = "".obs;
 
   void onIsWaiting() {
     isWaiting.value = !isWaiting.value;
   }
 
+  void onInitital() {
+    var args = Get.arguments;
+    fromUpdate.value = args['fromUpdate'];
+    otherTextController = TextEditingController();
+  }
+
   void onSelectDiagnosis(String value) {
     try {
       selectedDiagnosis.value = value;
+
       appLogger(
         title: 'On selected diagnosis',
         message: selectedDiagnosis.value,
@@ -61,6 +71,7 @@ class ChildDiagnosisController extends GetxController {
 
       if (diagnosesByCategory.containsKey(value)) {
         allDiagnosisType.value = diagnosesByCategory[value] ?? [];
+        selectedDiagnosisType.value = allDiagnosisType;
       } else {
         allDiagnosisType.clear();
       }
@@ -72,15 +83,26 @@ class ChildDiagnosisController extends GetxController {
     }
   }
 
-  void onSelectedDiagonisType(List<dynamic> values) {
+  void onSelectedDiagonisType(List<String> values) {
     selectedDiagnosisType.value = values;
-    appLogger(
-      title: 'On selected diagnosis type',
-      message: selectedDiagnosisType,
-    );
+    // appLogger(
+    //   title: 'On selected diagnosis type',
+    //   message: selectedDiagnosisType,
+    // );
   }
 
   void onNext() {
-    Get.toNamed(AppRoutes.therapySupportChildReceiveScreen);
+    Get.toNamed(
+      AppRoutes.therapySupportChildReceiveScreen,
+      arguments: {'fromUpdate': false},
+    );
+  }
+  void onUpdate(){}
+
+  @override
+  void onClose() {
+    // TODO: implement onClose
+    super.onClose();
+    otherTextController.dispose();
   }
 }

@@ -203,6 +203,23 @@ class AppStrings {
   // Blocked User Screen
   static const unblock = "Unblock";
 
+  // Delete Account Screen
+  static const thisWillPermanentlyRemoveProfile =
+      "This will permanently remove your profile, matches, and all messages. This action cannot be undone.";
+  static const delete = "Delete";
+  static const cancel = "Cancel";
+  static const enterYourPassword = "Enter Your Password";
+
+  // Logout Screen
+  static const areYouSureToLogout =
+      "Are you sure you want to log out? You'll need to sign in again to use the app.";
+  static const no = "No";
+  static const yes = "Yes";
+
+  // Notification Screen
+  static const notifications = "Notifications";
+  static const youHaveOneNewMatch = "You have one new match!";
+
   // Error message
   static const pleaseEnterYourPassword = 'Please enter your password';
   static const passwordMismatchedError = 'Password mismatched error';

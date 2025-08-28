@@ -5,6 +5,13 @@ import 'package:red_tangerine/utils/app_log.dart';
 class WhereParentingJourneyController extends GetxController {
   final List<bool> isParenting = [false, false, false];
 
+  final fromUpdate = false.obs;
+
+  void onInitital() {
+    var args = Get.arguments;
+    fromUpdate.value = args['fromUpdate'];
+  }
+
   void onJustStarting() {
     isParenting[0] = true;
     isParenting[1] = false;
@@ -31,6 +38,10 @@ class WhereParentingJourneyController extends GetxController {
   }
 
   void onNext() {
-    Get.toNamed(AppRoutes.whatEnjoyAsParentScreen);
+    Get.toNamed(
+      AppRoutes.whatEnjoyAsParentScreen,
+      arguments: {'fromUpdate': false},
+    );
   }
+  void onUpdate(){}
 }

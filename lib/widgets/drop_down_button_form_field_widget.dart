@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:red_tangerine/constant/app_colors.dart';
+import 'package:red_tangerine/widgets/text_widget.dart';
 
 class DropDownButtonFormFieldWidget extends StatelessWidget {
   const DropDownButtonFormFieldWidget({
@@ -7,7 +8,7 @@ class DropDownButtonFormFieldWidget extends StatelessWidget {
     required this.items,
     required this.onChanged,
   });
-  final List<DropdownMenuItem>? items;
+  final List<String> items;
   final void Function(dynamic value) onChanged;
   @override
   Widget build(BuildContext context) {
@@ -30,9 +31,15 @@ class DropDownButtonFormFieldWidget extends StatelessWidget {
           borderSide: BorderSide(color: AppColors.grey_900),
         ),
       ),
-      items: items,
+      items: [
+        for (int i = 0; i < items.length; i++)
+          DropdownMenuItem(
+            value: items[i],
+            child: TextWidget.black(text: items[i]),
+          ),
+      ],
       onChanged: (value) {
-        if(value != null) {
+        if (value != null) {
           onChanged(value.toString());
         }
       },

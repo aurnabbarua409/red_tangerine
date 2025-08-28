@@ -22,7 +22,10 @@ class PreferenceHomeScreen extends StatelessWidget {
       ],
 
       footerButtonText: AppStrings.continue_,
-      onTap: () => Get.toNamed(AppRoutes.childAgeScreen),
+      onTap: () => Get.toNamed(
+        AppRoutes.childAgeScreen,
+        arguments: {'fromUpdate': false},
+      ),
     );
   }
 }

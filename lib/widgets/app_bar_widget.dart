@@ -24,7 +24,10 @@ class AppBarWidget extends StatelessWidget {
                 height: 5,
               ),
               Spacer(),
-              IconWidget(icon: AppIcons.notificationIcon),
+              InkWell(
+                onTap: () => Get.toNamed(AppRoutes.notificationScreen),
+                child: IconWidget(icon: AppIcons.notificationIcon),
+              ),
               SpaceWidget(width: 10),
               InkWell(
                 onTap: () => Get.toNamed(AppRoutes.settingScreen),

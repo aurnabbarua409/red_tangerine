@@ -6,6 +6,7 @@ import 'package:red_tangerine/routes/app_routes.dart';
 import 'package:red_tangerine/screen/main_layout_screens/profile_screen/profile_screen/widgets/profile_item_widget.dart';
 import 'package:red_tangerine/screen/main_layout_screens/profile_screen/profile_screen_datails/widgets/app_bar_widget.dart';
 import 'package:red_tangerine/widgets/app_background_widget.dart';
+import 'package:red_tangerine/widgets/custom_popup_menu_widget.dart';
 
 class SettingScreen extends StatelessWidget {
   const SettingScreen({super.key});
@@ -80,13 +81,28 @@ class SettingScreen extends StatelessWidget {
                 ProfileItemWidget(
                   icon: AppIcons.deleteAccountIcon,
                   text: AppStrings.deletedAccount,
-                  onTap: () {},
+                  onTap: () {
+                    Get.toNamed(AppRoutes.deleteAccountScreen);
+                  },
                 ),
 
                 ProfileItemWidget(
                   icon: AppIcons.logoutIcon,
                   text: AppStrings.logout,
-                  onTap: () {},
+                  onTap: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) => CustomPopupMenuWidget(
+                        title: AppStrings.logout,
+                        subtitle: AppStrings.areYouSureToLogout,
+                        leftButtonText: AppStrings.no,
+                        rightButtonText: AppStrings.yes,
+                        rightButtonOnTap: () {
+                          Get.toNamed(AppRoutes.signinScreen);
+                        },
+                      ),
+                    );
+                  },
                 ),
               ],
             ),

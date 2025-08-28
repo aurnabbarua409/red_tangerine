@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:red_tangerine/utils/responsive_size.dart';
 
 class IconWidget extends StatelessWidget {
-  IconWidget({super.key, required this.icon, this.scale}) : isCustom = false;
+  IconWidget({super.key, required this.icon, this.scale, this.color}) : isCustom = false;
   IconWidget.custom({super.key, required this.icon, this.width, this.height})
     : isCustom = true;
   final bool isCustom;

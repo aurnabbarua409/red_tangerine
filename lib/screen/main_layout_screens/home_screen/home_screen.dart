@@ -34,53 +34,70 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return AppBarWidget(
       body: [
-        ClipRRect(
-          borderRadius: BorderRadiusGeometry.circular(15),
-          child: Stack(
-            alignment: Alignment.topCenter,
-            children: [
-              CarouselSlider(
-                items: [FirstPage(), SecondPage(), ThirdPage()],
-                carouselController: _controller,
-                options: CarouselOptions(
-                  height: ResponsiveSize.height(78),
-                  viewportFraction: 1, // full width
-                  autoPlay: false,
-                  onPageChanged: (index, reason) {
-                    setState(() {
-                      _currentIndex = index;
-                    });
-                  },
-                ),
-              ),
-
-              Column(
+        Expanded(
+          child: ListView.builder(
+            physics: PageScrollPhysics(),
+            itemCount: 5,
+            itemBuilder: (context, index) {
+              return Column(
                 children: [
-                  SpaceWidget(height: 15),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: images.asMap().entries.map((entry) {
-                      bool isActive = entry.key == _currentIndex;
-                      return GestureDetector(
-                        onTap: () => _controller.animateToPage(entry.key),
-                        child: AnimatedContainer(
-                          duration: const Duration(milliseconds: 300),
-                          margin: const EdgeInsets.symmetric(horizontal: 2),
-                          height: 4,
-                          width: 40, // active wider
-                          decoration: BoxDecoration(
-                            color: isActive
-                                ? AppColors.white
-                                : AppColors.grey_100,
-                            borderRadius: BorderRadius.circular(6),
+                  SpaceWidget(height: 12),
+                  ClipRRect(
+                    borderRadius: BorderRadiusGeometry.circular(15),
+                    child: Stack(
+                      alignment: Alignment.topCenter,
+                      children: [
+                        CarouselSlider(
+                          items: [FirstPage(), SecondPage(), ThirdPage()],
+                          carouselController: _controller,
+                          options: CarouselOptions(
+                            height: ResponsiveSize.height(78),
+                            viewportFraction: 1,
+                            autoPlay: false,
+                            onPageChanged: (index, reason) {
+                              setState(() {
+                                _currentIndex = index;
+                              });
+                            },
                           ),
                         ),
-                      );
-                    }).toList(),
+
+                        Column(
+                          children: [
+                            SpaceWidget(height: 15),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: images.asMap().entries.map((entry) {
+                                bool isActive = entry.key == _currentIndex;
+                                return GestureDetector(
+                                  onTap: () =>
+                                      _controller.animateToPage(entry.key),
+                                  child: AnimatedContainer(
+                                    duration: const Duration(milliseconds: 300),
+                                    margin: const EdgeInsets.symmetric(
+                                      horizontal: 2,
+                                    ),
+                                    height: 4,
+                                    width: 40, // active wider
+                                    decoration: BoxDecoration(
+                                      color: isActive
+                                          ? AppColors.white
+                                          : AppColors.grey_100,
+                                      borderRadius: BorderRadius.circular(6),
+                                    ),
+                                  ),
+                                );
+                              }).toList(),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
+                  SpaceWidget(height: 12),
                 ],
-              ),
-            ],
+              );
+            },
           ),
         ),
 

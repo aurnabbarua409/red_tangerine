@@ -3,11 +3,21 @@ import 'package:get/get.dart';
 import 'package:red_tangerine/routes/app_routes.dart';
 
 class LetOtherKnowAboutUController extends GetxController {
-  final textEditingController = TextEditingController();
+  var textEditingController = TextEditingController();
+  final fromUpdate = false.obs;
+  void onInitital() {
+    var args = Get.arguments;
+    fromUpdate.value = args['fromUpdate'];
+    textEditingController = TextEditingController();
+  }
 
   void onNext() {
-    Get.toNamed(AppRoutes.pleaseShareYourLocationScreen);
+    Get.toNamed(
+      AppRoutes.pleaseShareYourLocationScreen,
+      arguments: {'fromUpdate': false},
+    );
   }
+  void onUpdate(){}
 
   @override
   void onClose() {

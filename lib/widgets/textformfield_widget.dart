@@ -12,6 +12,8 @@ class TextformfieldWidget extends StatelessWidget {
     this.borderRadius = 25,
     this.suffixIcon,
     this.hintText,
+    this.keyboardType,
+    this.autofillHints,
   });
   final TextEditingController controller;
   final String? Function(String? value) validator;
@@ -20,6 +22,8 @@ class TextformfieldWidget extends StatelessWidget {
   final double borderRadius;
   final Widget? suffixIcon;
   final String? hintText;
+  final TextInputType? keyboardType;
+  final Iterable<String>? autofillHints;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -30,8 +34,10 @@ class TextformfieldWidget extends StatelessWidget {
           controller: controller,
           maxLines: maxlines,
           validator: validator,
-
+          keyboardType: keyboardType,
+          autofillHints: autofillHints,
           decoration: InputDecoration(
+            contentPadding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
             hintText: hintText,
             suffixIcon: suffixIcon,
             enabledBorder: OutlineInputBorder(
