@@ -7,6 +7,7 @@ import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/screen/preference_screen/add_profile_picture_screen/controller/add_profile_picture_controller.dart';
 import 'package:red_tangerine/widgets/Button_widget.dart';
 import 'package:red_tangerine/widgets/auth_screen_widget.dart';
+import 'package:red_tangerine/widgets/photo_viewer_widget.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
 import 'package:red_tangerine/widgets/text_widget.dart';
 
@@ -36,25 +37,27 @@ class _AddProfilePictureScreenState extends State<AddProfilePictureScreen> {
       title: AppStrings.addProfilePicture,
       subtitle: AppStrings.makeProfileFeelPersonal,
       body: [
-        Container(
-          width: 200,
-          height: 240,
-          decoration: BoxDecoration(
-            color: AppColors.grey_50,
-            borderRadius: BorderRadius.circular(20),
-            image: _controller.image != null
-                ? DecorationImage(
-                    image: FileImage(_controller.image!),
-                    fit: BoxFit.cover,
-                  )
-                : null,
-          ),
+        Obx(
+          () => Container(
+            width: 200,
+            height: 240,
+            decoration: BoxDecoration(
+              color: AppColors.grey_50,
+              borderRadius: BorderRadius.circular(20),
+              image: _controller.image.value != null
+                  ? DecorationImage(
+                      image: FileImage(_controller.image.value!),
+                      fit: BoxFit.cover,
+                    )
+                  : null,
+            ),
 
-          child: ButtonWidget.icon(
-            icon: AppIcons.cameraIcon,
-            ontap: () {
-              _controller.onClickCamera(context);
-            },
+            child: ButtonWidget.icon(
+              icon: AppIcons.cameraIcon,
+              ontap: () {
+                _controller.onClickCamera(context);
+              },
+            ),
           ),
         ),
         SpaceWidget(height: 30),
@@ -67,16 +70,19 @@ class _AddProfilePictureScreenState extends State<AddProfilePictureScreen> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            DottedBorder(
-              options: RoundedRectDottedBorderOptions(
-                color: AppColors.grey_100,
-                radius: Radius.circular(15),
-                dashPattern: [8, 8],
-              ),
-              child: SizedBox(
-                width: 60,
-                height: 60,
-                child: Icon(Icons.add, color: AppColors.grey_100),
+            InkWell(
+              onTap: _controller.onMultiSelectPhoto,
+              child: DottedBorder(
+                options: RoundedRectDottedBorderOptions(
+                  color: AppColors.grey_100,
+                  radius: Radius.circular(15),
+                  dashPattern: [8, 8],
+                ),
+                child: SizedBox(
+                  width: 60,
+                  height: 60,
+                  child: Icon(Icons.add, color: AppColors.grey_100),
+                ),
               ),
             ),
             SpaceWidget(width: 15),
@@ -87,6 +93,40 @@ class _AddProfilePictureScreenState extends State<AddProfilePictureScreen> {
             ),
           ],
         ),
+        SpaceWidget(height: 15),
+        Obx(() {
+          if (_controller.imageList.isNotEmpty) {
+            return SizedBox(
+              height: 300, // give GridView a fixed height
+              child: GridView.builder(
+                itemCount: _controller.imageList.length,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 20.0,
+                  crossAxisSpacing: 20.0,
+                  childAspectRatio: 1.5,
+                ),
+                itemBuilder: (context, index) => GestureDetector(
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: AppColors.grey_50,
+                        borderRadius: BorderRadius.circular(20),
+                        image: DecorationImage(
+                          image: FileImage(_controller.imageList[index]),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            );
+          } else {
+            return Container();
+          }
+        }),
       ],
 
       onTap: _controller.onNext,

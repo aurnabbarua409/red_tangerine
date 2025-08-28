@@ -62,6 +62,8 @@ class ChildDiagnosisController extends GetxController {
 
   void onSelectDiagnosis(String value) {
     try {
+      allDiagnosisType.clear();
+      selectedDiagnosisType.clear();
       selectedDiagnosis.value = value;
 
       appLogger(
@@ -71,7 +73,6 @@ class ChildDiagnosisController extends GetxController {
 
       if (diagnosesByCategory.containsKey(value)) {
         allDiagnosisType.value = diagnosesByCategory[value] ?? [];
-        selectedDiagnosisType.value = allDiagnosisType;
       } else {
         allDiagnosisType.clear();
       }
@@ -97,7 +98,8 @@ class ChildDiagnosisController extends GetxController {
       arguments: {'fromUpdate': false},
     );
   }
-  void onUpdate(){}
+
+  void onUpdate() {}
 
   @override
   void onClose() {

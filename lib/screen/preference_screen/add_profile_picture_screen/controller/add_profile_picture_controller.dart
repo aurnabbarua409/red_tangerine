@@ -8,8 +8,8 @@ import 'package:red_tangerine/screen/preference_screen/add_profile_picture_scree
 import 'package:red_tangerine/utils/app_log.dart';
 
 class AddProfilePictureController extends GetxController {
-  File? image;
-  List<File> imageList = [];
+  var image = Rx<File?>(null);
+  var imageList = <File>[].obs;
 
   final fromUpdate = false.obs;
   void onInitital() {
@@ -37,7 +37,7 @@ class AddProfilePictureController extends GetxController {
       final picker = ImagePicker();
       final pickedFile = await picker.pickImage(source: ImageSource.camera);
       if (pickedFile != null) {
-        image = File(pickedFile.path);
+        image.value = File(pickedFile.path);
         update();
       }
     } catch (e) {
@@ -50,11 +50,20 @@ class AddProfilePictureController extends GetxController {
       final picker = ImagePicker();
       final pickedFile = await picker.pickImage(source: ImageSource.gallery);
       if (pickedFile != null) {
-        image = File(pickedFile.path);
+        image.value = File(pickedFile.path);
         update();
       }
     } catch (e) {
       appLogger(title: 'Add profile picture', message: e);
+    }
+  }
+
+  void onMultiSelectPhoto() async {
+    final ImagePicker picker = ImagePicker();
+    final List<XFile> images = await picker.pickMultiImage();
+
+    for (var img in images) {
+      imageList.add(File(img.path)); // image file path
     }
   }
 
@@ -64,5 +73,6 @@ class AddProfilePictureController extends GetxController {
       arguments: {'fromUpdate': false},
     );
   }
-  void onUpdate(){}
+
+  void onUpdate() {}
 }

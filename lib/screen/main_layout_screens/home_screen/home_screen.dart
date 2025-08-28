@@ -91,6 +91,15 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ],
                         ),
+                        Positioned(
+                          bottom: 20,
+                          right: 20,
+                          child: CircleAvatar(
+                            backgroundColor: AppColors.white,
+                            radius: 25,
+                            child: IconWidget(icon: AppIcons.heartIcon),
+                          ),
+                        ),
                       ],
                     ),
                   ),

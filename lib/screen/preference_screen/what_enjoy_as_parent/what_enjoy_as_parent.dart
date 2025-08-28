@@ -43,12 +43,10 @@ class _WhatEnjoyAsParentState extends State<WhatEnjoyAsParent> {
                 ontap: () => _controller.onSelectedInterest(i),
               ),
               SpaceWidget(width: 7),
-              Expanded(
-                child: ParentButtonWidget(
-                  label: _controller.interests[i + 1],
-                  isSelected: _controller.isSelectedInterest[i + 1],
-                  ontap: () => _controller.onSelectedInterest(i + 1),
-                ),
+              ParentButtonWidget(
+                label: _controller.interests[i + 1],
+                isSelected: _controller.isSelectedInterest[i + 1],
+                ontap: () => _controller.onSelectedInterest(i + 1),
               ),
             ],
           ),
@@ -64,12 +62,10 @@ class _WhatEnjoyAsParentState extends State<WhatEnjoyAsParent> {
                 ontap: () => _controller.onSelectedValuesLifeStyle(i),
               ),
               SpaceWidget(width: 7),
-              Expanded(
-                child: ParentButtonWidget(
-                  label: _controller.valuesLifeStyle[i + 1],
-                  isSelected: _controller.isSelectedValuesLifeStyle[i + 1],
-                  ontap: () => _controller.onSelectedValuesLifeStyle(i + 1),
-                ),
+              ParentButtonWidget(
+                label: _controller.valuesLifeStyle[i + 1],
+                isSelected: _controller.isSelectedValuesLifeStyle[i + 1],
+                ontap: () => _controller.onSelectedValuesLifeStyle(i + 1),
               ),
             ],
           ),

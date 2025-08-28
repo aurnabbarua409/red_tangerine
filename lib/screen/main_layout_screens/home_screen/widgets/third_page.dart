@@ -5,6 +5,7 @@ import 'package:red_tangerine/constant/app_colors.dart';
 import 'package:red_tangerine/constant/app_icons.dart';
 import 'package:red_tangerine/constant/app_images.dart';
 import 'package:red_tangerine/widgets/icon_widget.dart';
+import 'package:red_tangerine/widgets/photo_viewer_widget.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
 import 'package:red_tangerine/widgets/text_widget.dart';
 
@@ -95,48 +96,37 @@ class ThirdPage extends StatelessWidget {
                   fontWeight: FontWeight.w600,
                   fontSize: 0.26,
                 ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: Container(
+                Expanded(
+                  child: GridView.builder(
+                    itemCount: 4,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          mainAxisSpacing: 20.0,
+                          crossAxisSpacing: 20.0,
+                          childAspectRatio: 1.5,
+                        ),
+                    itemBuilder: (context, index) => GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => PhotoViewerWidget(
+                              imagePath:
+                                  AppDevImages.photo_1, // pass tapped image
+                            ),
+                          ),
+                        );
+                      },
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(5),
                         child: Image.asset(
                           AppDevImages.photo_1,
                           fit: BoxFit.cover,
                         ),
                       ),
                     ),
-                    SpaceWidget(width: 15),
-                    Expanded(
-                      child: Container(
-                        child: Image.asset(
-                          AppDevImages.photo_2,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                SpaceWidget(height: 15),
-                Row(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        child: Image.asset(
-                          AppDevImages.photo_3,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                    SpaceWidget(width: 15),
-                    Expanded(
-                      child: Container(
-                        child: Image.asset(
-                          AppDevImages.photo_4,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
               ],
             ),

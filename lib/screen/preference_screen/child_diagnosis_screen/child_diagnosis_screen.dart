@@ -6,6 +6,7 @@ import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/screen/preference_screen/child_diagnosis_screen/controller/child_diagnosis_controller.dart';
 import 'package:red_tangerine/widgets/auth_screen_widget.dart';
 import 'package:red_tangerine/widgets/drop_down_button_form_field_widget.dart';
+import 'package:red_tangerine/widgets/dropdown_multiselect_widget.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
 import 'package:red_tangerine/widgets/text_widget.dart';
 
@@ -26,6 +27,7 @@ class _ChildDiagnosisScreenState extends State<ChildDiagnosisScreen> {
     _controller.onInitital();
   }
 
+  List<String> selected = [];
   @override
   Widget build(BuildContext context) {
     return AuthScreenWidget(
@@ -47,30 +49,17 @@ class _ChildDiagnosisScreenState extends State<ChildDiagnosisScreen> {
           },
         ),
         SpaceWidget(height: 20),
-        DropDownMultiSelect(
-          options: _controller.allDiagnosisType,
-          selectedValues: _controller.selectedDiagnosisType,
-          decoration: InputDecoration(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(25),
-              borderSide: BorderSide(color: AppColors.grey_900),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(25),
-              borderSide: BorderSide(color: AppColors.grey_900),
-            ),
-            errorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(25),
-              borderSide: BorderSide(color: AppColors.grey_900),
-            ),
+        Obx(
+          () => DropdownMultiselectWidget(
+            options: _controller.allDiagnosisType.value,
+            selectedValues: _controller.selectedDiagnosisType,
+            onChanged: (value) =>
+                _controller.selectedDiagnosisType.value = value,
           ),
-
-          onChanged: (value) {
-            _controller.onSelectedDiagonisType(value);
-          },
         ),
 
         SpaceWidget(height: 20),
+
         Align(
           alignment: Alignment.centerLeft,
           child: TextWidget.black(text: AppStrings.ifOtherTypeHere),

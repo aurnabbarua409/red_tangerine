@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:multiselect/multiselect.dart';
+import 'package:red_tangerine/constant/app_colors.dart';
 import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/screen/preference_screen/therapy_support_child_receive/controller/therapy_support_controller.dart';
 import 'package:red_tangerine/widgets/auth_screen_widget.dart';
 import 'package:red_tangerine/widgets/drop_down_button_form_field_widget.dart';
+import 'package:red_tangerine/widgets/dropdown_multiselect_widget.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
 import 'package:red_tangerine/widgets/text_widget.dart';
 
@@ -35,9 +38,20 @@ class _TherapySupportChildReceiveState
       subtitle: AppStrings.selectAllThatApply,
 
       body: [
-        DropDownButtonFormFieldWidget(items: [], onChanged: (value) {}),
+        DropDownButtonFormFieldWidget(
+          items: _controller.therapyByCategory.keys.toList(),
+          onChanged: (value) {
+            _controller.onSelectTherapy(value);
+          },
+        ),
         SpaceWidget(height: 20),
-        DropDownButtonFormFieldWidget(items: [], onChanged: (value) {}),
+        Obx(
+          () => DropdownMultiselectWidget(
+            options: _controller.allTherapyType.value,
+            selectedValues: _controller.selectedTherapyType,
+            onChanged: (value) => _controller.selectedTherapyType.value = value,
+          ),
+        ),
         SpaceWidget(height: 10),
         Align(
           alignment: Alignment.centerLeft,
