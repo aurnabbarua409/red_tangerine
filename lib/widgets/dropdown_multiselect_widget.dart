@@ -16,6 +16,7 @@ class DropdownMultiselectWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return DropDownMultiSelect(
       options: options,
+      
       selectedValues: selectedValues.toList(),
       decoration: InputDecoration(
         border: OutlineInputBorder(

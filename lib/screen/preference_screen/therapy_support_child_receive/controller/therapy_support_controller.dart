@@ -17,7 +17,7 @@ class TherapySupportController extends GetxController {
     'Physical & Sensory': [
       'Physical Therapy (PT)',
       'Sensory Integration Therapy',
-      'Hippotherapy (Therapeutic Horseback Riding)',
+      'Hippotherapy',
       'Aquatic Therapy',
     ],
     'Family & Educational Support': [
@@ -47,10 +47,7 @@ class TherapySupportController extends GetxController {
       selectedTherapyType.clear();
       selectedTherapy.value = value;
 
-      appLogger(
-        title: 'On selected therapy',
-        message: selectedTherapy.value,
-      );
+      appLogger(title: 'On selected therapy', message: selectedTherapy.value);
 
       if (therapyByCategory.containsKey(value)) {
         allTherapyType.value = therapyByCategory[value] ?? [];

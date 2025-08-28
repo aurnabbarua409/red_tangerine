@@ -10,11 +10,11 @@ class ChildDiagnosisController extends GetxController {
   Map<String, List<String>> diagnosesByCategory = {
     "Neurodevelopmental Disorder": [
       "Autism Spectrum Disorder (ASD)",
-      "Attention Deficit Hyperactivity Disorder (ADHD)",
+      "Attention Deficit Hyperactivity Disorder",
       "Global Developmental Delay (GDD)",
       "Intellectual Disability",
       "Speech or Language Delay/Disorder",
-      "Learning Disability (e.g., Dyslexia, Dysgraphia)",
+      "Learning Disability",
       "Sensory Processing Disorder (SPD)",
     ],
     "Genetic & Chromosomal Condition": [
@@ -42,7 +42,7 @@ class ChildDiagnosisController extends GetxController {
     ],
     "Other / Rare / Medical": [
       "Feeding or Swallowing Disorder",
-      "Autosomal or Rare Genetic Syndrome (unspecified)",
+      "Autosomal or Rare Genetic Syndrome",
       "Undiagnosed - Awaiting Evaluation",
     ],
   };
