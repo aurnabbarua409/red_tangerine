@@ -3,8 +3,13 @@ import 'package:get/get.dart';
 import 'package:red_tangerine/routes/app_routes.dart';
 
 class ForgotPasswordController extends GetxController {
-  final forgotPasswordController = TextEditingController();
+  var forgotPasswordController = TextEditingController();
   var formKey = GlobalKey<FormState>();
+
+  void onInitial() {
+    forgotPasswordController = TextEditingController();
+    formKey = GlobalKey<FormState>();
+  }
 
   void onSend() {
     // if (formKey.currentState!.validate()) {

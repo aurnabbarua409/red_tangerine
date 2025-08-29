@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:red_tangerine/constant/app_colors.dart';
 import 'package:red_tangerine/constant/app_icons.dart';
 import 'package:red_tangerine/constant/app_images.dart';
 import 'package:red_tangerine/constant/app_strings.dart';
@@ -30,29 +31,43 @@ class AuthHomepage extends StatelessWidget {
                   image: AppIcons.splashIcon,
                   height: 12,
                   width: 29,
+                  fit: BoxFit.contain,
                 ),
               ],
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                ButtonWidget(
-                  text: AppStrings.register,
-                  margin: EdgeInsets.symmetric(horizontal: 20),
-                  ontap: () {
-                    Get.toNamed(AppRoutes.signupScreen);
-                  },
+            Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    const Color.fromARGB(0, 0, 0, 0),
+                    Color.fromARGB(0, 0, 0, 0),
+                    Color.fromARGB(221, 0, 0, 0),
+                  ],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
                 ),
-                SpaceWidget(height: 20),
-                RichtextWidget(
-                  title: AppStrings.alreadyHavaAccount,
-                  buttonTitle: AppStrings.signin,
-                  ontap: () {
-                    Get.toNamed(AppRoutes.signinScreen);
-                  },
-                ),
-                SpaceWidget(height: 50),
-              ],
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  ButtonWidget(
+                    text: AppStrings.register,
+                    margin: EdgeInsets.symmetric(horizontal: 20),
+                    ontap: () {
+                      Get.toNamed(AppRoutes.signupScreen);
+                    },
+                  ),
+                  SpaceWidget(height: 20),
+                  RichtextWidget(
+                    title: AppStrings.alreadyHavaAccount,
+                    buttonTitle: AppStrings.signin,
+                    ontap: () {
+                      Get.toNamed(AppRoutes.signinScreen);
+                    },
+                  ),
+                  SpaceWidget(height: 50),
+                ],
+              ),
             ),
           ],
         ),

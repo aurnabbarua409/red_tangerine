@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/screen/preference_screen/child_age_screen/controller/child_age_controller.dart';
 import 'package:red_tangerine/utils/app_validator.dart';
-import 'package:red_tangerine/widgets/auth_screen_widget.dart';
+import 'package:red_tangerine/widgets/common_screen_widget.dart';
 import 'package:red_tangerine/widgets/calender_icon_widget.dart';
 import 'package:red_tangerine/widgets/textformfield_widget.dart';
 
@@ -25,7 +25,7 @@ class _ChildAgeScreenState extends State<ChildAgeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return AuthScreenWidget(
+    return CommonScreenWidget(
       fromUpdate: _controller.fromUpdate.value,
       appbarTitle: AppStrings.childAge,
       title: AppStrings.howOldYourChild,

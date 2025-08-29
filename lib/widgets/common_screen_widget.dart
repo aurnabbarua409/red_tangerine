@@ -10,8 +10,8 @@ import 'package:red_tangerine/widgets/richtext_widget.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
 import 'package:red_tangerine/widgets/text_widget.dart';
 
-class AuthScreenWidget extends StatelessWidget {
-  AuthScreenWidget({
+class CommonScreenWidget extends StatelessWidget {
+  CommonScreenWidget({
     super.key,
     required this.body,
     this.footer,
@@ -132,7 +132,11 @@ class AuthScreenWidget extends StatelessWidget {
                                 padding: const EdgeInsets.symmetric(
                                   horizontal: 20,
                                 ),
-                                child: ButtonWidget(
+                                child: ButtonWidget.normal(
+                                  margin: EdgeInsets.all(0),
+                                  textColor: AppColors.white,
+                                  backgroundColor: AppColors.red_900,
+                                  borderColor: AppColors.red_900,
                                   text: AppStrings.update,
                                   ontap: onUpdate!,
                                 ),

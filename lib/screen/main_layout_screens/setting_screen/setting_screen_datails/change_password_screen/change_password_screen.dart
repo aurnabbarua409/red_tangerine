@@ -7,7 +7,6 @@ import 'package:red_tangerine/screen/main_layout_screens/setting_screen/setting_
 import 'package:red_tangerine/utils/app_validator.dart';
 import 'package:red_tangerine/widgets/app_background_widget.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
-import 'package:red_tangerine/widgets/text_widget.dart';
 import 'package:red_tangerine/widgets/textformfield_widget.dart';
 
 class ChangePasswordScreen extends StatelessWidget {

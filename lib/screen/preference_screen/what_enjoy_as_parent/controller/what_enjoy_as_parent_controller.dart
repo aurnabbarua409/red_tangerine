@@ -101,5 +101,8 @@ class WhatEnjoyAsParentController extends GetxController {
       arguments: {'fromUpdate': false},
     );
   }
-  void onUpdate(){}
+
+  void onUpdate() {
+    Get.back();
+  }
 }

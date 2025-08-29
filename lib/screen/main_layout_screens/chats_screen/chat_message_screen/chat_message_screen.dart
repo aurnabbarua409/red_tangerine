@@ -55,7 +55,10 @@ class ChatMessageScreen extends StatelessWidget {
                       ],
                     );
                     if (selected != null) {
-                      if (selected == '1') debugPrint('End Chat clicked');
+                      if (selected == '1') {
+                        Get.back();
+                      }
+
                       if (selected == '2') debugPrint('Block clicked');
                     }
                   },

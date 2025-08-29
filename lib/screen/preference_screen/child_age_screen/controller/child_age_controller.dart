@@ -24,7 +24,9 @@ class ChildAgeController extends GetxController {
     // }
   }
 
-  void onUpdate() {}
+  void onUpdate() {
+    Get.back();
+  }
 
   void onClickedCalender(BuildContext context) async {
     dateOfBirthController.text = await AppCommonFunctions.onClickedCalender(

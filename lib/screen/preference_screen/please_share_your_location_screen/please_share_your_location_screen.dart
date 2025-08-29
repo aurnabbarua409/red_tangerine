@@ -4,7 +4,7 @@ import 'package:red_tangerine/constant/app_icons.dart';
 import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/screen/preference_screen/please_share_your_location_screen/controller/please_share_your_location_controller.dart';
 import 'package:red_tangerine/widgets/Button_widget.dart';
-import 'package:red_tangerine/widgets/auth_screen_widget.dart';
+import 'package:red_tangerine/widgets/common_screen_widget.dart';
 import 'package:red_tangerine/widgets/textformfield_widget.dart';
 
 class PleaseShareYourLocationScreen extends StatefulWidget {
@@ -28,7 +28,7 @@ class _PleaseShareYourLocationScreenState
 
   @override
   Widget build(BuildContext context) {
-    return AuthScreenWidget(
+    return CommonScreenWidget(
       fromUpdate: _controller.fromUpdate.value,
       appbarTitle: AppStrings.location,
       title: AppStrings.pleaseShareYourLocation,

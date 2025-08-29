@@ -5,7 +5,7 @@ import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/screen/auth_screen/verification_screen/controller/verification_controller.dart';
 import 'package:red_tangerine/screen/auth_screen/verification_screen/widgets/custom_otp_widget.dart';
 import 'package:red_tangerine/widgets/Button_widget.dart';
-import 'package:red_tangerine/widgets/auth_screen_widget.dart';
+import 'package:red_tangerine/widgets/common_screen_widget.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
 import 'package:red_tangerine/widgets/text_widget.dart';
 
@@ -16,7 +16,7 @@ class VerificationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder(
       init: VerificationController(),
-      builder: (controller) => AuthScreenWidget(
+      builder: (controller) => CommonScreenWidget(
         title: AppStrings.verification,
         subtitle:
             '${AppStrings.weSendVerificationCode} ${controller.email.value}',

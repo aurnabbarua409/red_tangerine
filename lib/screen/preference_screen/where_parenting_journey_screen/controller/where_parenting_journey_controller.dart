@@ -3,7 +3,7 @@ import 'package:red_tangerine/routes/app_routes.dart';
 import 'package:red_tangerine/utils/app_log.dart';
 
 class WhereParentingJourneyController extends GetxController {
-  final List<bool> isParenting = [false, false, false];
+  final List<bool> isParenting = [false, false, false].obs;
 
   final fromUpdate = false.obs;
 
@@ -43,5 +43,8 @@ class WhereParentingJourneyController extends GetxController {
       arguments: {'fromUpdate': false},
     );
   }
-  void onUpdate(){}
+
+  void onUpdate() {
+    Get.back();
+  }
 }

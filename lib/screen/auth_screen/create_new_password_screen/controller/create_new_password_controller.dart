@@ -3,9 +3,15 @@ import 'package:get/get.dart';
 import 'package:red_tangerine/routes/app_routes.dart';
 
 class CreateNewPasswordController extends GetxController {
-  final setPasswordController = TextEditingController();
-  final confirmPasswordController = TextEditingController();
-  final formKey = GlobalKey<FormState>();
+  var setPasswordController = TextEditingController();
+  var confirmPasswordController = TextEditingController();
+  var formKey = GlobalKey<FormState>();
+
+  void onInitial() {
+    setPasswordController = TextEditingController();
+    confirmPasswordController = TextEditingController();
+    formKey = GlobalKey<FormState>();
+  }
 
   void onResetPassword() {
     // if (formKey.currentState!.validate()) {

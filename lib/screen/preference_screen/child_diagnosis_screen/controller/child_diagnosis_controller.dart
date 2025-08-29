@@ -99,7 +99,9 @@ class ChildDiagnosisController extends GetxController {
     );
   }
 
-  void onUpdate() {}
+  void onUpdate() {
+    Get.back();
+  }
 
   @override
   void onClose() {

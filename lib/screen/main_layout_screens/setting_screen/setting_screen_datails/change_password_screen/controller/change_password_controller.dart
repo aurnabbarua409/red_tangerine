@@ -7,10 +7,10 @@ class ChangePasswordController extends GetxController {
   var confirmPasswordController = TextEditingController();
   var formKey = GlobalKey<FormState>();
   void onUpdate() {
-    if(formKey.currentState!.validate()){
-      
-    }
+    // if (formKey.currentState!.validate()) {}
+    Get.back();
   }
+
   @override
   void onClose() {
     // TODO: implement onClose

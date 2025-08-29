@@ -66,7 +66,6 @@ class MatchesScreen extends StatelessWidget {
                               radius: 35,
                               backgroundImage: AssetImage(
                                 controller.matches[index].image,
-                                
                               ),
                             ),
                             SpaceWidget(
@@ -81,7 +80,10 @@ class MatchesScreen extends StatelessWidget {
                                 SpaceWidget(height: 5),
                                 Row(
                                   children: [
-                                    IconWidget(icon: AppIcons.mapPinIcon),
+                                    IconWidget(
+                                      icon: AppIcons.mapPinIcon,
+                                      color: AppColors.grey_900,
+                                    ),
                                     TextWidget.blackLight(
                                       text:
                                           "${controller.matches[index].distance} away",

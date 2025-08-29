@@ -69,5 +69,7 @@ class TherapySupportController extends GetxController {
     );
   }
 
-  void onUpdate() {}
+  void onUpdate() {
+    Get.back();
+  }
 }

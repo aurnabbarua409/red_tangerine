@@ -35,6 +35,7 @@ class NotificationScreen extends StatelessWidget {
                         SizedBox(
                           width: 150,
                           child: DropDownButtonFormFieldWidget(
+                            initialValue: controller.intervals[0],
                             items: controller.intervals,
                             onChanged: (value) {
                               controller.setIntervals(value);

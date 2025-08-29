@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/screen/preference_screen/child_diagnosis_screen/controller/child_diagnosis_controller.dart';
-import 'package:red_tangerine/widgets/auth_screen_widget.dart';
+import 'package:red_tangerine/widgets/common_screen_widget.dart';
 import 'package:red_tangerine/widgets/drop_down_button_form_field_widget.dart';
 import 'package:red_tangerine/widgets/dropdown_multiselect_widget.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
@@ -28,7 +28,7 @@ class _ChildDiagnosisScreenState extends State<ChildDiagnosisScreen> {
   List<String> selected = [];
   @override
   Widget build(BuildContext context) {
-    return AuthScreenWidget(
+    return CommonScreenWidget(
       fromUpdate: _controller.fromUpdate.value,
       appbarTitle: AppStrings.diagnosis,
       title: AppStrings.tellUsAboutChildDiagnosis,

@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:red_tangerine/constant/app_icons.dart';
 import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/routes/app_routes.dart';
-import 'package:red_tangerine/widgets/auth_screen_widget.dart';
+import 'package:red_tangerine/widgets/common_screen_widget.dart';
 import 'package:red_tangerine/widgets/icon_widget.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
 import 'package:red_tangerine/widgets/text_widget.dart';
@@ -13,7 +13,7 @@ class PreferenceHomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AuthScreenWidget(
+    return CommonScreenWidget(
       showLeading: false,
       body: [
         IconWidget(icon: AppIcons.splashIcon),

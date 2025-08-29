@@ -3,10 +3,16 @@ import 'package:get/get.dart';
 import 'package:red_tangerine/routes/app_routes.dart';
 
 class SigninController extends GetxController {
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
   final isRememberedMe = false.obs;
   var formKey = GlobalKey<FormState>();
+
+  void onInitial() {
+    emailController = TextEditingController();
+    passwordController = TextEditingController();
+    formKey = GlobalKey<FormState>();
+  }
 
   void onSignin() {
     // if (formKey.currentState!.validate()) {

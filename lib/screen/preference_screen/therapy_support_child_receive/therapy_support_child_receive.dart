@@ -4,7 +4,7 @@ import 'package:multiselect/multiselect.dart';
 import 'package:red_tangerine/constant/app_colors.dart';
 import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/screen/preference_screen/therapy_support_child_receive/controller/therapy_support_controller.dart';
-import 'package:red_tangerine/widgets/auth_screen_widget.dart';
+import 'package:red_tangerine/widgets/common_screen_widget.dart';
 import 'package:red_tangerine/widgets/drop_down_button_form_field_widget.dart';
 import 'package:red_tangerine/widgets/dropdown_multiselect_widget.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
@@ -31,7 +31,7 @@ class _TherapySupportChildReceiveState
 
   @override
   Widget build(BuildContext context) {
-    return AuthScreenWidget(
+    return CommonScreenWidget(
       fromUpdate: _controller.fromUpdate.value,
       appbarTitle: AppStrings.therapy,
       title: AppStrings.whatTypeTherapySupportChildReceive,

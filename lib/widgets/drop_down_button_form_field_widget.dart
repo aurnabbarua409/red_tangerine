@@ -6,13 +6,16 @@ class DropDownButtonFormFieldWidget extends StatelessWidget {
   const DropDownButtonFormFieldWidget({
     super.key,
     required this.items,
+    this.initialValue,
     required this.onChanged,
   });
   final List<String> items;
+  final String? initialValue;
   final void Function(dynamic value) onChanged;
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField(
+      initialValue: initialValue,
       decoration: InputDecoration(
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25),

@@ -1,17 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 import 'package:red_tangerine/routes/app_routes.dart';
 import 'package:red_tangerine/utils/app_common_functions.dart';
 
 class SignupController extends GetxController {
-  final firstNameController = TextEditingController();
-  final lastNameController = TextEditingController();
-  final dateofBirthController = TextEditingController();
-  final emailController = TextEditingController();
-  final setPasswordController = TextEditingController();
-  final confirmPasswordController = TextEditingController();
+  var firstNameController = TextEditingController();
+  var lastNameController = TextEditingController();
+  var dateofBirthController = TextEditingController();
+  var emailController = TextEditingController();
+  var setPasswordController = TextEditingController();
+  var confirmPasswordController = TextEditingController();
   var formKey = GlobalKey<FormState>();
+
+  void onInitial() {
+    firstNameController = TextEditingController();
+    lastNameController = TextEditingController();
+    dateofBirthController = TextEditingController();
+    emailController = TextEditingController();
+    setPasswordController = TextEditingController();
+    confirmPasswordController = TextEditingController();
+    formKey = GlobalKey<FormState>();
+  }
 
   void onSignUp() {
     // if (formKey.currentState!.validate()) {

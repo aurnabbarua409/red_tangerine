@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/screen/preference_screen/let_other_know_about_u_screen/controller/let_other_know_about_u_controller.dart';
 import 'package:red_tangerine/utils/app_validator.dart';
-import 'package:red_tangerine/widgets/auth_screen_widget.dart';
+import 'package:red_tangerine/widgets/common_screen_widget.dart';
 import 'package:red_tangerine/widgets/textformfield_widget.dart';
 
 class LetOtherKnowAboutUScreen extends StatefulWidget {
@@ -26,7 +26,7 @@ class _LetOtherKnowAboutUScreenState extends State<LetOtherKnowAboutUScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return AuthScreenWidget(
+    return CommonScreenWidget(
       fromUpdate: _controller.fromUpdate.value,
       appbarTitle: AppStrings.yourBio,
       showSkip: true,
