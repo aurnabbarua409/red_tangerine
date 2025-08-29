@@ -9,52 +9,65 @@ import 'package:red_tangerine/widgets/app_background_widget.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
 import 'package:red_tangerine/widgets/textformfield_widget.dart';
 
-class ChangePasswordScreen extends StatelessWidget {
+class ChangePasswordScreen extends StatefulWidget {
   const ChangePasswordScreen({super.key});
+
+  @override
+  State<ChangePasswordScreen> createState() => _ChangePasswordScreenState();
+}
+
+class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
+  final _controller = Get.put(ChangePasswordController());
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _controller.onInitial();
+  }
 
   @override
   Widget build(BuildContext context) {
     return AppBackgroundWidget(
       padding: EdgeInsets.all(0),
-      body: GetBuilder(
-        init: ChangePasswordController(),
-        builder: (controller) => Column(
-          children: [
-            AppBarWidget(title: AppStrings.changePassword),
-            Padding(
-              padding: EdgeInsets.all(20),
-              child: Column(
-                children: [
-                  TextformfieldWidget(
-                    controller: controller.currentPasswordController,
-                    validator: (value) => AppValidator.passwordValidator(value),
-                    label: AppStrings.currentPassword,
-                    hintText: AppStrings.writeYourPassword,
-                  ),
-                  SpaceWidget(height: 15),
-                  TextformfieldWidget(
-                    controller: controller.setPasswordController,
-                    validator: (value) => AppValidator.passwordValidator(value),
-                    label: AppStrings.setPassword,
-                    hintText: AppStrings.writeYourPassword,
-                  ),
-                  SpaceWidget(height: 15),
-                  TextformfieldWidget(
-                    controller: controller.confirmPasswordController,
-                    validator: (value) => AppValidator.passwordValidator(value),
-                    label: AppStrings.confirmPassword,
-                    hintText: AppStrings.writeYourPassword,
-                  ),
-                  SpaceWidget(height: 30),
-                  FooterButtonWidget(
-                    margin: EdgeInsets.symmetric(horizontal: 0),
-                    onTap: controller.onUpdate,
-                  ),
-                ],
-              ),
+      body: Column(
+        children: [
+          AppBarWidget(title: AppStrings.changePassword),
+          Padding(
+            padding: EdgeInsets.all(20),
+            child: Column(
+              children: [
+                TextformfieldWidget(
+                  obscureText: true,
+                  controller: _controller.currentPasswordController,
+                  validator: (value) => AppValidator.passwordValidator(value),
+                  label: AppStrings.currentPassword,
+                  hintText: AppStrings.writeYourPassword,
+                ),
+                SpaceWidget(height: 15),
+                TextformfieldWidget(
+                  obscureText: true,
+                  controller: _controller.setPasswordController,
+                  validator: (value) => AppValidator.passwordValidator(value),
+                  label: AppStrings.setPassword,
+                  hintText: AppStrings.writeYourPassword,
+                ),
+                SpaceWidget(height: 15),
+                TextformfieldWidget(
+                  obscureText: true,
+                  controller: _controller.confirmPasswordController,
+                  validator: (value) => AppValidator.passwordValidator(value),
+                  label: AppStrings.confirmPassword,
+                  hintText: AppStrings.writeYourPassword,
+                ),
+                SpaceWidget(height: 30),
+                FooterButtonWidget(
+                  margin: EdgeInsets.symmetric(horizontal: 0),
+                  onTap: _controller.onUpdate,
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

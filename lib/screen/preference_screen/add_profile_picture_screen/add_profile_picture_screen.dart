@@ -7,7 +7,6 @@ import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/screen/preference_screen/add_profile_picture_screen/controller/add_profile_picture_controller.dart';
 import 'package:red_tangerine/widgets/Button_widget.dart';
 import 'package:red_tangerine/widgets/common_screen_widget.dart';
-import 'package:red_tangerine/widgets/photo_viewer_widget.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
 import 'package:red_tangerine/widgets/text_widget.dart';
 

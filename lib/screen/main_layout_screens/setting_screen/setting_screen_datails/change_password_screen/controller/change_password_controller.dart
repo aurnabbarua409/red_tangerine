@@ -6,6 +6,14 @@ class ChangePasswordController extends GetxController {
   var setPasswordController = TextEditingController();
   var confirmPasswordController = TextEditingController();
   var formKey = GlobalKey<FormState>();
+
+  void onInitial() {
+    currentPasswordController = TextEditingController();
+    setPasswordController = TextEditingController();
+    confirmPasswordController = TextEditingController();
+    formKey = GlobalKey<FormState>();
+  }
+
   void onUpdate() {
     // if (formKey.currentState!.validate()) {}
     Get.back();
