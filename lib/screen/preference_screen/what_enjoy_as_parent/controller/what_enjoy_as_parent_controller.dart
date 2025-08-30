@@ -30,9 +30,10 @@ class WhatEnjoyAsParentController extends GetxController {
   RxList<bool> isSelectedValuesLifeStyle = <bool>[].obs;
   final fromUpdate = false.obs;
 
-  void onInitital() {
-    var args = Get.arguments;
-    fromUpdate.value = args['fromUpdate'];
+  @override
+  void onInit() {
+    // TODO: implement onInit
+    super.onInit();
     isSelectedInterest.value = List.generate(
       interests.length,
       (index) => false,
@@ -41,6 +42,11 @@ class WhatEnjoyAsParentController extends GetxController {
       interests.length,
       (index) => false,
     );
+  }
+
+  void onInitital() {
+    var args = Get.arguments;
+    fromUpdate.value = args['fromUpdate'];
   }
 
   void onSelectedInterest(int id) {

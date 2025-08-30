@@ -92,6 +92,10 @@ class AppStrings {
   static const weWillNeverShare =
       'We will never share your personal details publicly without your consent, and you can update or delete this information at any time.';
   static const underStandAgree = 'I Understand and Agree';
+  static const somethingIWishIKnow = "Something I wish I knew sooner…";
+  static const aParentingWin = "A parenting win I'm proud of…";
+  static const iAlwaysUpFor = "I'm always up for talking about…";
+  static const pickAFewPrompt = "Pick a few prompts to answer";
 
   // bottom nav bar
   static const home = 'Home';
@@ -126,6 +130,9 @@ class AppStrings {
   static const recentMatches = "Recent matches";
   static const active = "Active";
   static const archive = "Archive";
+
+  // Chat message screen
+  static const chatEnded = "Chat Ended";
 
   // Setting Screen
   static const settings = 'Settings';

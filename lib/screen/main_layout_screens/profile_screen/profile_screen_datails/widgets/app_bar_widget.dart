@@ -10,7 +10,7 @@ class AppBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50,
+      height: 64,
       decoration: BoxDecoration(
         border: Border.all(color: AppColors.red_900),
         color: AppColors.red_900,

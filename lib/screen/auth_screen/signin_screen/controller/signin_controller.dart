@@ -20,7 +20,7 @@ class SigninController extends GetxController {
     // } else {
     //   return;
     // }
-    Get.toNamed(AppRoutes.preferenceHomeScreen);
+    Get.toNamed(AppRoutes.bottomNavBarScreen);
   }
 
   void onSignUp() {

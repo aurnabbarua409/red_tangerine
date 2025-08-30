@@ -10,6 +10,10 @@ class MatchesController extends GetxController {
   void onInit() {
     // TODO: implement onInit
     super.onInit();
+    onInitial();
+  }
+
+  void onInitial() {
     matches.value = [
       MatchesModel(
         image: AppDevImages.profilePicture,

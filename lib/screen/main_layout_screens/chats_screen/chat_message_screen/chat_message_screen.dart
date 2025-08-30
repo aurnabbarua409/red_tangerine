@@ -56,7 +56,7 @@ class ChatMessageScreen extends StatelessWidget {
                     );
                     if (selected != null) {
                       if (selected == '1') {
-                        Get.back();
+                        controller.isEndChat.value = true;
                       }
 
                       if (selected == '2') debugPrint('Block clicked');
@@ -88,30 +88,44 @@ class ChatMessageScreen extends StatelessWidget {
                 },
               ),
             ),
-            Row(
-              children: [
-                Expanded(
-                  child: TextformfieldWidget(
-                    controller: controller.messageController,
-                    validator: (value) => null,
-                    label: "",
-                    hintText: AppStrings.message,
-                    suffixIcon: ButtonWidget.icon(
-                      icon: AppIcons.imageIcon,
-                      scale: 0.8,
-                      iconColor: AppColors.white_700,
-                      ontap: () {},
+            Obx(() {
+              if (controller.isEndChat.value) {
+                return SizedBox(
+                  height: 50,
+                  child: Center(
+                    child: TextWidget.blackLight(
+                      text: AppStrings.chatEnded,
+                      fontSize: 0.28,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
-                ),
-                SpaceWidget(width: 10),
-                CircleAvatar(
-                  radius: 24,
-                  backgroundColor: AppColors.red_900,
-                  child: IconWidget(icon: AppIcons.sendIcon),
-                ),
-              ],
-            ),
+                );
+              }
+              return Row(
+                children: [
+                  Expanded(
+                    child: TextformfieldWidget(
+                      controller: controller.messageController,
+                      validator: (value) => null,
+                      label: "",
+                      hintText: AppStrings.message,
+                      suffixIcon: ButtonWidget.icon(
+                        icon: AppIcons.imageIcon,
+                        scale: 0.8,
+                        iconColor: AppColors.white_700,
+                        ontap: () {},
+                      ),
+                    ),
+                  ),
+                  SpaceWidget(width: 10),
+                  CircleAvatar(
+                    radius: 24,
+                    backgroundColor: AppColors.red_900,
+                    child: IconWidget(icon: AppIcons.sendIcon),
+                  ),
+                ],
+              );
+            }),
           ],
         ),
       ),

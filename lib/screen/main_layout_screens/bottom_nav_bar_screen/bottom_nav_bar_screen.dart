@@ -93,7 +93,7 @@ class _MainLayoutScreenState extends State<BottomNavBarScreen> {
         gradient: LinearGradient(
           colors: [AppColors.mutedPurplishPink, AppColors.lightCoralPink],
         ),
-        height: 60,
+        height: 64,
         circleWidth: 60,
         activeIndex: tabIndex,
         onTap: (index) {
