@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import 'package:red_tangerine/widgets/custom_calendar_picker.dart';
 
 class AppCommonFunctions {
   static Future<String> onClickedCalender(BuildContext context) async {
-    final now = DateTime.now();
-    final DateTime? pickedDate = await showDatePicker(
-      initialDate: now,
+    var now = DateTime.now().toString();
+    await showDialog(
       context: context,
-      firstDate: DateTime(1900),
-      lastDate: DateTime(3000),
+      builder: (context) {
+        return CustomCalendarPicker(onSelect: (data) => now = data);
+      },
     );
-    if (pickedDate != null) {
-      return DateFormat('yyyy-MM-dd').format(pickedDate);
-    }
-    return "";
+    return now.toString();
   }
 }

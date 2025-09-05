@@ -15,7 +15,7 @@ class DropDownButtonFormFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField(
-      initialValue: initialValue,
+      value: initialValue,
       decoration: InputDecoration(
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25),

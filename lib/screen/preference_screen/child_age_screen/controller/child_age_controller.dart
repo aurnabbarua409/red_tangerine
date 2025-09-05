@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:red_tangerine/routes/app_routes.dart';
 import 'package:red_tangerine/utils/app_common_functions.dart';
+import 'package:red_tangerine/widgets/custom_calendar_picker.dart';
 
 class ChildAgeController extends GetxController {
   var dateOfBirthController = TextEditingController();
@@ -29,9 +30,9 @@ class ChildAgeController extends GetxController {
   }
 
   void onClickedCalender(BuildContext context) async {
-    dateOfBirthController.text = await AppCommonFunctions.onClickedCalender(
-      context,
-    );
+    
+    dateOfBirthController.text =
+        await AppCommonFunctions.onClickedCalender(context) ?? "";
   }
 
   @override

@@ -40,9 +40,8 @@ class SignupController extends GetxController {
   }
 
   void onClickedCalender(BuildContext context) async {
-    dateofBirthController.text = await AppCommonFunctions.onClickedCalender(
-      context,
-    );
+    dateofBirthController.text =
+        await AppCommonFunctions.onClickedCalender(context) ?? "";
   }
 
   @override
