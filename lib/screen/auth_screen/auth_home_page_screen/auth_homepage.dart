@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:red_tangerine/constant/app_colors.dart';
 import 'package:red_tangerine/constant/app_icons.dart';
 import 'package:red_tangerine/constant/app_images.dart';
 import 'package:red_tangerine/constant/app_strings.dart';
@@ -9,6 +8,7 @@ import 'package:red_tangerine/widgets/Button_widget.dart';
 import 'package:red_tangerine/widgets/image_widget.dart';
 import 'package:red_tangerine/widgets/richtext_widget.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
+import 'package:red_tangerine/widgets/text_widget.dart';
 
 class AuthHomepage extends StatelessWidget {
   const AuthHomepage({super.key});
@@ -40,7 +40,7 @@ class AuthHomepage extends StatelessWidget {
                 gradient: LinearGradient(
                   colors: [
                     const Color.fromARGB(0, 0, 0, 0),
-                    Color.fromARGB(0, 0, 0, 0),
+                    Color.fromARGB(50, 0, 0, 0),
                     Color.fromARGB(221, 0, 0, 0),
                   ],
                   begin: Alignment.topCenter,
@@ -50,8 +50,21 @@ class AuthHomepage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      bottom: 10,
+                      left: 20,
+                      right: 20,
+                    ),
+                    child: TextWidget.white(
+                      text: 'Parents who understand, connections that last',
+                      fontSize: 0.3,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+
                   ButtonWidget(
-                    text: AppStrings.register,
+                    text: 'Create Account',
                     margin: EdgeInsets.symmetric(horizontal: 20),
                     ontap: () {
                       Get.toNamed(AppRoutes.signupScreen);

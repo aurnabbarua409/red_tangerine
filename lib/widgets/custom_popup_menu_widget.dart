@@ -25,9 +25,9 @@ class CustomPopupMenuWidget extends StatelessWidget {
     return Dialog(
       backgroundColor: AppColors.white,
       child: Container(
-        height: 210,
         padding: EdgeInsets.all(30),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             TextWidget(
               text: title,
