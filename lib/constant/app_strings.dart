@@ -3,13 +3,23 @@ class AppStrings {
   static const String appName = 'Red Tangerine';
 
   // Auth Screen
+  static const createAccount = 'Create Account';
+  static const login = "Log in";
+  static const authHomePageTitle = 'Connect with parents who get it.';
   static const register = 'Register';
+  static const welcomeBack = "Welcome Back";
+  static const loginDetails = "Let's keep building your circle.";
   static const alreadyHavaAccount = 'Already Have An Account?';
+  static const newToReah = "New to Reah?";
   static const dontHaveAccount = 'Don\'t Have An Account?';
   static const signin = 'Sign In';
   static const signUp = 'Sign Up';
+  static const createAnAccount = 'Create an account';
+  static const signupDetails =
+      "Join a community of parents who truly understand.";
   static const createAccountOrLogin =
       'Create an account or log in to explore app.';
+  static const passwordWarning = "Password must be at least 8 characters.";
   static const email = 'E-mail';
   static const password = 'Password';
   static const rememberMe = 'Remember me';
@@ -21,25 +31,32 @@ class AppStrings {
   static const dateofBirth = 'Date of Birth';
   static const setAPassword = 'Set A Password';
   static const confirmPassword = 'Confirm Password';
-  static const verification = 'Verification';
+  static const verifyEmail = 'Verify your email';
   static const notYours = 'Not Yours?';
   static const code = "Code";
   static const verify = "Verify";
   static const resendCode = 'Resend Code';
-  static const weSendVerificationCode =
-      'We have sent you a verification code to';
+  static const weSendVerificationCode = 'Enter the 6 digit code we sent to ';
   static const provideEmailChangePassword =
-      'Provide your email address to change password';
+      'Enter your email and we\'ll send you a link to reset it.';
+  static const sendResetLink = "Send Reset Link";
   static const send = 'Send';
+  static const updateEmail = "Update email";
   static const createNewPassword = "Create a new password";
+  static const createNewPassTitle = "You're almost back in";
+  static const createNewPassSubtitle =
+      "Create a new password to securely access your account.";
+
   static const setNewPasswordToContinue = 'Set a new password to continue';
+  static const newPassword = "New Password";
+  static const confirNewPassword = "Confirm new password";
   static const resetPassword = 'Reset Password';
   static const setPassword = 'Set A Password';
 
   // Preference Screen
-  static const welcomeToZZZZ = 'Welcome to ZZZZ';
+  static const welcomeToZZZZ = 'Welcome to Reah';
   static const continue_ = 'Continue';
-  static const howOldYourChild = 'How old is your child?';
+  static const howOldYourChild = 'What is your child\'s date of birth?';
   static const howOldYourChildDetails =
       'This helps us match you with parents whose children are in a similar stage of development.';
   static const enterChildDateOfBirth = 'Enter your child\'s date of birth';
@@ -50,16 +67,15 @@ class AppStrings {
       'You\'re not alone. This helps us connect you with parents who understand your journey.';
   static const whatChildDiagnosis = 'What is your child\'s diagnosis?';
   static const ifOtherTypeHere = 'If Other, type here';
-  static const weAreStillWaitingOnDiagnosis =
-      'We\'re still waiting on a diagnosis';
+  static const weAreStillWaitingOnTherapy = 'We\'re still waiting on a therapy';
   static const whatTypeTherapySupportChildReceive =
       'What types of therapy or support does your child receive?';
   static const selectAllThatApply =
       'Select all that apply. We\'ll use this to connect you with parents navigating similar care paths.';
   static const whereParentingJourney =
       'Where are you in your parenting journey?';
-  static const everyoneExperienceDifferent =
-      'Everyone\'s experience is different. We\'ll use this to help connect you with parents who truly understand.';
+  static const whereParentingJourneySubtitle =
+      'Choose the stage that best describes your experience right now.';
   static const justStarting = 'Just Starting';
   static const managingdayToday = 'Managing Day-to-Day';
   static const mentorReady = 'Mentor-Ready';
@@ -70,9 +86,9 @@ class AppStrings {
   static const interestWhatyouEnjoyWithChild =
       'Interests (What you enjoy doing with your child)';
   static const valuesLifeStyle = 'Values & Lifestyle';
-  static const addProfilePicture = 'Add Profile Picture';
-  static const makeProfileFeelPersonal =
-      ' Make your profile feel more personal.';
+  static const addPhotosTitle = 'Add your photos';
+  static const addPhotosSubtitle =
+      'Add at least 1 photo to start. We recommend a face photo so parents can recognize you.';
   static const addMorePhotoLater =
       'You can add more photos later under the Profile tab.';
   static const addMorePhoto = "Add More Photos";
@@ -80,11 +96,11 @@ class AppStrings {
   static const chooseFromGallery = 'Choose From Gallery';
   static const letOtherKnowAboutYou = 'Let others know a little about you';
   static const shortIntroHelpsOther =
-      'A short intro helps other parents connect with you faster.';
+      'A short intro helps parents connect with you faster. Here are a few ideas to get you started:';
   static const skip = 'Skip';
-  static const pleaseShareYourLocation = 'Please Share Your Location';
-  static const weCanHelpConnectWithParent =
-      'We can help you connect with parents in your area.';
+  static const seeParentstitle = 'See parents nearby';
+  static const seeParentSubtitle =
+      'To connect you with local parents and groups, we’ll need to know your location. You’ll always stay in control of what you share.';
   static const useMyCurrentLocation = 'Use My Current Location';
   static const yourPrivacyMatters = 'Your Privacy Matters';
   static const toHelpConnectYou =
@@ -96,6 +112,21 @@ class AppStrings {
   static const aParentingWin = "A parenting win I'm proud of…";
   static const iAlwaysUpFor = "I'm always up for talking about…";
   static const pickAFewPrompt = "Pick a few prompts to answer";
+  static const childJourneyTitle = "Every child's journey is unique.";
+  static const childJourneySubtitle =
+      "Select the diagnosis (or diagnoses) that best describe your child — or choose ‘Not sure’ if you’re still exploring";
+  static const supportDifferenceTitle = "The supports that make a difference.";
+  static const supportDifferenceSubtitle =
+      "Pick the therapies or supports that are part of your child’s story. You can choose more than one.";
+  static const whatEnjoyTitle = "What do you enjoy?";
+  static const whatEnjoySubtitle =
+      "Choose the interests that reflect you. These help other parents connect with you on shared activities and joys.";
+  static const matterParentingtitle = "What matters most in your parenting?";
+  static const matterParentingSubtitle =
+      "Choose up to 3 values that guide you most right now.";
+  static const notificationTurnOnTitle = "Turn on notifications";
+  static const notificationTurnOnSubtitle =
+      "You’ll know when parents reach out, when you have a new match, or when there are updates nearby.";
 
   // bottom nav bar
   static const home = 'Home';

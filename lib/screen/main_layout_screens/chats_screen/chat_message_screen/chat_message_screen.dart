@@ -7,12 +7,12 @@ import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/screen/main_layout_screens/chats_screen/chat_message_screen/controller/chat_message_controller.dart';
 import 'package:red_tangerine/screen/main_layout_screens/chats_screen/chat_message_screen/widgets/chat_item_me_widget.dart';
 import 'package:red_tangerine/screen/main_layout_screens/chats_screen/chat_message_screen/widgets/chat_item_other_widget.dart';
+import 'package:red_tangerine/screen/main_layout_screens/chats_screen/chat_message_screen/widgets/chatbox_widget.dart';
 import 'package:red_tangerine/widgets/Button_widget.dart';
 import 'package:red_tangerine/widgets/app_background_widget.dart';
 import 'package:red_tangerine/widgets/icon_widget.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
 import 'package:red_tangerine/widgets/text_widget.dart';
-import 'package:red_tangerine/widgets/textformfield_widget.dart';
 
 class ChatMessageScreen extends StatelessWidget {
   const ChatMessageScreen({super.key});
@@ -37,7 +37,11 @@ class ChatMessageScreen extends StatelessWidget {
                   backgroundImage: AssetImage(AppDevImages.chatSampleImage1),
                 ),
                 SpaceWidget(width: 10),
-                TextWidget.black(text: 'Aurora'),
+                TextWidget.black(
+                  text: 'Aurora',
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                ),
                 Spacer(),
                 GestureDetector(
                   onTap: () async {
@@ -69,7 +73,7 @@ class ChatMessageScreen extends StatelessWidget {
             SpaceWidget(height: 20),
             TextWidget(
               text: '26 June 2025',
-              fontSize: 0.25,
+              fontSize: 14,
               fontWeight: FontWeight.w400,
               fontColor: AppColors.black_200,
             ),
@@ -79,15 +83,16 @@ class ChatMessageScreen extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return Column(
                     children: [
-                      SpaceWidget(height: 15),
                       ChatItemMeWidget(),
                       SpaceWidget(height: 20),
                       ChatItemOtherWidget(),
+                      SpaceWidget(height: 20),
                     ],
                   );
                 },
               ),
             ),
+
             Obx(() {
               if (controller.isEndChat.value) {
                 return SizedBox(
@@ -95,7 +100,7 @@ class ChatMessageScreen extends StatelessWidget {
                   child: Center(
                     child: TextWidget.blackLight(
                       text: AppStrings.chatEnded,
-                      fontSize: 0.28,
+                      fontSize: 18,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
@@ -104,23 +109,15 @@ class ChatMessageScreen extends StatelessWidget {
               return Row(
                 children: [
                   Expanded(
-                    child: TextformfieldWidget(
+                    child: ChatboxWidget(
                       controller: controller.messageController,
-                      validator: (value) => null,
-                      label: "",
-                      hintText: AppStrings.message,
-                      suffixIcon: ButtonWidget.icon(
-                        icon: AppIcons.imageIcon,
-                        scale: 0.8,
-                        iconColor: AppColors.white_700,
-                        ontap: () {},
-                      ),
+                      ontap: controller.onSelectImage,
                     ),
                   ),
                   SpaceWidget(width: 10),
                   CircleAvatar(
                     radius: 24,
-                    backgroundColor: AppColors.red_900,
+                    backgroundColor: AppColors.orange,
                     child: IconWidget(icon: AppIcons.sendIcon),
                   ),
                 ],

@@ -6,7 +6,6 @@ import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/screen/main_layout_screens/notification_screen/controller/notification_controller.dart';
 import 'package:red_tangerine/screen/main_layout_screens/profile_screen/profile_screen_datails/widgets/app_bar_widget.dart';
 import 'package:red_tangerine/widgets/app_background_widget.dart';
-import 'package:red_tangerine/widgets/drop_down_button_form_field_widget.dart';
 import 'package:red_tangerine/widgets/icon_widget.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
 import 'package:red_tangerine/widgets/text_widget.dart';
@@ -36,9 +35,13 @@ class NotificationScreen extends StatelessWidget {
                           padding: EdgeInsets.all(10),
                           margin: EdgeInsets.only(bottom: 4),
                           decoration: BoxDecoration(
-                            border: Border.all(color: AppColors.red_900),
+                            border: Border.all(
+                              color: controller.notificationList[index].unseen
+                                  ? AppColors.orange
+                                  : AppColors.white_700,
+                            ),
                             color: controller.notificationList[index].unseen
-                                ? AppColors.red_900
+                                ? AppColors.orange
                                 : AppColors.white,
                             borderRadius: BorderRadius.circular(10),
                           ),
@@ -47,12 +50,12 @@ class NotificationScreen extends StatelessWidget {
                             children: [
                               TextWidget(
                                 text: '•',
-                                fontSize: 0.3,
+                                fontSize: 25,
                                 fontWeight: FontWeight.bold,
                                 fontColor:
                                     controller.notificationList[index].unseen
                                     ? AppColors.white
-                                    : AppColors.red_900,
+                                    : AppColors.orange,
                               ),
                               SpaceWidget(width: 5),
                               Column(
@@ -61,7 +64,7 @@ class NotificationScreen extends StatelessWidget {
                                   TextWidget(
                                     text: AppStrings.youHaveOneNewMatch,
                                     fontWeight: FontWeight.w600,
-                                    fontSize: 0.26,
+                                    fontSize: 18,
                                     fontColor:
                                         controller
                                             .notificationList[index]
@@ -73,7 +76,7 @@ class NotificationScreen extends StatelessWidget {
                                     text:
                                         controller.notificationList[index].name,
                                     fontWeight: FontWeight.w600,
-                                    fontSize: 0.255,
+                                    fontSize: 18,
                                     fontColor:
                                         controller
                                             .notificationList[index]
@@ -92,18 +95,19 @@ class NotificationScreen extends StatelessWidget {
                                                 .notificationList[index]
                                                 .unseen
                                             ? AppColors.white
-                                            : AppColors.grey_800,
+                                            : AppColors.grey_700,
                                       ),
                                       TextWidget(
                                         text:
                                             "${controller.notificationList[index].distance} away",
-                                        fontSize: 0.25,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w400,
                                         fontColor:
                                             controller
                                                 .notificationList[index]
                                                 .unseen
                                             ? AppColors.white
-                                            : AppColors.grey_800,
+                                            : AppColors.grey_700,
                                       ),
                                       SpaceWidget(width: 30),
                                       TextWidget(
@@ -114,8 +118,9 @@ class NotificationScreen extends StatelessWidget {
                                                 .notificationList[index]
                                                 .unseen
                                             ? AppColors.white
-                                            : AppColors.grey_800,
-                                        fontSize: 0.25,
+                                            : AppColors.grey_700,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w400,
                                       ),
                                     ],
                                   ),
@@ -127,8 +132,9 @@ class NotificationScreen extends StatelessWidget {
                                             .notificationList[index]
                                             .unseen
                                         ? AppColors.white
-                                        : AppColors.grey_800,
-                                    fontSize: 0.25,
+                                        : AppColors.grey_700,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w400,
                                   ),
                                 ],
                               ),
@@ -140,7 +146,8 @@ class NotificationScreen extends StatelessWidget {
                             Spacer(),
                             TextWidget.blackLight(
                               text: '27 Aug 2025',
-                              fontSize: 0.22,
+                              fontSize: 10,
+                              fontWeight: FontWeight.w600,
                             ),
                           ],
                         ),

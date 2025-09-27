@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:red_tangerine/constant/app_images.dart';
 import 'package:red_tangerine/model/matches_model.dart';
+import 'package:red_tangerine/routes/app_routes.dart';
 
 class MatchesController extends GetxController {
   final RxList<MatchesModel> matches = <MatchesModel>[].obs;
@@ -39,7 +40,36 @@ class MatchesController extends GetxController {
         diagnosis: "Neurodevelopmental Disorder",
         unseen: false,
       ),
+      MatchesModel(
+        image: AppDevImages.photo_1,
+        name: 'Samuel Johnson',
+        distance: "2 miles",
+        childAge: 8,
+        diagnosis: "Neurodevelopmental Disorder",
+        unseen: true,
+      ),
+      MatchesModel(
+        image: AppDevImages.photo_1,
+        name: 'Samuel Johnson',
+        distance: "2 miles",
+        childAge: 8,
+        diagnosis: "Neurodevelopmental Disorder",
+        unseen: false,
+      ),
+      MatchesModel(
+        image: AppDevImages.photo_1,
+        name: 'Samuel Johnson',
+        distance: "2 miles",
+        childAge: 8,
+        diagnosis: "Neurodevelopmental Disorder",
+        unseen: true,
+      ),
     ];
+  }
+
+  void onSearch() {}
+  void onMessage() {
+    Get.toNamed(AppRoutes.chatMessageScreen);
   }
 
   @override

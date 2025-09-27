@@ -5,6 +5,8 @@ import 'package:red_tangerine/constant/app_icons.dart';
 import 'package:red_tangerine/constant/app_images.dart';
 import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/screen/main_layout_screens/matches_screen/controller/matches_controller.dart';
+import 'package:red_tangerine/screen/main_layout_screens/matches_screen/widget/match_item.dart';
+import 'package:red_tangerine/widgets/searchbar_widget.dart';
 import 'package:red_tangerine/screen/main_layout_screens/profile_screen/profile_screen_datails/widgets/footer_button_widget.dart';
 import 'package:red_tangerine/widgets/app_bar_widget.dart';
 import 'package:red_tangerine/widgets/icon_widget.dart';
@@ -21,141 +23,92 @@ class MatchesScreen extends StatefulWidget {
 }
 
 class _MatchesScreenState extends State<MatchesScreen> {
-  final _controller = Get.put(MatchesController());
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    _controller.onInitial();
-  }
-
   @override
   Widget build(BuildContext context) {
-    return _controller.matches.isNotEmpty
-        ? AppBarWidget(
-            body: [
-              TextWidget.black(
-                text: AppStrings.matches,
-                fontSize: 0.3,
-                fontWeight: FontWeight.w600,
-              ),
-              TextformfieldWidget(
-                controller: _controller.searchController,
-                validator: (value) => null,
-                label: "",
-                suffixIcon: Icon(Icons.search),
-                hintText: AppStrings.searchHere,
-              ),
-              SpaceWidget(height: 20),
-              Expanded(
-                child: GridView.builder(
-                  itemCount: _controller.matches.length,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 8,
-                    mainAxisSpacing: 8,
-                    childAspectRatio: 0.55,
+    return GetBuilder(
+      init: MatchesController(),
+      builder: (controller) {
+        return controller.matches.isNotEmpty
+            ? AppBarWidget(
+                body: [
+                  TextWidget.black(
+                    text: AppStrings.matches,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
                   ),
-                  itemBuilder: (context, index) => Card(
-                    elevation: _controller.matches[index].unseen ? 6 : 1,
-                    color: AppColors.white,
+                  SearchbarWidget(
+                    controller: controller.searchController,
+                    validator: (value) => null,
+                    suffixIcon: Icon(Icons.search),
+                    hintText: AppStrings.searchHere,
+                    ontap: controller.onSearch,
+                  ),
+                  SpaceWidget(height: 20),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: Wrap(
+                        spacing: 3, // horizontal spacing
+                        runSpacing: 5, // vertical spacing
+                        children: List.generate(controller.matches.length, (
+                          index,
+                        ) {
+                          double screenWidth = MediaQuery.of(
+                            context,
+                          ).size.width;
+                          double itemWidth =
+                              (screenWidth / 2) - 22; // exactly two per row
 
-                    child: Container(
-                      padding: EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: _controller.matches[index].unseen
-                              ? AppColors.red_900
-                              : AppColors.white_800,
-                          width: _controller.matches[index].unseen ? 4 : 1,
-                        ),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          CircleAvatar(
-                            radius: 35,
-                            backgroundImage: AssetImage(
-                              _controller.matches[index].image,
+                          return SizedBox(
+                            width: itemWidth,
+                            child: MatchItem(
+                              unseen: controller.matches[index].unseen,
+                              image: controller.matches[index].image,
+                              name: controller.matches[index].name,
+                              age: controller.matches[index].childAge
+                                  .toString(),
+                              distance: controller.matches[index].distance,
+                              diagnosis: controller.matches[index].diagnosis,
+                              ontap: controller.onMessage,
                             ),
-                          ),
-                          SpaceWidget(height: 10), // change it to network image
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              TextWidget.black(
-                                text: _controller.matches[index].name,
-                              ),
-                              SpaceWidget(height: 5),
-                              Row(
-                                children: [
-                                  IconWidget(
-                                    icon: AppIcons.mapPinIcon,
-                                    color: AppColors.grey_900,
-                                  ),
-                                  TextWidget.blackLight(
-                                    text:
-                                        "${_controller.matches[index].distance} away",
-                                  ),
-                                ],
-                              ),
-                              SpaceWidget(height: 5),
-                              TextWidget.blackLight(
-                                text:
-                                    "${AppStrings.childAge}: ${_controller.matches[index].childAge}",
-                              ),
-                              SpaceWidget(height: 5),
-                              TextWidget.blackLight(
-                                textAlign: TextAlign.left,
-                                text:
-                                    "${AppStrings.diagnosis}: ${_controller.matches[index].diagnosis}",
-                              ),
-                              SpaceWidget(height: 10),
-                              FooterButtonWidget(
-                                onTap: () {},
-                                label: AppStrings.message,
-                                isLightRedBackground: true,
-                              ),
-                            ],
-                          ),
-                        ],
+                          );
+                        }),
                       ),
                     ),
                   ),
-                ),
-              ),
-            ],
-          )
-        : AppBarWidget(
-            body: [
-              TextWidget.black(
-                text: AppStrings.matches,
-                fontSize: 0.3,
-                fontWeight: FontWeight.w600,
-              ),
-              SpaceWidget(height: 15),
-              TextWidget.blackLight(text: AppStrings.rightSupportTakesTime),
-              Spacer(),
-              Center(
-                child: Column(
-                  children: [
-                    ImageWidget(
-                      fromNetwork: false,
-                      image: AppImages.noMatchesImage,
-                      width: 70,
-                      height: 20,
-                      color: AppColors.grey_900,
-                      fit: BoxFit.fill,
+                ],
+              )
+            : AppBarWidget(
+                body: [
+                  TextWidget.black(
+                    text: AppStrings.matches,
+                    fontSize: 0.3,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  SpaceWidget(height: 15),
+                  TextWidget.blackLight(text: AppStrings.rightSupportTakesTime),
+                  Spacer(),
+                  Center(
+                    child: Column(
+                      children: [
+                        ImageWidget(
+                          fromNetwork: false,
+                          image: AppImages.noMatchesImage,
+                          width: 70,
+                          height: 20,
+                          color: AppColors.grey_900,
+                          fit: BoxFit.fill,
+                        ),
+                        TextWidget.blackLight(
+                          text: AppStrings.sorryNoMatchesYet,
+                        ),
+                      ],
                     ),
-                    TextWidget.blackLight(text: AppStrings.sorryNoMatchesYet),
-                  ],
-                ),
-              ),
-              SpaceWidget(height: 20),
-              Spacer(),
-            ],
-          );
+                  ),
+                  SpaceWidget(height: 20),
+                  Spacer(),
+                ],
+              );
+      },
+    );
   }
 }

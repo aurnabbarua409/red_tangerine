@@ -188,7 +188,7 @@ class _CustomCalendarPickerState extends State<CustomCalendarPicker> {
                 height: 5,
                 text: 'Confirm',
                 ontap: () {
-                  widget.onSelect("$selectedYear-$selectedMonth-$selectedDay");
+                  widget.onSelect("$selectedDay/$selectedMonth/$selectedYear");
                   Get.back();
                 },
               ),

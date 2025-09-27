@@ -31,18 +31,19 @@ class _AddProfilePictureScreenState extends State<AddProfilePictureScreen> {
   @override
   Widget build(BuildContext context) {
     return CommonScreenWidget(
+      showLeading: true,
       fromUpdate: _controller.fromUpdate.value,
       appbarTitle: AppStrings.photos,
-      title: AppStrings.addProfilePicture,
-      subtitle: AppStrings.makeProfileFeelPersonal,
+      title: AppStrings.addPhotosTitle,
+      subtitle: AppStrings.addPhotosSubtitle,
       body: [
         Obx(
           () => Container(
-            width: 200,
-            height: 240,
+            width: 203,
+            height: 239,
             decoration: BoxDecoration(
               color: AppColors.grey_50,
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(10),
               image: _controller.image.value != null
                   ? DecorationImage(
                       image: FileImage(_controller.image.value!),
@@ -59,38 +60,82 @@ class _AddProfilePictureScreenState extends State<AddProfilePictureScreen> {
             ),
           ),
         ),
-        SpaceWidget(height: 30),
-        TextWidget(
-          text: AppStrings.addMorePhotoLater,
-          fontColor: AppColors.white_900,
-          fontSize: 0.25,
-        ),
+
         SpaceWidget(height: 20),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             InkWell(
-              onTap: _controller.onMultiSelectPhoto,
+              onTap: () {},
               child: DottedBorder(
                 options: RoundedRectDottedBorderOptions(
                   color: AppColors.grey_100,
-                  radius: Radius.circular(15),
+                  radius: Radius.circular(10),
                   dashPattern: [8, 8],
                 ),
                 child: SizedBox(
-                  width: 60,
-                  height: 60,
-                  child: Icon(Icons.add, color: AppColors.grey_100),
+                  width: 44,
+                  height: 44,
+                  child: Icon(Icons.add, color: AppColors.white_700),
                 ),
               ),
             ),
-            SpaceWidget(width: 15),
-            TextWidget(
-              text: AppStrings.addMorePhoto,
-              fontSize: 0.278,
-              fontColor: AppColors.white_700,
+            SpaceWidget(width: 9),
+            InkWell(
+              onTap: () {},
+              child: DottedBorder(
+                options: RoundedRectDottedBorderOptions(
+                  color: AppColors.grey_100,
+                  radius: Radius.circular(10),
+                  dashPattern: [8, 8],
+                ),
+                child: SizedBox(
+                  width: 44,
+                  height: 44,
+                  child: Icon(Icons.add, color: AppColors.white_700),
+                ),
+              ),
+            ),
+            SpaceWidget(width: 9),
+            InkWell(
+              onTap: () {},
+              child: DottedBorder(
+                options: RoundedRectDottedBorderOptions(
+                  color: AppColors.grey_100,
+                  radius: Radius.circular(10),
+                  dashPattern: [8, 8],
+                ),
+                child: SizedBox(
+                  width: 44,
+                  height: 44,
+                  child: Icon(Icons.add, color: AppColors.white_700),
+                ),
+              ),
+            ),
+            SpaceWidget(width: 9),
+            InkWell(
+              onTap: () {},
+              child: DottedBorder(
+                options: RoundedRectDottedBorderOptions(
+                  color: AppColors.grey_100,
+                  radius: Radius.circular(10),
+                  dashPattern: [8, 8],
+                ),
+                child: SizedBox(
+                  width: 44,
+                  height: 44,
+                  child: Icon(Icons.add, color: AppColors.white_700),
+                ),
+              ),
             ),
           ],
+        ),
+        SpaceWidget(height: 30),
+        TextWidget(
+          text: AppStrings.addMorePhotoLater,
+          fontColor: AppColors.white_900,
+          fontSize: 14,
+          fontWeight: FontWeight.w500,
         ),
         SpaceWidget(height: 15),
         Obx(() {

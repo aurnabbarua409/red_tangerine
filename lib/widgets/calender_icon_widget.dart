@@ -8,7 +8,7 @@ class CalenderIconWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: onPressed,
-      icon: Icon(Icons.calendar_month_outlined, color: AppColors.red_900),
+      icon: Icon(Icons.calendar_month_outlined, color: AppColors.orange),
     );
   }
 }

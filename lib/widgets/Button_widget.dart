@@ -9,11 +9,12 @@ class ButtonWidget extends StatelessWidget {
   ButtonWidget({
     super.key,
     required this.text,
-    this.height,
+    this.height = 50,
     this.width = double.infinity,
     this.margin,
     this.textColor,
-    this.fontSize,
+    this.fontWeight,
+    this.fontSize = 16,
     required this.ontap,
   }) : buttonType = ButtonType.elevated;
   ButtonWidget.normal({
@@ -46,6 +47,7 @@ class ButtonWidget extends StatelessWidget {
     this.margin,
     this.textColor,
     this.fontSize,
+    this.fontWeight = FontWeight.w400,
     this.textDecoration,
     required this.ontap,
   }) : buttonType = ButtonType.text;
@@ -63,6 +65,7 @@ class ButtonWidget extends StatelessWidget {
   Color? backgroundColor;
   Color? iconColor;
   double? scale;
+  FontWeight? fontWeight;
   @override
   Widget build(BuildContext context) {
     if (buttonType == ButtonType.icon) {
@@ -80,10 +83,11 @@ class ButtonWidget extends StatelessWidget {
     if (buttonType == ButtonType.text) {
       return InkWell(
         onTap: ontap,
-        child: TextWidget.red(
+        child: TextWidget(
           text: text!,
-          fontSize: fontSize ?? 0.23,
+          fontSize: fontSize,
           fontColor: textColor,
+          fontWeight: fontWeight,
           textDecoration: textDecoration ?? TextDecoration.none,
         ),
       );
@@ -91,10 +95,11 @@ class ButtonWidget extends StatelessWidget {
     if (buttonType == ButtonType.normal) {
       return InkWell(
         onTap: ontap,
+        borderRadius: BorderRadius.circular(25),
         child: Container(
-          margin: margin ?? EdgeInsets.symmetric(horizontal: 40, vertical: 5),
+          margin: margin ?? EdgeInsets.symmetric(horizontal: 0, vertical: 0),
           width: ResponsiveSize.width(width ?? double.infinity),
-          height: ResponsiveSize.height(height ?? 5),
+          height: height,
           decoration: BoxDecoration(
             color: backgroundColor ?? const Color.fromARGB(0, 255, 255, 255),
             border: Border.all(color: borderColor ?? AppColors.white_900),
@@ -106,7 +111,7 @@ class ButtonWidget extends StatelessWidget {
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: textColor ?? AppColors.grey_900,
-                fontSize: fontSize ?? ResponsiveSize.fontSize(0.25),
+                fontSize: fontSize ?? 16,
               ),
             ),
           ),
@@ -115,15 +120,14 @@ class ButtonWidget extends StatelessWidget {
     }
     return InkWell(
       onTap: ontap,
+      borderRadius: BorderRadius.circular(25),
       child: Container(
         width: ResponsiveSize.width(width ?? double.infinity),
-        height: ResponsiveSize.height(height ?? 6),
+        height: height,
         margin:
             margin ?? const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [AppColors.mutedPurplishPink, AppColors.lightCoralPink],
-          ),
+          color: AppColors.orange,
           borderRadius: BorderRadius.circular(25),
         ),
         child: Center(
@@ -131,8 +135,9 @@ class ButtonWidget extends StatelessWidget {
             text!,
             textAlign: TextAlign.center,
             style: TextStyle(
+              fontWeight: fontWeight,
               color: textColor ?? AppColors.white,
-              fontSize: ResponsiveSize.fontSize(fontSize ?? 0.28),
+              fontSize: fontSize,
             ),
           ),
         ),

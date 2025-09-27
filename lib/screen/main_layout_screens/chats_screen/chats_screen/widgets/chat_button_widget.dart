@@ -8,7 +8,7 @@ class ChatButtonWidget extends StatelessWidget {
     super.key,
     required this.label,
     required this.isActive,
-    required this.ontap
+    required this.ontap,
   });
 
   final bool isActive;
@@ -20,10 +20,11 @@ class ChatButtonWidget extends StatelessWidget {
       text: label,
       ontap: ontap,
       margin: EdgeInsets.all(0),
-      borderColor: AppColors.red_900,
-      backgroundColor: isActive ? AppColors.red_900 : AppColors.white,
+      fontSize: 12,
+      borderColor: AppColors.orange,
+      backgroundColor: isActive ? AppColors.orange : AppColors.white,
       textColor: !isActive ? AppColors.grey_700 : AppColors.white,
-      height: 4,
+      height: 28,
       width: 30,
     );
   }

@@ -30,4 +30,5 @@ class AppIcons {
   static const blockedUserIcon = "assets/icons/blocked_user_icon.png";
   static const deleteAccountIcon = "assets/icons/delete_icon.png";
   static const logoutIcon = "assets/icons/logout_icon.png";
+  static const searchIcon = "assets/icons/search_icon.png";
 }

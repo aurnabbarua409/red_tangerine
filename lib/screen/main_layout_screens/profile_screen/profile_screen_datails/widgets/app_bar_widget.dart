@@ -10,10 +10,10 @@ class AppBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 64,
+      height: 63,
       decoration: BoxDecoration(
-        border: Border.all(color: AppColors.red_900),
-        color: AppColors.red_900,
+        border: Border.all(color: AppColors.orange),
+        color: AppColors.orange,
       ),
 
       child: Row(
@@ -28,7 +28,7 @@ class AppBarWidget extends StatelessWidget {
           TextWidget.white(
             textAlign: TextAlign.center,
             text: title,
-            fontSize: 0.28,
+            fontSize: 18,
             fontWeight: FontWeight.w600,
           ),
           const Spacer(),

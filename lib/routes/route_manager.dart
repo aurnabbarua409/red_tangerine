@@ -1,12 +1,14 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:red_tangerine/routes/app_routes.dart';
 import 'package:red_tangerine/screen/auth_screen/auth_home_page_screen/auth_homepage.dart';
 import 'package:red_tangerine/screen/auth_screen/create_new_password_screen/create_new_password_screen.dart';
 import 'package:red_tangerine/screen/auth_screen/forgot_password_screen/forgot_password_screen.dart';
-import 'package:red_tangerine/screen/auth_screen/signin_screen/signin_screen.dart';
+import 'package:red_tangerine/screen/auth_screen/login_screen/login_screen.dart';
 import 'package:red_tangerine/screen/auth_screen/signup_screen/signup_screen.dart';
 import 'package:red_tangerine/screen/auth_screen/verification_screen/verification_screen.dart';
 import 'package:red_tangerine/screen/main_layout_screens/bottom_nav_bar_screen/bottom_nav_bar_screen.dart';
+import 'package:red_tangerine/screen/main_layout_screens/bottom_nav_bar_screen/botton_navbar.dart';
 import 'package:red_tangerine/screen/main_layout_screens/chats_screen/chat_message_screen/chat_message_screen.dart';
 import 'package:red_tangerine/screen/main_layout_screens/notification_screen/notification_screen.dart';
 import 'package:red_tangerine/screen/main_layout_screens/profile_screen/profile_screen_datails/edit_profile_screen/edit_profile_screen.dart';
@@ -22,111 +24,148 @@ import 'package:red_tangerine/screen/main_layout_screens/setting_screen/setting_
 import 'package:red_tangerine/screen/preference_screen/add_profile_picture_screen/add_profile_picture_screen.dart';
 import 'package:red_tangerine/screen/preference_screen/child_age_screen/child_age_screen.dart';
 import 'package:red_tangerine/screen/preference_screen/child_diagnosis_screen/child_diagnosis_screen.dart';
+import 'package:red_tangerine/screen/preference_screen/child_journey_screen/child_journey_screen.dart';
 import 'package:red_tangerine/screen/preference_screen/let_other_know_about_u_screen/let_other_know_about_u_screen.dart';
+import 'package:red_tangerine/screen/preference_screen/matter_parenting_screen/matter_parenting_screen.dart';
 import 'package:red_tangerine/screen/preference_screen/please_share_your_location_screen/please_share_your_location_screen.dart';
 import 'package:red_tangerine/screen/preference_screen/preference_home_screen/preference_home_screen.dart';
+import 'package:red_tangerine/screen/preference_screen/support_difference_screen/support_difference_screen.dart';
 import 'package:red_tangerine/screen/preference_screen/therapy_support_child_receive/therapy_support_child_receive.dart';
+import 'package:red_tangerine/screen/preference_screen/turn_on_notification_screen/turn_on_notification_screen.dart';
 import 'package:red_tangerine/screen/preference_screen/what_enjoy_as_parent/what_enjoy_as_parent.dart';
+import 'package:red_tangerine/screen/preference_screen/what_enjoy_screen/what_enjoy_screen.dart';
 import 'package:red_tangerine/screen/preference_screen/where_parenting_journey_screen/where_parenting_journey_screen.dart';
 import 'package:red_tangerine/screen/preference_screen/your_privacy_matters_screen/your_privacy_matters_screen.dart';
 import 'package:red_tangerine/screen/splash_screen/splash_screen.dart';
+import 'package:red_tangerine/widgets/custom_transition_widget.dart';
 
 class RouteManager {
   static const initial = AppRoutes.splashScreen;
+
+  static GetPage customPage({
+    required String name,
+    required Widget page,
+    Transition? transition,
+  }) {
+    return GetPage(
+      name: name,
+      page: () => page,
+      customTransition: transition == null ? CustomTransitionWidget() : null,
+      transition: transition,
+      transitionDuration: Duration(milliseconds: 700),
+    );
+  }
+
   static List<GetPage> getPages() {
     return [
       GetPage(name: AppRoutes.splashScreen, page: () => SplashScreen()),
       GetPage(name: AppRoutes.authHomePageScreen, page: () => AuthHomepage()),
-      GetPage(name: AppRoutes.signinScreen, page: () => SigninScreen()),
-      GetPage(name: AppRoutes.signupScreen, page: () => SignupScreen()),
-      GetPage(
+      customPage(name: AppRoutes.loginScreen, page: LoginScreen()),
+      customPage(
+        name: AppRoutes.signupScreen,
+        page: SignupScreen(),
+
+        // transition: Transition.size,
+      ),
+      customPage(
         name: AppRoutes.verificationScreen,
-        page: () => VerificationScreen(),
+        page: VerificationScreen(),
       ),
-      GetPage(
+      customPage(
         name: AppRoutes.forgotPasswordScreen,
-        page: () => ForgotPasswordScreen(),
+        page: ForgotPasswordScreen(),
       ),
-      GetPage(
+      customPage(
         name: AppRoutes.createNewPasswordScreen,
-        page: () => CreateNewPasswordScreen(),
+        page: CreateNewPasswordScreen(),
       ),
-      GetPage(
+      customPage(
         name: AppRoutes.preferenceHomeScreen,
-        page: () => PreferenceHomeScreen(),
+        page: PreferenceHomeScreen(),
       ),
-      GetPage(name: AppRoutes.childAgeScreen, page: () => ChildAgeScreen()),
-      GetPage(
+      customPage(name: AppRoutes.childAgeScreen, page: ChildAgeScreen()),
+      customPage(
         name: AppRoutes.childDiagnosisScreen,
-        page: () => ChildDiagnosisScreen(),
+        page: ChildDiagnosisScreen(),
       ),
-      GetPage(
+      customPage(
         name: AppRoutes.therapySupportChildReceiveScreen,
-        page: () => TherapySupportChildReceive(),
+        page: TherapySupportChildReceive(),
       ),
-      GetPage(
+      customPage(
         name: AppRoutes.whereParentingJourneyScreen,
-        page: () => WhereParentingJourneyScreen(),
+        page: WhereParentingJourneyScreen(),
       ),
-      GetPage(
+      customPage(
         name: AppRoutes.whatEnjoyAsParentScreen,
-        page: () => WhatEnjoyAsParent(),
+        page: WhatEnjoyAsParent(),
       ),
-      GetPage(
+      customPage(
         name: AppRoutes.addProfilePictureScreen,
-        page: () => AddProfilePictureScreen(),
+        page: AddProfilePictureScreen(),
       ),
-      GetPage(
+      customPage(
         name: AppRoutes.letOtherKnowAboutUScreen,
-        page: () => LetOtherKnowAboutUScreen(),
+        page: LetOtherKnowAboutUScreen(),
       ),
-      GetPage(
+      customPage(
         name: AppRoutes.pleaseShareYourLocationScreen,
-        page: () => PleaseShareYourLocationScreen(),
+        page: PleaseShareYourLocationScreen(),
       ),
-      GetPage(
+      customPage(
         name: AppRoutes.yourPrivacyMattersScreen,
-        page: () => YourPrivacyMattersScreen(),
+        page: YourPrivacyMattersScreen(),
       ),
-      GetPage(
+      customPage(
         name: AppRoutes.bottomNavBarScreen,
-        page: () => BottomNavBarScreen(),
+        page: BottomNavbar(),
+        transition: Transition.size,
       ),
-      GetPage(
-        name: AppRoutes.editProfileScreen,
-        page: () => EditProfileScreen(),
-      ),
-      GetPage(
-        name: AppRoutes.chatMessageScreen,
-        page: () => ChatMessageScreen(),
-      ),
-      GetPage(name: AppRoutes.settingScreen, page: () => SettingScreen()),
-      GetPage(
+      customPage(name: AppRoutes.editProfileScreen, page: EditProfileScreen()),
+      customPage(name: AppRoutes.chatMessageScreen, page: ChatMessageScreen()),
+      customPage(name: AppRoutes.settingScreen, page: SettingScreen()),
+      customPage(
         name: AppRoutes.changePasswordScreen,
-        page: () => ChangePasswordScreen(),
+        page: ChangePasswordScreen(),
       ),
-      GetPage(name: AppRoutes.aboutUsScreen, page: () => AboutUsScreen()),
-      GetPage(
+      customPage(name: AppRoutes.aboutUsScreen, page: AboutUsScreen()),
+      customPage(
         name: AppRoutes.privacyPolicyScreen,
-        page: () => PrivacyPolicyScreen(),
+        page: PrivacyPolicyScreen(),
       ),
-      GetPage(
+      customPage(
         name: AppRoutes.termConditionScreen,
-        page: () => TermAndConditionScreen(),
+        page: TermAndConditionScreen(),
       ),
-      GetPage(name: AppRoutes.faqScreen, page: () => FaqScreen()),
-      GetPage(name: AppRoutes.reportScreen, page: () => ReportScreen()),
-      GetPage(
-        name: AppRoutes.blockedUserScreen,
-        page: () => BlockedUserScreen(),
-      ),
-      GetPage(
+      customPage(name: AppRoutes.faqScreen, page: FaqScreen()),
+      customPage(name: AppRoutes.reportScreen, page: ReportScreen()),
+      customPage(name: AppRoutes.blockedUserScreen, page: BlockedUserScreen()),
+      customPage(
         name: AppRoutes.deleteAccountScreen,
-        page: () => DeleteAccountScreen(),
+        page: DeleteAccountScreen(),
       ),
-      GetPage(
+      customPage(
         name: AppRoutes.notificationScreen,
-        page: () => NotificationScreen(),
+        page: NotificationScreen(),
+
+        // customTransition: CustomTransitionWidget(),
+      ),
+      customPage(
+        name: AppRoutes.childJourneyScreen,
+        page: ChildJourneyScreen(),
+      ),
+      customPage(
+        name: AppRoutes.supportDifferenceScreen,
+        page: SupportDifferenceScreen(),
+      ),
+      customPage(name: AppRoutes.whatEnjoyScreen, page: WhatEnjoyScreen()),
+      customPage(
+        name: AppRoutes.matterParentingScreen,
+        page: MatterParentingScreen(),
+      ),
+      customPage(
+        name: AppRoutes.turnOnNotificationScreen,
+        page: TurnOnNotificationScreen(),
       ),
     ];
   }

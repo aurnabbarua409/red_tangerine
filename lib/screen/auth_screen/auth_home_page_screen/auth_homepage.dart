@@ -52,32 +52,39 @@ class AuthHomepage extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(
-                      bottom: 10,
-                      left: 20,
-                      right: 20,
+                      bottom: 30,
+                      left: 50,
+                      right: 50,
                     ),
                     child: TextWidget.white(
-                      text: 'Parents who understand, connections that last',
-                      fontSize: 0.3,
+                      text: AppStrings.authHomePageTitle,
+                      fontSize: 24,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
 
                   ButtonWidget(
-                    text: 'Create Account',
+                    text: AppStrings.createAccount,
                     margin: EdgeInsets.symmetric(horizontal: 20),
                     ontap: () {
-                      Get.toNamed(AppRoutes.signupScreen);
+                      Get.offAllNamed(AppRoutes.signupScreen);
                     },
                   ),
                   SpaceWidget(height: 20),
-                  RichtextWidget(
-                    title: AppStrings.alreadyHavaAccount,
-                    buttonTitle: AppStrings.signin,
+                  ButtonWidget(
+                    text: AppStrings.login,
+                    margin: EdgeInsets.symmetric(horizontal: 20),
                     ontap: () {
-                      Get.toNamed(AppRoutes.signinScreen);
+                      Get.offAllNamed(AppRoutes.loginScreen);
                     },
                   ),
+                  // RichtextWidget(
+                  //   title: AppStrings.alreadyHavaAccount,
+                  //   buttonTitle: AppStrings.signin,
+                  //   ontap: () {
+                  //     Get.toNamed(AppRoutes.signinScreen);
+                  //   },
+                  // ),
                   SpaceWidget(height: 50),
                 ],
               ),

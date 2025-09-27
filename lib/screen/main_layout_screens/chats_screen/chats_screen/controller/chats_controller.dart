@@ -6,11 +6,13 @@ import 'package:red_tangerine/model/chat_model.dart';
 class ChatsController extends GetxController {
   final searchController = TextEditingController();
   final RxList<ChatModel> chats = <ChatModel>[].obs;
-  final RxBool isActive = false.obs;
+  final RxBool isActive = true.obs;
 
-  void setIsActive(){
+  void setIsActive() {
     isActive.value = !isActive.value;
+    update();
   }
+
   @override
   void onInit() {
     // TODO: implement onInit
@@ -39,6 +41,8 @@ class ChatsController extends GetxController {
       ),
     ];
   }
+
+  void onSearch(){}
 
   @override
   void onClose() {

@@ -83,8 +83,9 @@ class _ChildDiagnosisScreenState extends State<ChildDiagnosisScreen> {
                 ),
               ),
               TextWidget.black(
-                text: AppStrings.weAreStillWaitingOnDiagnosis,
-                fontSize: 0.25,
+                text: AppStrings.weAreStillWaitingOnTherapy,
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
               ),
             ],
           ),

@@ -6,6 +6,7 @@ import 'package:red_tangerine/screen/main_layout_screens/profile_screen/profile_
 import 'package:red_tangerine/screen/main_layout_screens/profile_screen/profile_screen_datails/widgets/app_bar_widget.dart';
 import 'package:red_tangerine/utils/app_validator.dart';
 import 'package:red_tangerine/widgets/app_background_widget.dart';
+import 'package:red_tangerine/widgets/calender_icon_widget.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
 import 'package:red_tangerine/widgets/text_widget.dart';
 import 'package:red_tangerine/widgets/textformfield_widget.dart';
@@ -35,9 +36,9 @@ class EditProfileScreen extends StatelessWidget {
                       TextWidget.black(
                         text: AppStrings.profileInformation,
                         fontWeight: FontWeight.w600,
-                        fontSize: 0.28,
+                        fontSize: 18,
                       ),
-                      SpaceWidget(height: 20),
+                      SpaceWidget(height: 30),
                       TextformfieldWidget(
                         controller: controller.firstNameController,
                         validator: (value) => AppValidator.defaultvalidator(
@@ -46,7 +47,7 @@ class EditProfileScreen extends StatelessWidget {
                         ),
                         label: AppStrings.firstName,
                       ),
-                      SpaceWidget(height: 10),
+                      SpaceWidget(height: 20),
                       TextformfieldWidget(
                         controller: controller.lastnameController,
                         validator: (value) => AppValidator.defaultvalidator(
@@ -55,7 +56,7 @@ class EditProfileScreen extends StatelessWidget {
                         ),
                         label: AppStrings.lastName,
                       ),
-                      SpaceWidget(height: 10),
+                      SpaceWidget(height: 20),
                       TextformfieldWidget(
                         controller: controller.dateOfBirthController,
                         validator: (value) => AppValidator.defaultvalidator(
@@ -63,8 +64,12 @@ class EditProfileScreen extends StatelessWidget {
                           message: AppStrings.dateofBirth,
                         ),
                         label: AppStrings.dateofBirth,
+                        suffixIcon: CalenderIconWidget(
+                          onPressed: () =>
+                              controller.onClickedCalender(context),
+                        ),
                       ),
-                      SpaceWidget(height: 10),
+                      SpaceWidget(height: 20),
                       TextformfieldWidget(
                         controller: controller.emailController,
                         validator: (value) => AppValidator.defaultvalidator(
@@ -79,7 +84,11 @@ class EditProfileScreen extends StatelessWidget {
               ),
             ),
             Spacer(),
-            FooterButtonWidget(onTap: controller.onUpdate),
+            FooterButtonWidget(
+              onTap: controller.onUpdate,
+              isLightRedBackground: true,
+              height: 50,
+            ),
           ],
         ),
       ),

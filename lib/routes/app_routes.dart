@@ -1,7 +1,7 @@
 class AppRoutes {
   static const splashScreen = '/splash_screen';
   static const authHomePageScreen = '/auth_home_page';
-  static const signinScreen = '/signin_screen';
+  static const loginScreen = '/login_screen';
   static const signupScreen = '/signup_screen';
   static const verificationScreen = '/verification_screen';
   static const forgotPasswordScreen = '/forgotPassword_screen';
@@ -32,4 +32,9 @@ class AppRoutes {
   static const blockedUserScreen = "/blocked_user_screen";
   static const deleteAccountScreen = "/delete_account_screen";
   static const notificationScreen = "/notification_screen";
+  static const childJourneyScreen = "/child_journey_screen";
+  static const supportDifferenceScreen = "/support_difference_screen";
+  static const whatEnjoyScreen = "/what_enjoy_screen";
+  static const matterParentingScreen = "/matter_parenting_screen";
+  static const turnOnNotificationScreen = "/turn_on_notification_screen";
 }

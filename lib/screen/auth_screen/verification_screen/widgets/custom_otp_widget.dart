@@ -13,33 +13,25 @@ class CustomOtpWidget extends StatelessWidget {
       borderWidth: 2,
       borderColor: AppColors.grey_900,
       focusedBorderColor: AppColors.grey_900,
-      showFieldAsBox: true,
       fieldWidth: ResponsiveSize.width(12),
       fieldHeight: ResponsiveSize.width(12),
-      borderRadius: BorderRadius.circular(100),
       decoration: InputDecoration(
         counterText: "",
         fillColor: Colors.white,
         focusColor: AppColors.grey_900,
-
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30),
+        border: UnderlineInputBorder(
           borderSide: BorderSide(color: AppColors.grey_900, width: 2),
         ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30),
+        enabledBorder: UnderlineInputBorder(
           borderSide: BorderSide(color: AppColors.grey_900, width: 2),
         ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30),
+        focusedBorder: UnderlineInputBorder(
           borderSide: BorderSide(color: AppColors.grey_900, width: 2),
         ),
-        focusedErrorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30),
+        focusedErrorBorder: UnderlineInputBorder(
           borderSide: BorderSide(color: AppColors.grey_900, width: 2),
         ),
-        errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30),
+        errorBorder: UnderlineInputBorder(
           borderSide: BorderSide(color: AppColors.grey_900, width: 2),
         ),
       ),

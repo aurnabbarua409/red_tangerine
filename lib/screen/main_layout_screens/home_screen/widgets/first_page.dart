@@ -35,7 +35,7 @@ class FirstPage extends StatelessWidget {
                 children: [
                   TextWidget.white(
                     text: 'Samuel, 32',
-                    fontSize: 0.3,
+                    fontSize: 24,
                     fontWeight: FontWeight.w600,
                   ),
                   Row(
@@ -43,8 +43,9 @@ class FirstPage extends StatelessWidget {
                       IconWidget(icon: AppIcons.mapPinIcon),
                       TextWidget(
                         text: '2 Miles away',
-                        fontSize: 0.25,
+                        fontSize: 14,
                         fontColor: AppColors.grey_100,
+                        fontWeight: FontWeight.w400,
                       ),
                     ],
                   ),

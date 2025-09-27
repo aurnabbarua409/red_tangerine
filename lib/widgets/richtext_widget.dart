@@ -20,16 +20,20 @@ class RichtextWidget extends StatelessWidget {
       text: TextSpan(
         children: [
           TextSpan(
-            text: title,            
-            style: TextStyle(color: fontColor ?? AppColors.white),
+            text: title,
+            style: TextStyle(
+              fontSize: 12,
+              color: fontColor ?? AppColors.white_900,
+              fontWeight: FontWeight.w400,
+            ),
           ),
           TextSpan(text: ' '),
           TextSpan(
             text: buttonTitle,
             style: TextStyle(
               decoration: TextDecoration.underline,
-              fontSize: 16,
-              color: fontColor ?? AppColors.white,
+              fontSize: 12,
+              color: fontColor ?? AppColors.white_900,
             ),
             recognizer: TapGestureRecognizer()..onTap = ontap,
           ),

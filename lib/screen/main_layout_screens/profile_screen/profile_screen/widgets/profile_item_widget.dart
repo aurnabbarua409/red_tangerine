@@ -19,15 +19,22 @@ class ProfileItemWidget extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           Row(
             children: [
-              IconWidget.custom(icon: icon, height: 4, width: 4,),
+              IconWidget.custom(
+                icon: icon,
+                height: 4,
+                width: 4,
+                color: AppColors.orange,
+              ),
               SpaceWidget(width: 10),
               TextWidget(
                 text: text,
                 fontColor: AppColors.grey_700,
-                fontSize: 0.27,
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
               ),
               Spacer(),
               Icon(Icons.arrow_forward_ios, size: 15),

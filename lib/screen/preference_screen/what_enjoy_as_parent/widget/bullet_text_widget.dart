@@ -15,7 +15,8 @@ class BulletTextWidget extends StatelessWidget {
         Expanded(
           child: TextWidget.black(
             text: text,
-            fontSize: 0.28,
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
             textAlign: TextAlign.left,
           ),
         ),

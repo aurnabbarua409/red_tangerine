@@ -14,6 +14,10 @@ class VerificationController extends GetxController {
   }
 
   void onVerify() {
-    Get.toNamed(AppRoutes.preferenceHomeScreen);
+    Get.offAllNamed(AppRoutes.preferenceHomeScreen);
+  }
+
+  void onUpdateEmail() {
+    Get.offAllNamed(AppRoutes.signupScreen);
   }
 }

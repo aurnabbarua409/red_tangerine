@@ -35,92 +35,100 @@ class _MainLayoutScreenState extends State<BottomNavBarScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      extendBody: true,
-      bottomNavigationBar: CircleNavBar(
-        activeIcons: [
-          IconWidget(icon: AppIcons.homeIcon),
-          IconWidget(icon: AppIcons.sproutIcon),
-          IconWidget(icon: AppIcons.messageSqaureIcon),
-          IconWidget(icon: AppIcons.profileIcon),
-        ],
-        inactiveIcons: [
-          Column(
-            children: [
-              IconWidget(icon: AppIcons.homeIconWhite),
-              TextWidget(
-                text: AppStrings.home,
-                fontColor: AppColors.white,
-                fontSize: 0.22,
-              ),
-            ],
+    return SafeArea(
+      child: Scaffold(
+        extendBody: true,
+        bottomNavigationBar: CircleNavBar(
+          activeIcons: [
+            IconWidget(icon: AppIcons.homeIcon),
+            IconWidget(icon: AppIcons.sproutIcon),
+            IconWidget(icon: AppIcons.messageSqaureIcon),
+            IconWidget(icon: AppIcons.profileIcon),
+          ],
+          inactiveIcons: [
+            Column(
+              children: [
+                IconWidget(icon: AppIcons.homeIconWhite),
+                TextWidget(
+                  text: AppStrings.home,
+                  fontColor: AppColors.white,
+                  fontSize: 10.51,
+                ),
+              ],
+            ),
+            Column(
+              children: [
+                IconWidget(icon: AppIcons.sproutIcon),
+                TextWidget(
+                  text: AppStrings.matches,
+                  fontColor: AppColors.white,
+                  fontSize: 10.51,
+                ),
+              ],
+            ),
+            Column(
+              children: [
+                IconWidget(icon: AppIcons.messageSqaureIcon),
+                TextWidget(
+                  text: AppStrings.chats,
+                  fontColor: AppColors.white,
+                  fontSize: 10.51,
+                ),
+              ],
+            ),
+            Column(
+              children: [
+                IconWidget(icon: AppIcons.profileIcon),
+                TextWidget(
+                  text: AppStrings.profile,
+                  fontColor: AppColors.white,
+                  fontSize: 10.51,
+                ),
+              ],
+            ),
+          ],
+
+          circleGradient: LinearGradient(
+            colors: [AppColors.grey_900, AppColors.grey_900],
           ),
-          Column(
-            children: [
-              IconWidget(icon: AppIcons.sproutIcon),
-              TextWidget(
-                text: AppStrings.matches,
-                fontColor: AppColors.white,
-                fontSize: 0.22,
-              ),
-            ],
-          ),
-          Column(
-            children: [
-              IconWidget(icon: AppIcons.messageSqaureIcon),
-              TextWidget(
-                text: AppStrings.chats,
-                fontColor: AppColors.white,
-                fontSize: 0.22,
-              ),
-            ],
-          ),
-          Column(
-            children: [
-              IconWidget(icon: AppIcons.profileIcon),
-              TextWidget(
-                text: AppStrings.profile,
-                fontColor: AppColors.white,
-                fontSize: 0.22,
-              ),
-            ],
-          ),
-        ],
-        circleGradient: LinearGradient(
-          colors: [AppColors.grey_900, AppColors.grey_900],
+          color: AppColors.orange,
+          // gradient: LinearGradient(
+          //   colors: [AppColors.mutedPurplishPink, AppColors.lightCoralPink],
+          // ),
+          height: 64,
+          circleWidth: 60,
+          activeIndex: tabIndex,
+          onTap: (index) {
+            tabIndex = index;
+            pageController.animateToPage(
+              tabIndex,
+              duration: Duration(milliseconds: 250),
+              curve: Curves.fastOutSlowIn,
+            );
+            // pageController.jumpToPage(tabIndex);
+          },
+          // padding: const EdgeInsets.only(left: 16, right: 16, bottom: 20),
+          // cornerRadius: const BorderRadius.only(
+          //   topLeft: Radius.circular(8),
+          //   topRight: Radius.circular(8),
+          //   // bottomRight: Radius.circular(24),
+          //   // bottomLeft: Radius.circular(24),
+          // ),
+          shadowColor: Colors.deepPurple,
+          elevation: 10,
         ),
-        color: Colors.white,
-        gradient: LinearGradient(
-          colors: [AppColors.mutedPurplishPink, AppColors.lightCoralPink],
+        body: PageView(
+          controller: pageController,
+          onPageChanged: (v) {
+            tabIndex = v;
+          },
+          children: [
+            HomeScreen(),
+            MatchesScreen(),
+            ChatsScreen(),
+            ProfileScreen(),
+          ],
         ),
-        height: 64,
-        circleWidth: 60,
-        activeIndex: tabIndex,
-        onTap: (index) {
-          tabIndex = index;
-          pageController.jumpToPage(tabIndex);
-        },
-        // padding: const EdgeInsets.only(left: 16, right: 16, bottom: 20),
-        cornerRadius: const BorderRadius.only(
-          topLeft: Radius.circular(8),
-          topRight: Radius.circular(8),
-          bottomRight: Radius.circular(24),
-          bottomLeft: Radius.circular(24),
-        ),
-        shadowColor: Colors.deepPurple,
-        elevation: 10,
-      ),
-      body: PageView(
-        controller: pageController,
-        onPageChanged: (v) {
-          tabIndex = v;
-        },
-        children: [
-          HomeScreen(),
-          MatchesScreen(),
-          ChatsScreen(),
-          ProfileScreen(),
-        ],
       ),
     );
   }

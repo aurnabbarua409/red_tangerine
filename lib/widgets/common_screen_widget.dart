@@ -15,7 +15,7 @@ class CommonScreenWidget extends StatelessWidget {
     super.key,
     required this.body,
     this.footer,
-    this.showLeading = true,
+    this.showLeading = false,
     this.showSkip = false,
     this.onTapShowSkip,
     this.footerButtonText,
@@ -50,108 +50,99 @@ class CommonScreenWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (true) {
-      return Scaffold(
-        body: Stack(
-          children: [
-            Positioned.fill(
-              child: Image.asset(AppImages.backgroundImage, fit: BoxFit.cover),
-            ),
-
-            SafeArea(
-              child: LayoutBuilder(
-                builder: (context, constraints) {
-                  return SingleChildScrollView(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: fromUpdate ? 0 : 20,
-                    ),
-                    child: ConstrainedBox(
-                      constraints: BoxConstraints(
-                        minHeight: constraints.maxHeight,
-                      ),
-                      child: IntrinsicHeight(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            if (showLeading && !fromUpdate)
-                              Align(
-                                alignment: Alignment.centerLeft,
-                                child: ButtonWidget.icon(
-                                  icon: AppIcons.arrowLeft,
-                                  height: 24,
-                                  width: 24,
-                                  ontap: () => Get.back(),
-                                ),
-                              ),
-                            if (fromUpdate) AppBarWidget(title: appbarTitle!),
-                            Expanded(
-                              child: Center(
-                                child: Padding(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: fromUpdate ? 20 : 0,
-                                  ),
-                                  child: Form(
-                                    key: formKey,
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        if (title != null)
-                                          TextWidget.header(text: title!),
-                                        SpaceWidget(height: 10),
-                                        if (subtitle != null)
-                                          TextWidget.blackLight(
-                                            text: subtitle!,
-                                          ),
-                                        SpaceWidget(height: 20),
-                                        ...body,
-                                      ],
+    return Scaffold(
+      body: SafeArea(
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            return SingleChildScrollView(
+              padding: EdgeInsets.symmetric(horizontal: fromUpdate ? 0 : 20),
+              child: ConstrainedBox(
+                constraints: BoxConstraints(minHeight: constraints.maxHeight),
+                child: IntrinsicHeight(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      if (showLeading && !fromUpdate)
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: ButtonWidget.icon(
+                            icon: AppIcons.arrowLeft,
+                            height: 24,
+                            width: 24,
+                            ontap: () => Get.back(),
+                          ),
+                        ),
+                      if (fromUpdate) AppBarWidget(title: appbarTitle!),
+                      Expanded(
+                        child: Center(
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: fromUpdate ? 20 : 0,
+                            ),
+                            child: Form(
+                              key: formKey,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  if (title != null)
+                                    TextWidget.header(text: title!),
+                                  SpaceWidget(height: 10),
+                                  if (subtitle != null)
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 40,
+                                      ),
+                                      child: TextWidget.blackLight(
+                                        text: subtitle!,
+                                      ),
                                     ),
-                                  ),
-                                ),
+                                  SpaceWidget(height: 20),
+                                  ...body,
+                                ],
                               ),
                             ),
-
-                            if (footerTextTitle != null &&
-                                footerTextSubtitle != null)
-                              Center(
-                                child: RichtextWidget(
-                                  title: footerTextTitle!,
-                                  buttonTitle: footerTextSubtitle!,
-                                  fontColor: AppColors.grey_900,
-                                  ontap: onTapSign!,
-                                ),
-                              ),
-                            if (onTap != null && !fromUpdate)
-                              ButtonWidget(
-                                text: footerButtonText ?? AppStrings.next,
-                                ontap: onTap!,
-                              ),
-                            if (fromUpdate)
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 20,
-                                ),
-                                child: ButtonWidget.normal(
-                                  margin: EdgeInsets.all(0),
-                                  textColor: AppColors.white,
-                                  backgroundColor: AppColors.red_900,
-                                  borderColor: AppColors.red_900,
-                                  text: AppStrings.update,
-                                  ontap: onUpdate!,
-                                ),
-                              ),
-                          ],
+                          ),
                         ),
                       ),
-                    ),
-                  );
-                },
+
+                      if (footerTextTitle != null && footerTextSubtitle != null)
+                        Center(
+                          child: RichtextWidget(
+                            title: footerTextTitle!,
+                            buttonTitle: footerTextSubtitle!,
+                            fontColor: AppColors.grey_900,
+
+                            ontap: onTapSign!,
+                          ),
+                        ),
+                      if (onTap != null && !fromUpdate)
+                        ButtonWidget(
+                          text: footerButtonText ?? AppStrings.continue_,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          ontap: onTap!,
+                        ),
+                      if (fromUpdate)
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          child: ButtonWidget.normal(
+                            margin: EdgeInsets.all(0),
+                            textColor: AppColors.white,
+                            backgroundColor: AppColors.orange,
+                            borderColor: AppColors.orange,
+                            text: AppStrings.update,
+                            height: 50,
+                            ontap: onUpdate!,
+                          ),
+                        ),
+                    ],
+                  ),
+                ),
               ),
-            ),
-          ],
+            );
+          },
         ),
-      );
-    }
+      ),
+    );
   }
 }

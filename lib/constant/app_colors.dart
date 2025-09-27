@@ -10,7 +10,7 @@ class AppColors {
   static const Color white_800 = Color(0xFF828282);
   static const Color white_500 = Color(0xFFEDEDED);
   static const Color red = Colors.red;
-  static const Color red_900 = Color(0xFFCD8085);
+  // static const Color orange = Color(0xFFCD8085);
   static const Color red_800 = Color(0xFFD8333E);
   static const Color red_700 = Color(0xFFF24933);
   static const Color transparent = Color.fromARGB(0, 255, 255, 255);
@@ -24,4 +24,7 @@ class AppColors {
   static const Color brown_300 = Color(0xFFF2D9CC);
   static const Color black_200 = Color(0xFF8A8A8A);
   static const Color green_900 = Color(0xFF10C732);
+  static const Color orange = Color(0xFFE89D6B);
+  static const Color claySolid = Color(0xFFC4756E);
+  static const Color orangeLight = Color(0xFFFFDAB2);
 }

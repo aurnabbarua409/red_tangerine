@@ -42,7 +42,7 @@ class ThirdPage extends StatelessWidget {
               children: [
                 TextWidget.white(
                   text: 'Samuel Johnson, 32',
-                  fontSize: 0.3,
+                  fontSize: 28,
                   fontWeight: FontWeight.w600,
                 ),
                 Row(
@@ -50,20 +50,21 @@ class ThirdPage extends StatelessWidget {
                     IconWidget(icon: AppIcons.mapPinIcon),
                     TextWidget(
                       text: '2 Miles away',
-                      fontSize: 0.25,
+                      fontSize: 14,
                       fontColor: AppColors.grey_100,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w400,
                     ),
                   ],
                 ),
                 TextWidget.white(text: "Child's Age: 12"),
                 SpaceWidget(height: 20),
                 TextWidget.white(
-                  text: "Values & Lifestyle",
+                  text: "Parenting Values",
                   fontWeight: FontWeight.w600,
-                  fontSize: 0.26,
+                  fontSize: 14,
                 ),
-                Row(
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
                       padding: EdgeInsets.symmetric(
@@ -71,22 +72,24 @@ class ThirdPage extends StatelessWidget {
                         vertical: 5,
                       ),
                       decoration: BoxDecoration(
-                        color: AppColors.white,
-                        borderRadius: BorderRadius.circular(25),
+                        border: Border.all(color: AppColors.white),
+                        // color: AppColors.white,
+                        borderRadius: BorderRadius.circular(10),
                       ),
-                      child: TextWidget.blackLight(text: "Reading books 📚"),
+                      child: TextWidget.white(text: "🎶 Music"),
                     ),
-                    SpaceWidget(width: 10),
+                    SpaceWidget(height: 10),
                     Container(
                       padding: EdgeInsets.symmetric(
                         horizontal: 10,
                         vertical: 5,
                       ),
                       decoration: BoxDecoration(
-                        color: AppColors.white,
-                        borderRadius: BorderRadius.circular(25),
+                        border: Border.all(color: AppColors.white),
+                        // color: AppColors.white,
+                        borderRadius: BorderRadius.circular(10),
                       ),
-                      child: TextWidget.blackLight(text: "Nature walks 🌲"),
+                      child: TextWidget.white(text: "🧘 Wellness / self-care"),
                     ),
                   ],
                 ),
@@ -94,7 +97,7 @@ class ThirdPage extends StatelessWidget {
                 TextWidget.white(
                   text: "Photos",
                   fontWeight: FontWeight.w600,
-                  fontSize: 0.26,
+                  fontSize: 14,
                 ),
                 Expanded(
                   child: GridView.builder(

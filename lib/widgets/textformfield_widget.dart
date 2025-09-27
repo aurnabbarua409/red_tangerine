@@ -7,7 +7,7 @@ class TextformfieldWidget extends StatelessWidget {
     super.key,
     required this.controller,
     required this.validator,
-    required this.label,
+    this.label,
     this.maxlines = 1,
     this.borderRadius = 25,
     this.suffixIcon,
@@ -18,7 +18,7 @@ class TextformfieldWidget extends StatelessWidget {
   });
   final TextEditingController controller;
   final String? Function(String? value) validator;
-  final String label;
+  final String? label;
   final int maxlines;
   final double borderRadius;
   final Widget? suffixIcon;
@@ -30,8 +30,9 @@ class TextformfieldWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
       children: [
-        TextWidget.black(text: label),
+        if (label != null) TextWidget.black(text: label!),
         TextFormField(
           controller: controller,
           maxLines: maxlines,
@@ -43,20 +44,16 @@ class TextformfieldWidget extends StatelessWidget {
             contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
             hintText: hintText,
             suffixIcon: suffixIcon,
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(borderRadius),
+            enabledBorder: UnderlineInputBorder(
               borderSide: BorderSide(color: AppColors.white_700),
             ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(borderRadius),
+            focusedBorder: UnderlineInputBorder(
               borderSide: BorderSide(color: AppColors.white_700),
             ),
-            errorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(borderRadius),
+            errorBorder: UnderlineInputBorder(
               borderSide: BorderSide(color: AppColors.white_700),
             ),
-            focusedErrorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(borderRadius),
+            focusedErrorBorder: UnderlineInputBorder(
               borderSide: BorderSide(color: AppColors.white_700),
             ),
           ),

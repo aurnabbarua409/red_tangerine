@@ -18,93 +18,99 @@ class SettingScreen extends StatelessWidget {
       body: Column(
         children: [
           AppBarWidget(title: AppStrings.settings),
-          Padding(
-            padding: EdgeInsets.all(25),
-            child: Column(
-              children: [
-                ProfileItemWidget(
-                  icon: AppIcons.changePasswordIcon,
-                  text: AppStrings.changePassword,
-                  onTap: () {
-                    Get.toNamed(AppRoutes.changePasswordScreen);
-                  },
-                ),
+          Expanded(
+            child: Padding(
+              padding: EdgeInsets.all(25),
+              child: Column(
+                children: [
+                  ProfileItemWidget(
+                    icon: AppIcons.changePasswordIcon,
+                    text: AppStrings.changePassword,
+                    onTap: () {
+                      Get.toNamed(AppRoutes.changePasswordScreen);
+                    },
+                  ),
 
-                ProfileItemWidget(
-                  icon: AppIcons.aboutUsIcon,
-                  text: AppStrings.aboutUs,
-                  onTap: () {
-                    Get.toNamed(AppRoutes.aboutUsScreen);
-                  },
-                ),
+                  ProfileItemWidget(
+                    icon: AppIcons.aboutUsIcon,
+                    text: AppStrings.aboutUs,
+                    onTap: () {
+                      Get.toNamed(AppRoutes.aboutUsScreen);
+                    },
+                  ),
 
-                ProfileItemWidget(
-                  icon: AppIcons.privacyPolicyIcon,
-                  text: AppStrings.privacyPolicy,
-                  onTap: () {
-                    Get.toNamed(AppRoutes.privacyPolicyScreen);
-                  },
-                ),
+                  ProfileItemWidget(
+                    icon: AppIcons.privacyPolicyIcon,
+                    text: AppStrings.privacyPolicy,
+                    onTap: () {
+                      Get.toNamed(AppRoutes.privacyPolicyScreen);
+                    },
+                  ),
 
-                ProfileItemWidget(
-                  icon: AppIcons.termConditionIcon,
-                  text: AppStrings.termCondition,
-                  onTap: () {
-                    Get.toNamed(AppRoutes.termConditionScreen);
-                  },
-                ),
+                  ProfileItemWidget(
+                    icon: AppIcons.termConditionIcon,
+                    text: AppStrings.termCondition,
+                    onTap: () {
+                      Get.toNamed(AppRoutes.termConditionScreen);
+                    },
+                  ),
 
-                ProfileItemWidget(
-                  icon: AppIcons.faqIcon,
-                  text: AppStrings.faq,
-                  onTap: () {
-                    Get.toNamed(AppRoutes.faqScreen);
-                  },
-                ),
+                  ProfileItemWidget(
+                    icon: AppIcons.faqIcon,
+                    text: AppStrings.faq,
+                    onTap: () {
+                      Get.toNamed(AppRoutes.faqScreen);
+                    },
+                  ),
 
-                ProfileItemWidget(
-                  icon: AppIcons.faqIcon,
-                  text: AppStrings.report,
-                  onTap: () {
-                    Get.toNamed(AppRoutes.reportScreen);
-                  },
-                ),
+                  ProfileItemWidget(
+                    icon: AppIcons.faqIcon,
+                    text: AppStrings.report,
+                    onTap: () {
+                      Get.toNamed(AppRoutes.reportScreen);
+                    },
+                  ),
 
-                ProfileItemWidget(
-                  icon: AppIcons.blockedUserIcon,
-                  text: AppStrings.blockedUser,
-                  onTap: () {
-                    Get.toNamed(AppRoutes.blockedUserScreen);
-                  },
-                ),
+                  ProfileItemWidget(
+                    icon: AppIcons.blockedUserIcon,
+                    text: AppStrings.blockedUser,
+                    onTap: () {
+                      Get.toNamed(AppRoutes.blockedUserScreen);
+                    },
+                  ),
 
-                ProfileItemWidget(
-                  icon: AppIcons.deleteAccountIcon,
-                  text: AppStrings.deletedAccount,
-                  onTap: () {
-                    Get.toNamed(AppRoutes.deleteAccountScreen);
-                  },
-                ),
-
-                ProfileItemWidget(
-                  icon: AppIcons.logoutIcon,
-                  text: AppStrings.logout,
-                  onTap: () {
-                    showDialog(
-                      context: context,
-                      builder: (context) => CustomPopupMenuWidget(
-                        title: AppStrings.logout,
-                        subtitle: AppStrings.areYouSureToLogout,
-                        leftButtonText: AppStrings.no,
-                        rightButtonText: AppStrings.yes,
-                        rightButtonOnTap: () {
-                          Get.toNamed(AppRoutes.signinScreen);
-                        },
-                      ),
-                    );
-                  },
-                ),
-              ],
+                  ProfileItemWidget(
+                    icon: AppIcons.deleteAccountIcon,
+                    text: AppStrings.deletedAccount,
+                    onTap: () {
+                      Get.toNamed(AppRoutes.deleteAccountScreen);
+                    },
+                  ),
+                  Spacer(),
+                  ProfileItemWidget(
+                    icon: AppIcons.logoutIcon,
+                    text: AppStrings.logout,
+                    onTap: () {
+                      showDialog(
+                        animationStyle: AnimationStyle(
+                          curve: Curves.easeOutBack,
+                          duration: Duration(milliseconds: 500),
+                        ),
+                        context: context,
+                        builder: (context) => CustomPopupMenuWidget(
+                          title: AppStrings.logout,
+                          subtitle: AppStrings.areYouSureToLogout,
+                          leftButtonText: AppStrings.no,
+                          rightButtonText: AppStrings.yes,
+                          rightButtonOnTap: () {
+                            Get.toNamed(AppRoutes.loginScreen);
+                          },
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
             ),
           ),
         ],

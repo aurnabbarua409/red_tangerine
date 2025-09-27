@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/screen/main_layout_screens/profile_screen/profile_screen_datails/widgets/app_bar_widget.dart';
 import 'package:red_tangerine/screen/main_layout_screens/setting_screen/setting_screen_datails/report_screen/controller/report_controller.dart';
+import 'package:red_tangerine/screen/main_layout_screens/setting_screen/setting_screen_datails/report_screen/widget/report_field_widget.dart';
 import 'package:red_tangerine/utils/app_validator.dart';
 import 'package:red_tangerine/widgets/Button_widget.dart';
 import 'package:red_tangerine/widgets/app_background_widget.dart';
@@ -25,17 +26,23 @@ class ReportScreen extends StatelessWidget {
               init: ReportController(),
               builder: (controller) => Column(
                 children: [
-                  TextformfieldWidget(
+                  ReportFieldWidget(
                     controller: controller.reportTextController,
                     validator: (value) => AppValidator.defaultvalidator(
                       value: value,
                       message: AppStrings.pleaseEnterSomething,
                     ),
                     label: AppStrings.somethingNotRight,
-                    maxlines: 10,
+                    maxlines: 15,
                   ),
                   SpaceWidget(height: 20),
-                  ButtonWidget(text: AppStrings.sendReport, ontap: () {}),
+                  ButtonWidget(
+                    text: AppStrings.sendReport,
+                    height: 48,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                    ontap: () {},
+                  ),
                 ],
               ),
             ),

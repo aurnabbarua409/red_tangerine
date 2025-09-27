@@ -20,11 +20,17 @@ class ProfileScreen extends StatelessWidget {
       body: [
         TextWidget.black(
           text: AppStrings.myProfile,
-          fontSize: 0.3,
+          fontSize: 18,
           fontWeight: FontWeight.w600,
         ),
         SpaceWidget(height: 20),
-        Center(child: TextWidget.black(text: 'Samuel Johnson', fontSize: 0.29)),
+        Center(
+          child: TextWidget.black(
+            text: 'Samuel Johnson',
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
         SpaceWidget(height: 10),
         Center(
           child: ButtonWidget.normal(
@@ -33,10 +39,11 @@ class ProfileScreen extends StatelessWidget {
               Get.toNamed(AppRoutes.editProfileScreen);
             },
             width: 40,
-            height: 4,
-            backgroundColor: AppColors.red_900,
-            borderColor: AppColors.red_900,
+            height: 32,
+            backgroundColor: AppColors.orange,
+            borderColor: AppColors.orange,
             textColor: AppColors.white,
+            fontSize: 12,
           ),
         ),
         SpaceWidget(height: 12),
@@ -44,7 +51,7 @@ class ProfileScreen extends StatelessWidget {
           padding: EdgeInsets.only(top: 20, bottom: 20, left: 10, right: 10),
           decoration: BoxDecoration(
             color: AppColors.brown_100,
-            border: Border.all(color: AppColors.red_900),
+            border: Border.all(color: AppColors.orange),
             borderRadius: BorderRadius.circular(10),
           ),
           child: Column(
@@ -52,7 +59,7 @@ class ProfileScreen extends StatelessWidget {
               TextWidget.black(text: "Your Profile is 60% Completed"),
               SpaceWidget(height: 5),
               LinearPercentIndicator(
-                progressColor: AppColors.red_900,
+                progressColor: AppColors.orange,
                 percent: 0.6,
                 barRadius: Radius.circular(20),
                 lineHeight: 8,

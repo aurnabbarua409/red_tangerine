@@ -31,21 +31,26 @@ class CustomPopupMenuWidget extends StatelessWidget {
           children: [
             TextWidget(
               text: title,
-              fontColor: AppColors.red_900,
+              fontColor: AppColors.orange,
               fontWeight: FontWeight.w600,
-              fontSize: 0.27,
+              fontSize: 18,
             ),
             SpaceWidget(height: 10),
-            TextWidget.black(text: subtitle),
+            TextWidget.black(
+              text: subtitle,
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+            ),
             SpaceWidget(height: 20),
             Row(
               children: [
                 Expanded(
                   child: ButtonWidget.normal(
                     text: leftButtonText,
-                    borderColor: AppColors.red_900,
-                    height: 4,
+                    borderColor: AppColors.orange,
+                    height: 32,
                     margin: EdgeInsets.all(0),
+                    fontSize: 12,
                     ontap: () {
                       Get.back();
                     },
@@ -55,11 +60,12 @@ class CustomPopupMenuWidget extends StatelessWidget {
                 Expanded(
                   child: ButtonWidget.normal(
                     text: rightButtonText,
-                    height: 4,
-                    borderColor: AppColors.red_900,
-                    backgroundColor: AppColors.red_900,
+                    height: 32,
+                    borderColor: AppColors.orange,
+                    backgroundColor: AppColors.orange,
                     textColor: AppColors.white,
                     margin: EdgeInsets.all(0),
+                    fontSize: 12,
                     ontap: rightButtonOnTap,
                   ),
                 ),

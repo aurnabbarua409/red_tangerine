@@ -16,31 +16,32 @@ class ForgotPasswordScreen extends StatefulWidget {
 }
 
 class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
-  final _controller = Get.put(ForgotPasswordController());
-
-  @override
-  void initState() {
-    super.initState();
-    _controller.onInitial();
-  }
-
   @override
   Widget build(BuildContext context) {
-    return CommonScreenWidget(
-      title: AppStrings.forgotPassword,
-      subtitle: AppStrings.provideEmailChangePassword,
-      formKey: _controller.formKey,
-      body: [
-        TextformfieldWidget(
-          controller: _controller.forgotPasswordController,
-          validator: (value) {
-            return AppValidator.emailValidate(value);
-          },
-          label: AppStrings.email,
-        ),
-        SpaceWidget(height: 20),
-        ButtonWidget(text: AppStrings.send, ontap: _controller.onSend),
-      ],
+    return GetBuilder(
+      init: ForgotPasswordController(),
+      builder: (controller) {
+        return CommonScreenWidget(
+          showLeading: true,
+          title: AppStrings.forgotPassword,
+          subtitle: AppStrings.provideEmailChangePassword,
+          formKey: controller.formKey,
+          body: [
+            TextformfieldWidget(
+              controller: controller.forgotPasswordController,
+              validator: (value) {
+                return AppValidator.emailValidate(value);
+              },
+              label: AppStrings.email,
+            ),
+            SpaceWidget(height: 20),
+            ButtonWidget(
+              text: AppStrings.sendResetLink,
+              ontap: controller.onSend,
+            ),
+          ],
+        );
+      },
     );
   }
 }

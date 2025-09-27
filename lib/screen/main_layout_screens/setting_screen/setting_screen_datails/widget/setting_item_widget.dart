@@ -11,7 +11,7 @@ class SettingItemWidget extends StatelessWidget {
       text: text,
       textAlign: TextAlign.left,
       fontColor: AppColors.white_900,
-      fontSize: 0.25,
+      fontSize: 14,
       fontWeight: FontWeight.w400,
     );
   }

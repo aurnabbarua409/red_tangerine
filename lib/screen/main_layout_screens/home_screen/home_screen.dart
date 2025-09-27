@@ -1,7 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:red_tangerine/constant/app_colors.dart';
-import 'package:red_tangerine/constant/app_icons.dart';
 import 'package:red_tangerine/constant/app_images.dart';
 import 'package:red_tangerine/screen/main_layout_screens/home_screen/widgets/first_page.dart';
 import 'package:red_tangerine/screen/main_layout_screens/home_screen/widgets/second_page.dart';
@@ -9,7 +8,6 @@ import 'package:red_tangerine/screen/main_layout_screens/home_screen/widgets/thi
 import 'package:red_tangerine/utils/responsive_size.dart';
 import 'package:red_tangerine/widgets/animated_heart_button.dart';
 import 'package:red_tangerine/widgets/app_bar_widget.dart';
-import 'package:red_tangerine/widgets/icon_widget.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -33,8 +31,8 @@ class _HomeScreenState extends State<HomeScreen> {
     return AppBarWidget(
       body: [
         Expanded(
-          child: ListView.builder(
-            physics: PageScrollPhysics(),
+          child: PageView.builder(
+            scrollDirection: Axis.vertical,
             itemCount: 5,
             itemBuilder: (context, index) {
               return Column(
@@ -49,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           items: [FirstPage(), SecondPage(), ThirdPage()],
                           carouselController: _controller,
                           options: CarouselOptions(
-                            height: ResponsiveSize.height(78),
+                            height: ResponsiveSize.height(75),
                             viewportFraction: 1,
                             autoPlay: false,
                             onPageChanged: (index, reason) {
@@ -94,14 +92,14 @@ class _HomeScreenState extends State<HomeScreen> {
                           right: 20,
                           child: CircleAvatar(
                             backgroundColor: AppColors.white,
-                            radius: 25,
+                            radius: 30,
                             child: AnimatedHeartButton(),
                           ),
                         ),
                       ],
                     ),
                   ),
-                  SpaceWidget(height: 12),
+                  // SpaceWidget(height: 12),
                 ],
               );
             },

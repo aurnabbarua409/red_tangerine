@@ -15,7 +15,7 @@ class LetOtherKnowAboutUController extends GetxController {
 
   void onNext() {
     Get.toNamed(
-      AppRoutes.pleaseShareYourLocationScreen,
+      AppRoutes.turnOnNotificationScreen,
       arguments: {'fromUpdate': false},
     );
   }
@@ -39,6 +39,14 @@ class LetOtherKnowAboutUController extends GetxController {
         selectionList.value = [false, false, true];
         break;
     }
+    update();
+  }
+
+  @override
+  void onInit() {
+    // TODO: implement onInit
+    super.onInit();
+    onInitital();
   }
 
   @override

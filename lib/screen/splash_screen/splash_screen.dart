@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:red_tangerine/constant/app_icons.dart';
-import 'package:red_tangerine/constant/app_images.dart';
 import 'package:red_tangerine/screen/splash_screen/controller/splash_controller.dart';
 import 'package:red_tangerine/widgets/icon_widget.dart';
 
@@ -13,15 +12,8 @@ class SplashScreen extends StatelessWidget {
     return Scaffold(
       body: GetBuilder(
         init: SplashController(),
-        builder: (controller) => Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(AppImages.backgroundImage),
-              fit: BoxFit.cover,
-            ),
-          ),
-          child: Center(child: IconWidget(icon: AppIcons.splashIcon)),
-        ),
+        builder: (controller) =>
+            Center(child: IconWidget(icon: AppIcons.splashIcon)),
       ),
     );
   }

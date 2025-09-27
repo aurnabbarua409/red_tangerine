@@ -17,23 +17,19 @@ class VerificationScreen extends StatelessWidget {
     return GetBuilder(
       init: VerificationController(),
       builder: (controller) => CommonScreenWidget(
-        title: AppStrings.verification,
+        title: AppStrings.verifyEmail,
         subtitle:
             '${AppStrings.weSendVerificationCode} ${controller.email.value}',
         body: [
           ButtonWidget.text(
-            text: AppStrings.notYours,
-            textColor: AppColors.red,
+            text: AppStrings.updateEmail,
+            fontSize: 14,
+            fontWeight: FontWeight.w500,
             textDecoration: TextDecoration.underline,
-            fontSize: 0.24,
-            ontap: () {},
+            textColor: AppColors.claySolid,
+            ontap: controller.onUpdateEmail,
           ),
-          SpaceWidget(height: 10),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: TextWidget.blackLight(text: AppStrings.code, fontSize: 0.27),
-          ),
-          SpaceWidget(height: 30),
+          SpaceWidget(height: 20),
           CustomOtpWidget(
             onSubmit: (value) {
               controller.otpValue.value = value;
@@ -45,11 +41,11 @@ class VerificationScreen extends StatelessWidget {
             margin: EdgeInsets.all(0),
             ontap: controller.onVerify,
           ),
-          SpaceWidget(height: 15),
+          SpaceWidget(height: 20),
           ButtonWidget.text(
-            textColor: AppColors.red,
+            textColor: AppColors.claySolid,
             text: AppStrings.resendCode,
-            fontSize: 0.26,
+            fontSize: 16,
             ontap: () {},
           ),
         ],

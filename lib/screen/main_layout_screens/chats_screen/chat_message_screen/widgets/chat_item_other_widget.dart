@@ -10,15 +10,17 @@ class ChatItemOtherWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         CircleAvatar(
+          radius: 15,
           backgroundImage: AssetImage(AppDevImages.chatSampleImage1),
         ),
         SpaceWidget(width: 5),
         Container(
           padding: EdgeInsets.all(10),
           decoration: BoxDecoration(
-            color: AppColors.red_900,
+            color: AppColors.orange,
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(10),
               bottomRight: Radius.circular(10),

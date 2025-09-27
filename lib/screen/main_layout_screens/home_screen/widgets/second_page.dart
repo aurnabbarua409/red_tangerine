@@ -41,7 +41,7 @@ class SecondPage extends StatelessWidget {
               children: [
                 TextWidget.white(
                   text: 'Samuel Johnson, 32',
-                  fontSize: 0.3,
+                  fontSize: 28,
                   fontWeight: FontWeight.w600,
                 ),
                 Row(
@@ -49,9 +49,9 @@ class SecondPage extends StatelessWidget {
                     IconWidget(icon: AppIcons.mapPinIcon),
                     TextWidget(
                       text: '2 Miles away',
-                      fontSize: 0.25,
+                      fontSize: 14,
                       fontColor: AppColors.grey_100,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w400,
                     ),
                   ],
                 ),
@@ -60,7 +60,7 @@ class SecondPage extends StatelessWidget {
                 TextWidget.white(
                   text: "About",
                   fontWeight: FontWeight.w600,
-                  fontSize: 0.26,
+                  fontSize: 14,
                 ),
                 TextWidget.white(
                   textAlign: TextAlign.left,
@@ -72,7 +72,7 @@ class SecondPage extends StatelessWidget {
                 TextWidget.white(
                   text: "Parenting Journey",
                   fontWeight: FontWeight.w600,
-                  fontSize: 0.26,
+                  fontSize: 14,
                 ),
                 TextWidget.white(
                   text: "Managing Day-to-Day ",
@@ -81,12 +81,12 @@ class SecondPage extends StatelessWidget {
                 SpaceWidget(height: 20),
                 TextWidget.white(
                   text: "Diagnosis",
-                  fontSize: 0.26,
+                  fontSize: 14,
                   fontWeight: FontWeight.w600,
                 ),
                 TextWidget.white(
                   text:
-                      "Neurodevelopmental Disorders (Intellectual Disability)",
+                      "🌱 Intellectual Disability / Global Delay \n💥 Traumatic Brain Injury",
                   fontWeight: FontWeight.w400,
                   textAlign: TextAlign.left,
                 ),
@@ -94,19 +94,19 @@ class SecondPage extends StatelessWidget {
                 TextWidget.white(
                   text: "Therapy",
                   fontWeight: FontWeight.w600,
-                  fontSize: 0.26,
+                  fontSize: 14,
                 ),
                 TextWidget.white(
-                  text: "Physical & Sensory (Hippotherapy)",
+                  text: "🎶 Music Therapy \n ",
                   fontWeight: FontWeight.w400,
                 ),
                 SpaceWidget(height: 20),
                 TextWidget.white(
                   text: "Interests",
                   fontWeight: FontWeight.w600,
-                  fontSize: 0.26,
+                  fontSize: 14,
                 ),
-                Row(
+                Column(
                   children: [
                     Container(
                       padding: EdgeInsets.symmetric(
@@ -114,22 +114,24 @@ class SecondPage extends StatelessWidget {
                         vertical: 5,
                       ),
                       decoration: BoxDecoration(
-                        color: AppColors.white,
-                        borderRadius: BorderRadius.circular(25),
+                        border: Border.all(color: AppColors.white),
+                        // color: AppColors.white,
+                        borderRadius: BorderRadius.circular(10),
                       ),
-                      child: TextWidget.blackLight(text: "Reading books 📚"),
+                      child: TextWidget.white(text: "📅 Structured routines"),
                     ),
-                    SpaceWidget(width: 10),
+                    SpaceWidget(height: 10),
                     Container(
                       padding: EdgeInsets.symmetric(
                         horizontal: 10,
                         vertical: 5,
                       ),
                       decoration: BoxDecoration(
-                        color: AppColors.white,
-                        borderRadius: BorderRadius.circular(25),
+                        border: Border.all(color: AppColors.white),
+                        // color: AppColors.white,
+                        borderRadius: BorderRadius.circular(10),
                       ),
-                      child: TextWidget.blackLight(text: "Nature walks 🌲"),
+                      child: TextWidget.white(text: "🔍 Always researching"),
                     ),
                   ],
                 ),

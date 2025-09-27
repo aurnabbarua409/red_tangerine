@@ -9,20 +9,21 @@ class TextWidget extends StatelessWidget {
     required this.fontSize,
     this.fontColor,
     this.fontWeight,
-    this.textAlign
+    this.textAlign,
+    this.textDecoration,
   });
 
   TextWidget.header({
     super.key,
     required this.text,
-    this.fontSize = 0.35,
+    this.fontSize = 28,
     this.textAlign,
     this.fontColor = AppColors.grey_900,
   }) : fontWeight = FontWeight.w600;
   TextWidget.blackLight({
     super.key,
     required this.text,
-    this.fontSize = 0.25,
+    this.fontSize = 14,
     this.textAlign,
     this.fontColor = AppColors.white_900,
     this.fontWeight = FontWeight.w500,
@@ -30,7 +31,7 @@ class TextWidget extends StatelessWidget {
   TextWidget.black({
     super.key,
     required this.text,
-    this.fontSize = 0.25,
+    this.fontSize = 14,
     this.textAlign,
     this.fontColor = AppColors.grey_900,
     this.fontWeight = FontWeight.w500,
@@ -46,7 +47,7 @@ class TextWidget extends StatelessWidget {
   TextWidget.white({
     super.key,
     required this.text,
-    this.fontSize = 0.25,
+    this.fontSize,
     this.textAlign,
     this.fontColor = AppColors.white,
     this.fontWeight,
@@ -65,7 +66,7 @@ class TextWidget extends StatelessWidget {
       softWrap: true,
       maxLines: null,
       style: TextStyle(
-        fontSize: ResponsiveSize.fontSize(fontSize ?? 0.35),
+        fontSize: fontSize,
         color: fontColor,
         decoration: textDecoration ?? TextDecoration.none,
         fontWeight: fontWeight ?? FontWeight.normal,

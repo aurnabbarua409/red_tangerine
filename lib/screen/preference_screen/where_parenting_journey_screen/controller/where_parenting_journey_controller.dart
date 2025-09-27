@@ -7,6 +7,13 @@ class WhereParentingJourneyController extends GetxController {
 
   final fromUpdate = false.obs;
 
+  @override
+  void onInit() {
+    // TODO: implement onInit
+    super.onInit();
+    onInitital();
+  }
+
   void onInitital() {
     var args = Get.arguments;
     fromUpdate.value = args['fromUpdate'];
@@ -38,10 +45,7 @@ class WhereParentingJourneyController extends GetxController {
   }
 
   void onNext() {
-    Get.toNamed(
-      AppRoutes.whatEnjoyAsParentScreen,
-      arguments: {'fromUpdate': false},
-    );
+    Get.toNamed(AppRoutes.whatEnjoyScreen, arguments: {'fromUpdate': false});
   }
 
   void onUpdate() {

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:red_tangerine/constant/app_images.dart';
 import 'package:red_tangerine/utils/responsive_size.dart';
 
 class AppBackgroundWidget extends StatelessWidget {
@@ -13,12 +12,12 @@ class AppBackgroundWidget extends StatelessWidget {
         width: ResponsiveSize.width(double.infinity),
         height: ResponsiveSize.height(double.infinity),
         padding: padding ?? EdgeInsets.symmetric(horizontal: 20),
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(AppImages.backgroundImage),
-            fit: BoxFit.cover,
-          ),
-        ),
+        // decoration: BoxDecoration(
+        //   image: DecorationImage(
+        //     image: AssetImage(AppImages.backgroundImage),
+        //     fit: BoxFit.cover,
+        //   ),
+        // ),
         child: SafeArea(child: body),
       ),
     );

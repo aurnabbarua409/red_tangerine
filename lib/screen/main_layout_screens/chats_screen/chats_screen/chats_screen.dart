@@ -6,6 +6,7 @@ import 'package:red_tangerine/routes/app_routes.dart';
 import 'package:red_tangerine/screen/main_layout_screens/chats_screen/chats_screen/controller/chats_controller.dart';
 import 'package:red_tangerine/screen/main_layout_screens/chats_screen/chats_screen/widgets/chat_button_widget.dart';
 import 'package:red_tangerine/widgets/app_bar_widget.dart';
+import 'package:red_tangerine/widgets/searchbar_widget.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
 import 'package:red_tangerine/widgets/text_widget.dart';
 import 'package:red_tangerine/widgets/textformfield_widget.dart';
@@ -26,18 +27,24 @@ class _ChatsScreenState extends State<ChatsScreen> {
         body: [
           TextWidget.black(
             text: AppStrings.chats,
-            fontSize: 0.3,
+            fontSize: 18,
             fontWeight: FontWeight.w600,
           ),
-          TextformfieldWidget(
+          SpaceWidget(height: 10),
+          SearchbarWidget(
             controller: controller.searchController,
             validator: (value) => null,
-            label: "",
+
             hintText: AppStrings.searchHere,
             suffixIcon: Icon(Icons.search, color: AppColors.white_700),
+            ontap: controller.onSearch,
           ),
           SpaceWidget(height: 15),
-          TextWidget.black(text: AppStrings.recentMatches, fontSize: 0.27),
+          TextWidget.black(
+            text: AppStrings.recentMatches,
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+          ),
           SpaceWidget(height: 5),
           SizedBox(
             height: 60, // must give height for horizontal ListView
@@ -54,23 +61,21 @@ class _ChatsScreenState extends State<ChatsScreen> {
             ),
           ),
           SpaceWidget(height: 15),
-          Obx(
-            () => Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ChatButtonWidget(
-                  label: AppStrings.active,
-                  isActive: controller.isActive.value,
-                  ontap: controller.setIsActive,
-                ),
-                SpaceWidget(width: 10),
-                ChatButtonWidget(
-                  label: AppStrings.archive,
-                  isActive: !(controller.isActive.value),
-                  ontap: controller.setIsActive,
-                ),
-              ],
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ChatButtonWidget(
+                label: AppStrings.active,
+                isActive: controller.isActive.value,
+                ontap: controller.setIsActive,
+              ),
+              SpaceWidget(width: 10),
+              ChatButtonWidget(
+                label: AppStrings.archive,
+                isActive: !(controller.isActive.value),
+                ontap: controller.setIsActive,
+              ),
+            ],
           ),
           SpaceWidget(height: 20),
           Expanded(
@@ -81,44 +86,52 @@ class _ChatsScreenState extends State<ChatsScreen> {
                   onTap: () {
                     Get.toNamed(AppRoutes.chatMessageScreen);
                   },
-                  child: Container(
-                    padding: EdgeInsets.all(10),
-                    margin: EdgeInsets.only(bottom: 10),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                        color: controller.chats[index].unseen
-                            ? AppColors.red_900
-                            : AppColors.brown_300,
-                        width: controller.chats[index].unseen ? 3 : 1,
+                  child: Card(
+                    elevation: controller.chats[index].unseen ? 4 : 0,
+                    child: Container(
+                      padding: EdgeInsets.all(10),
+                      // margin: EdgeInsets.only(bottom: 10),
+                      decoration: BoxDecoration(
+                        color: AppColors.white,
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(
+                          color: controller.chats[index].unseen
+                              ? AppColors.orange
+                              : AppColors.brown_300,
+                          width: controller.chats[index].unseen ? 3 : 1,
+                        ),
                       ),
-                    ),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        CircleAvatar(
-                          radius: 22,
-                          backgroundImage: AssetImage(
-                            controller.chats[index].image,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          CircleAvatar(
+                            radius: 23,
+                            backgroundImage: AssetImage(
+                              controller.chats[index].image,
+                            ),
                           ),
-                        ),
-                        SpaceWidget(width: 10),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            TextWidget.black(
-                              text: controller.chats[index].name,
-                            ),
-                            TextWidget.blackLight(
-                              text: controller.chats[index].message,
-                            ),
-                          ],
-                        ),
-                        Spacer(),
-                        TextWidget.blackLight(
-                          text: controller.chats[index].time,
-                        ),
-                      ],
+                          SpaceWidget(width: 10),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              TextWidget.black(
+                                text: controller.chats[index].name,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                              ),
+                              TextWidget.blackLight(
+                                text: controller.chats[index].message,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ],
+                          ),
+                          Spacer(),
+                          TextWidget.blackLight(
+                            text: controller.chats[index].time,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 );

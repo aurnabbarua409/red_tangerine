@@ -33,7 +33,8 @@ class DeleteAccountScreen extends StatelessWidget {
                       children: [
                         TextWidget.black(
                           text: AppStrings.thisWillPermanentlyRemoveProfile,
-                          fontSize: 0.28,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
                         ),
                         SpaceWidget(height: 30),
                         TextformfieldWidget(
@@ -49,8 +50,9 @@ class DeleteAccountScreen extends StatelessWidget {
                             Expanded(
                               child: ButtonWidget.normal(
                                 text: AppStrings.cancel,
-                                borderColor: AppColors.red_800,
-                                height: 5,
+                                borderColor: AppColors.orange,
+                                height: 48,
+                                fontSize: 16,
                                 margin: EdgeInsets.all(0),
                                 ontap: () {
                                   Get.back();
@@ -61,9 +63,9 @@ class DeleteAccountScreen extends StatelessWidget {
                             Expanded(
                               child: ButtonWidget.normal(
                                 text: AppStrings.delete,
-                                height: 5,
-                                borderColor: AppColors.red_800,
-                                backgroundColor: AppColors.red_800,
+                                height: 48,
+                                borderColor: AppColors.orange,
+                                backgroundColor: AppColors.orange,
                                 textColor: AppColors.white,
                                 margin: EdgeInsets.all(0),
                                 ontap: () {},

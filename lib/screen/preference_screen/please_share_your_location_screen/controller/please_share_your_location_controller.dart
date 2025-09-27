@@ -23,6 +23,13 @@ class PleaseShareYourLocationController extends GetxController {
   }
 
   @override
+  void onInit() {
+    // TODO: implement onInit
+    super.onInit();
+    onInitital();
+  }
+
+  @override
   void onClose() {
     // TODO: implement onClose
     super.onClose();

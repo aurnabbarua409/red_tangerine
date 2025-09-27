@@ -10,22 +10,29 @@ class FooterButtonWidget extends StatelessWidget {
     this.margin,
     this.isLightRedBackground = false,
     required this.onTap,
+    this.height,
+    this.fontSize,
   });
   final String? label;
   final EdgeInsetsGeometry? margin;
   final bool isLightRedBackground;
   final void Function() onTap;
+  final double? height;
+  final double? fontSize;
+
   @override
   Widget build(BuildContext context) {
     return ButtonWidget.normal(
+      height: height,
       text: label ?? AppStrings.update,
       backgroundColor: !isLightRedBackground
           ? AppColors.transparent
-          : AppColors.red_900,
+          : AppColors.orange,
       textColor: !isLightRedBackground ? AppColors.grey_900 : AppColors.white,
-      borderColor: AppColors.red_900,
+      borderColor: AppColors.orange,
       margin: margin ?? EdgeInsets.symmetric(horizontal: 20),
       ontap: onTap,
+      fontSize: fontSize,
     );
   }
 }

@@ -15,20 +15,21 @@ class ParentButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: ontap,
+      borderRadius: BorderRadius.circular(8),
       child: Container(
         margin: EdgeInsets.symmetric(vertical: 4),
         padding: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
         decoration: BoxDecoration(
-          color: isSelected ? AppColors.red_900 : AppColors.transparent,
-          border: Border.all(color: AppColors.red_900),
-          borderRadius: BorderRadius.circular(25),
+          color: isSelected ? AppColors.orangeLight : AppColors.transparent,
+          border: Border.all(
+            color: isSelected ? AppColors.orangeLight : AppColors.white_700,
+          ),
+          borderRadius: BorderRadius.circular(8),
         ),
         child: Text(
           label,
           textAlign: TextAlign.center,
-          style: TextStyle(
-            color: isSelected ? AppColors.white : AppColors.grey_900,
-          ),
+          style: TextStyle(color: AppColors.grey_900),
         ),
       ),
     );

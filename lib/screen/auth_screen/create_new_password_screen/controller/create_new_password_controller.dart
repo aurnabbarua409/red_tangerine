@@ -3,19 +3,26 @@ import 'package:get/get.dart';
 import 'package:red_tangerine/routes/app_routes.dart';
 
 class CreateNewPasswordController extends GetxController {
-  var setPasswordController = TextEditingController();
-  var confirmPasswordController = TextEditingController();
-  var formKey = GlobalKey<FormState>();
+  final setPasswordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
+  final formKey = GlobalKey<FormState>();
 
-  void onInitial() {
-    setPasswordController = TextEditingController();
-    confirmPasswordController = TextEditingController();
-    formKey = GlobalKey<FormState>();
+  final isVisibleNew = false.obs;
+  final isVisibleConfirm = false.obs;
+
+  void onChangeVisibleNew() {
+    isVisibleNew.value = !isVisibleNew.value;
+    update();
+  }
+
+  void onChangeVisibleConfirm() {
+    isVisibleConfirm.value = !isVisibleConfirm.value;
+    update();
   }
 
   void onResetPassword() {
     // if (formKey.currentState!.validate()) {
-    Get.toNamed(AppRoutes.signinScreen);
+    Get.toNamed(AppRoutes.loginScreen);
     // }
   }
 

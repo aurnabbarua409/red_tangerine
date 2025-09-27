@@ -1,79 +1,61 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:red_tangerine/constant/app_colors.dart';
 import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/screen/preference_screen/where_parenting_journey_screen/controller/where_parenting_journey_controller.dart';
-import 'package:red_tangerine/widgets/Button_widget.dart';
+import 'package:red_tangerine/screen/preference_screen/where_parenting_journey_screen/widget/parenting_journey_item.dart';
 import 'package:red_tangerine/widgets/common_screen_widget.dart';
+import 'package:red_tangerine/widgets/space_widget.dart';
 
-class WhereParentingJourneyScreen extends StatefulWidget {
+class WhereParentingJourneyScreen extends StatelessWidget {
   const WhereParentingJourneyScreen({super.key});
 
   @override
-  State<WhereParentingJourneyScreen> createState() =>
-      _WhereParentingJourneyScreenState();
-}
-
-class _WhereParentingJourneyScreenState
-    extends State<WhereParentingJourneyScreen> {
-  final _controller = Get.put(WhereParentingJourneyController());
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    _controller.onInitital();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return CommonScreenWidget(
-      fromUpdate: _controller.fromUpdate.value,
-      appbarTitle: AppStrings.parentingJourney,
-      title: AppStrings.whereParentingJourney,
-      subtitle: AppStrings.everyoneExperienceDifferent,
-      body: [
-        Obx(
-          () => Column(
-            children: [
-              ButtonWidget.normal(
-                text: AppStrings.justStarting,
-                textColor: _controller.isParenting[0]
-                    ? AppColors.white
-                    : AppColors.grey_900,
-                backgroundColor: _controller.isParenting[0]
-                    ? AppColors.red_900
-                    : AppColors.transparent,
-                ontap: _controller.onJustStarting,
-              ),
+    return GetBuilder(
+      init: WhereParentingJourneyController(),
+      builder: (controller) {
+        return CommonScreenWidget(
+          showLeading: true,
+          fromUpdate: controller.fromUpdate.value,
+          appbarTitle: AppStrings.parentingJourney,
+          title: AppStrings.whereParentingJourney,
+          subtitle: AppStrings.whereParentingJourneySubtitle,
+          body: [
+            Column(
+              children: [
+                ParentingJourneyItem(
+                  isParenting: controller.isParenting[0],
+                  icon: "🌱",
+                  text:
+                      "Just starting out We're new to this and learning as we go.",
+                  ontap: controller.onJustStarting,
+                ),
+                SpaceWidget(height: 10),
+                ParentingJourneyItem(
+                  isParenting: controller.isParenting[1],
+                  icon: "🌱",
+                  text:
+                      "Just starting out We're new to this and learning as we go.",
+                  ontap: controller.onmanagingDayToDay,
+                ),
+                SpaceWidget(height: 10),
+                ParentingJourneyItem(
+                  isParenting: controller.isParenting[2],
+                  icon: "🌱",
+                  text:
+                      "Just starting out We're new to this and learning as we go.",
+                  ontap: controller.mentorReady,
+                ),
+                // ParentingJourneyItem(index: 1, controller: controller),
+                // ParentingJourneyItem(index: 2, controller: controller),
+              ],
+            ),
+          ],
 
-              ButtonWidget.normal(
-                text: AppStrings.managingdayToday,
-                textColor: _controller.isParenting[1]
-                    ? AppColors.white
-                    : AppColors.grey_900,
-                backgroundColor: _controller.isParenting[1]
-                    ? AppColors.red_900
-                    : AppColors.transparent,
-                ontap: _controller.onmanagingDayToDay,
-              ),
-              ButtonWidget.normal(
-                text: AppStrings.mentorReady,
-                textColor: _controller.isParenting[2]
-                    ? AppColors.white
-                    : AppColors.grey_900,
-                backgroundColor: _controller.isParenting[2]
-                    ? AppColors.red_900
-                    : AppColors.transparent,
-                ontap: _controller.mentorReady,
-              ),
-            ],
-          ),
-        ),
-      ],
-
-      onTap: _controller.onNext,
-      onUpdate: _controller.onUpdate,
+          onTap: controller.onNext,
+          onUpdate: controller.onUpdate,
+        );
+      },
     );
   }
 }
