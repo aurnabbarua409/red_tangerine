@@ -32,6 +32,8 @@ class _AddProfilePictureScreenState extends State<AddProfilePictureScreen> {
   Widget build(BuildContext context) {
     return CommonScreenWidget(
       showLeading: true,
+      showProgressbar: true,
+      progress: 0.39,
       fromUpdate: _controller.fromUpdate.value,
       appbarTitle: AppStrings.photos,
       title: AppStrings.addPhotosTitle,

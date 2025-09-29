@@ -16,6 +16,8 @@ class WhereParentingJourneyScreen extends StatelessWidget {
       builder: (controller) {
         return CommonScreenWidget(
           showLeading: true,
+          showProgressbar: true,
+          progress: 0.55,
           fromUpdate: controller.fromUpdate.value,
           appbarTitle: AppStrings.parentingJourney,
           title: AppStrings.whereParentingJourney,

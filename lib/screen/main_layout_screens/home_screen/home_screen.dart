@@ -37,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
             itemBuilder: (context, index) {
               return Column(
                 children: [
-                  SpaceWidget(height: 12),
+                  // SpaceWidget(height: 12),
                   ClipRRect(
                     borderRadius: BorderRadiusGeometry.circular(15),
                     child: Stack(
@@ -47,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           items: [FirstPage(), SecondPage(), ThirdPage()],
                           carouselController: _controller,
                           options: CarouselOptions(
-                            height: ResponsiveSize.height(75),
+                            height: 690,
                             viewportFraction: 1,
                             autoPlay: false,
                             onPageChanged: (index, reason) {

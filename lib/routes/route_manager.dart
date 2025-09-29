@@ -35,6 +35,7 @@ import 'package:red_tangerine/screen/preference_screen/turn_on_notification_scre
 import 'package:red_tangerine/screen/preference_screen/what_enjoy_as_parent/what_enjoy_as_parent.dart';
 import 'package:red_tangerine/screen/preference_screen/what_enjoy_screen/what_enjoy_screen.dart';
 import 'package:red_tangerine/screen/preference_screen/where_parenting_journey_screen/where_parenting_journey_screen.dart';
+import 'package:red_tangerine/screen/preference_screen/your_first_name_screen/your_first_name_screen.dart';
 import 'package:red_tangerine/screen/preference_screen/your_privacy_matters_screen/your_privacy_matters_screen.dart';
 import 'package:red_tangerine/screen/splash_screen/splash_screen.dart';
 import 'package:red_tangerine/widgets/custom_transition_widget.dart';
@@ -166,6 +167,10 @@ class RouteManager {
       customPage(
         name: AppRoutes.turnOnNotificationScreen,
         page: TurnOnNotificationScreen(),
+      ),
+      customPage(
+        name: AppRoutes.yourFirstNameScreen,
+        page: YourFirstNameScreen(),
       ),
     ];
   }

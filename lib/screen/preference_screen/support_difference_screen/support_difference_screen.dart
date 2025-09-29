@@ -18,6 +18,8 @@ class SupportDifferenceScreen extends StatelessWidget {
       builder: (controller) {
         return CommonScreenWidget(
           showLeading: true,
+          progress: 0.75,
+          showProgressbar: true,
           fromUpdate: controller.fromUpdate.value,
           appbarTitle: AppStrings.interestOrValue,
           title: AppStrings.supportDifferenceTitle,

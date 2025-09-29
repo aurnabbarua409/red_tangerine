@@ -20,6 +20,8 @@ class WhatEnjoyScreen extends StatelessWidget {
       builder: (controller) {
         return CommonScreenWidget(
           showLeading: true,
+          showProgressbar: true,
+          progress: 0.5,
           fromUpdate: controller.fromUpdate.value,
           appbarTitle: AppStrings.interestOrValue,
           title: AppStrings.whatEnjoyTitle,

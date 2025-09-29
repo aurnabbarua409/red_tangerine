@@ -29,6 +29,8 @@ class CommonScreenWidget extends StatelessWidget {
     this.fromUpdate = false,
     this.onUpdate,
     this.appbarTitle,
+    this.progress = 1,
+    this.showProgressbar = false,
   });
 
   final List<Widget> body;
@@ -47,6 +49,8 @@ class CommonScreenWidget extends StatelessWidget {
   final void Function()? onTap;
   final void Function()? onTapSign;
   void Function()? onUpdate;
+  final double progress;
+  final bool showProgressbar;
 
   @override
   Widget build(BuildContext context) {
@@ -73,6 +77,62 @@ class CommonScreenWidget extends StatelessWidget {
                           ),
                         ),
                       if (fromUpdate) AppBarWidget(title: appbarTitle!),
+                      if (showProgressbar) ...[
+                        SizedBox(height: 10),
+                        Stack(
+                          children: [
+                            Container(
+                              height: 30,
+                              width:
+                                  MediaQuery.of(context).size.width -
+                                  (MediaQuery.of(context).size.width *
+                                      progress),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(25),
+                                gradient: LinearGradient(
+                                  colors: [
+                                    AppColors.orange,
+                                    AppColors.orangeLight,
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Container(
+                              height: 30,
+
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(25),
+                                border: Border.all(color: AppColors.claySolid),
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 30,
+                                ),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    TextWidget.white(text: 'Child'),
+                                    Container(
+                                      height: 30,
+                                      width: 1,
+                                      color: AppColors.claySolid,
+                                    ),
+                                    TextWidget.white(text: 'You'),
+                                    Container(
+                                      height: 30,
+                                      width: 1,
+                                      color: AppColors.claySolid,
+                                    ),
+                                    TextWidget.white(text: 'Profile'),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 10),
+                      ],
                       Expanded(
                         child: Center(
                           child: Padding(

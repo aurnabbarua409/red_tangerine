@@ -17,6 +17,8 @@ class LetOtherKnowAboutUScreen extends StatelessWidget {
       builder: (controller) {
         return CommonScreenWidget(
           showLeading: true,
+          showProgressbar: true,
+          progress: 0.3,
           fromUpdate: controller.fromUpdate.value,
           appbarTitle: AppStrings.yourBio,
           showSkip: true,

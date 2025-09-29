@@ -12,6 +12,8 @@ class YourPrivacyMattersScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CommonScreenWidget(
+      showProgressbar: true,
+      progress: 0,
       title: AppStrings.yourPrivacyMatters,
       body: [
         TextWidget.blackLight(text: AppStrings.toHelpConnectYou),

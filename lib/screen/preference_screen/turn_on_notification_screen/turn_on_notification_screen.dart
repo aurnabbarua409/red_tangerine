@@ -16,6 +16,8 @@ class TurnOnNotificationScreen extends StatelessWidget {
       builder: (controller) {
         return CommonScreenWidget(
           showLeading: true,
+          showProgressbar: true,
+          progress: 0.2,
           fromUpdate: controller.fromUpdate.value,
           appbarTitle: AppStrings.interestOrValue,
           title: AppStrings.notificationTurnOnTitle,

@@ -103,10 +103,7 @@ class SupportJourneyController extends GetxController {
   }
 
   void onNext() {
-    Get.toNamed(
-      AppRoutes.whereParentingJourneyScreen,
-      arguments: {'fromUpdate': false},
-    );
+    Get.toNamed(AppRoutes.yourFirstNameScreen);
   }
 
   void onClickIsWaiting() {

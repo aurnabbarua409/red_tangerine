@@ -4,11 +4,8 @@ import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/screen/preference_screen/child_age_screen/controller/child_age_controller.dart';
 import 'package:red_tangerine/screen/preference_screen/child_age_screen/widget/age_field_widget.dart';
 
-import 'package:red_tangerine/utils/app_validator.dart';
 import 'package:red_tangerine/widgets/common_screen_widget.dart';
-import 'package:red_tangerine/widgets/calender_icon_widget.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
-import 'package:red_tangerine/widgets/textformfield_widget.dart';
 
 class ChildAgeScreen extends StatefulWidget {
   const ChildAgeScreen({super.key});
@@ -18,18 +15,26 @@ class ChildAgeScreen extends StatefulWidget {
 }
 
 class _ChildAgeScreenState extends State<ChildAgeScreen> {
+  final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    return GetBuilder(
+    return GetBuilder<ChildAgeController>(
       init: ChildAgeController(),
+
       builder: (controller) {
         return CommonScreenWidget(
           showLeading: true,
+          showProgressbar: true,
+          progress: controller.isChild.value ? 1 : 0.65,
           fromUpdate: controller.fromUpdate.value,
           appbarTitle: AppStrings.childAge,
-          title: AppStrings.howOldYourChild,
-          subtitle: AppStrings.howOldYourChildDetails,
-          formKey: controller.formKey,
+          title: controller.isChild.value
+              ? AppStrings.howOldYourChild
+              : AppStrings.whatYourDateOfBirthTitle,
+          subtitle: controller.isChild.value
+              ? AppStrings.howOldYourChildDetails
+              : AppStrings.whatYourDateOfBirthSubtitle,
+          formKey: formKey,
           body: [
             Row(
               children: [
@@ -38,7 +43,6 @@ class _ChildAgeScreenState extends State<ChildAgeScreen> {
                   focusNode1: controller.focusNode[0],
                   focusNode2: controller.focusNode[1],
                   controller: controller.ageController[0],
-                  onValidate: (value) => controller.month1Validate(value),
                 ),
                 SpaceWidget(width: 3),
                 AgeFieldWidget(
@@ -46,12 +50,11 @@ class _ChildAgeScreenState extends State<ChildAgeScreen> {
                   controller: controller.ageController[1],
                   focusNode1: controller.focusNode[1],
                   focusNode2: controller.focusNode[2],
-                  onValidate: (value) => controller.month2Validate(value),
                 ),
                 SpaceWidget(width: 30),
                 AgeFieldWidget(
                   hintText: "D",
-                  onValidate: (value) {},
+
                   focusNode1: controller.focusNode[2],
                   focusNode2: controller.focusNode[3],
                   controller: controller.ageController[2],
@@ -59,7 +62,7 @@ class _ChildAgeScreenState extends State<ChildAgeScreen> {
                 SpaceWidget(width: 3),
                 AgeFieldWidget(
                   hintText: "D",
-                  onValidate: (value) {},
+
                   focusNode1: controller.focusNode[3],
                   focusNode2: controller.focusNode[4],
                   controller: controller.ageController[3],
@@ -67,7 +70,7 @@ class _ChildAgeScreenState extends State<ChildAgeScreen> {
                 SpaceWidget(width: 30),
                 AgeFieldWidget(
                   hintText: "Y",
-                  onValidate: (value) {},
+
                   focusNode1: controller.focusNode[4],
                   focusNode2: controller.focusNode[5],
                   controller: controller.ageController[4],
@@ -75,7 +78,7 @@ class _ChildAgeScreenState extends State<ChildAgeScreen> {
                 SpaceWidget(width: 3),
                 AgeFieldWidget(
                   hintText: "Y",
-                  onValidate: (value) {},
+
                   focusNode1: controller.focusNode[5],
                   focusNode2: controller.focusNode[6],
                   controller: controller.ageController[5],
@@ -83,7 +86,7 @@ class _ChildAgeScreenState extends State<ChildAgeScreen> {
                 SpaceWidget(width: 3),
                 AgeFieldWidget(
                   hintText: "Y",
-                  onValidate: (value) {},
+
                   focusNode1: controller.focusNode[6],
                   focusNode2: controller.focusNode[7],
                   controller: controller.ageController[6],
@@ -91,7 +94,7 @@ class _ChildAgeScreenState extends State<ChildAgeScreen> {
                 SpaceWidget(width: 3),
                 AgeFieldWidget(
                   hintText: "Y",
-                  onValidate: (value) {},
+
                   focusNode1: controller.focusNode[7],
                   focusNode2: controller.focusNode[7],
                   controller: controller.ageController[7],

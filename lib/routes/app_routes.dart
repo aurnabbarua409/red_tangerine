@@ -37,4 +37,5 @@ class AppRoutes {
   static const whatEnjoyScreen = "/what_enjoy_screen";
   static const matterParentingScreen = "/matter_parenting_screen";
   static const turnOnNotificationScreen = "/turn_on_notification_screen";
+  static const yourFirstNameScreen = "/your_first_name_screen";
 }

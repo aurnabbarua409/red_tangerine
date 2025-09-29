@@ -127,6 +127,12 @@ class AppStrings {
   static const notificationTurnOnTitle = "Turn on notifications";
   static const notificationTurnOnSubtitle =
       "You’ll know when parents reach out, when you have a new match, or when there are updates nearby.";
+  static const firstNameTitle = "What is your first name?";
+  static const firstNameSubtitle =
+      "This is how it will appear on your profile. You can’t change it later.";
+  static const whatYourDateOfBirthTitle = "What is your date of birth?";
+  static const whatYourDateOfBirthSubtitle =
+      "Your profile shows your age ,not your date of birth.";
 
   // bottom nav bar
   static const home = 'Home';

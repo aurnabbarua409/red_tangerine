@@ -24,7 +24,7 @@ class PreferenceHomeScreen extends StatelessWidget {
       footerButtonText: AppStrings.continue_,
       onTap: () => Get.toNamed(
         AppRoutes.childAgeScreen,
-        arguments: {'fromUpdate': false},
+        arguments: {'fromUpdate': false, 'isChild': true},
       ),
     );
   }
