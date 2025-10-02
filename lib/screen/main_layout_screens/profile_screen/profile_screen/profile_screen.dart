@@ -74,7 +74,7 @@ class ProfileScreen extends StatelessWidget {
           onTap: () {
             Get.toNamed(
               AppRoutes.childAgeScreen,
-              arguments: {'fromUpdate': true},
+              arguments: {'fromUpdate': true, 'isChild': true},
             );
           },
         ),

@@ -1,7 +1,9 @@
 class AppImages {
-  static const familyImage = 'assets/images/family_photo.png';
-  static const backgroundImage = 'assets/images/background_image.png';
-  static const noMatchesImage = "assets/images/no_matches_image.png";
+  static const _base = "assets/images";
+  static const familyImage = '$_base/family_photo.png';
+  static const backgroundImage = '$_base/background_image.png';
+  static const noMatchesImage = "$_base/no_matches_image.png";
+ 
 }
 
 class AppDevImages {

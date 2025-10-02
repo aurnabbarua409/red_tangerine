@@ -31,4 +31,7 @@ class AppIcons {
   static const deleteAccountIcon = "assets/icons/delete_icon.png";
   static const logoutIcon = "assets/icons/logout_icon.png";
   static const searchIcon = "assets/icons/search_icon.png";
+  static const swipUpImage = "assets/icons/swipe_up.png";
+  static const swipeLeftImage = "assets/icons/swipe_left.png";
+  static const menuHorizontalIcon = "assets/icons/menu_horizontal.png";
 }

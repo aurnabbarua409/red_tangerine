@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:red_tangerine/constant/app_colors.dart';
+import 'package:red_tangerine/constant/app_icons.dart';
 import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/routes/app_routes.dart';
 import 'package:red_tangerine/screen/main_layout_screens/chats_screen/chats_screen/controller/chats_controller.dart';
 import 'package:red_tangerine/screen/main_layout_screens/chats_screen/chats_screen/widgets/chat_button_widget.dart';
+import 'package:red_tangerine/widgets/Button_widget.dart';
 import 'package:red_tangerine/widgets/app_bar_widget.dart';
+import 'package:red_tangerine/widgets/icon_widget.dart';
 import 'package:red_tangerine/widgets/searchbar_widget.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
 import 'package:red_tangerine/widgets/text_widget.dart';
@@ -102,7 +105,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
                         ),
                       ),
                       child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           CircleAvatar(
                             radius: 23,
@@ -127,8 +130,37 @@ class _ChatsScreenState extends State<ChatsScreen> {
                             ],
                           ),
                           Spacer(),
-                          TextWidget.blackLight(
-                            text: controller.chats[index].time,
+
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              PopupMenuButton<String>(
+                                onSelected: (value) {
+                                  if (value == "1") {
+                                    controller.onEndChat(index);
+                                  } else if (value == "2") {
+                                    controller.onBlock(index);
+                                  }
+                                },
+                                itemBuilder: (_) => const [
+                                  PopupMenuItem(
+                                    value: "1",
+                                    child: Text("End Chat"),
+                                  ),
+                                  PopupMenuItem(
+                                    value: "2",
+                                    child: Text("Block"),
+                                  ),
+                                ],
+                                child: IconWidget(
+                                  icon: AppIcons.menuHorizontalIcon,
+                                ),
+                              ),
+                              TextWidget.blackLight(
+                                text: controller.chats[index].time,
+                              ),
+                            ],
                           ),
                         ],
                       ),

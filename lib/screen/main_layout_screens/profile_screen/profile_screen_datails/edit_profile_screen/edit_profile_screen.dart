@@ -4,6 +4,7 @@ import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/screen/main_layout_screens/profile_screen/profile_screen_datails/widgets/footer_button_widget.dart';
 import 'package:red_tangerine/screen/main_layout_screens/profile_screen/profile_screen_datails/edit_profile_screen/controller/edit_profile_controller.dart';
 import 'package:red_tangerine/screen/main_layout_screens/profile_screen/profile_screen_datails/widgets/app_bar_widget.dart';
+import 'package:red_tangerine/screen/preference_screen/child_age_screen/widget/age_field_widget.dart';
 import 'package:red_tangerine/utils/app_validator.dart';
 import 'package:red_tangerine/widgets/app_background_widget.dart';
 import 'package:red_tangerine/widgets/calender_icon_widget.dart';
@@ -47,37 +48,110 @@ class EditProfileScreen extends StatelessWidget {
                         ),
                         label: AppStrings.firstName,
                       ),
+                      // SpaceWidget(height: 20),
+                      // TextformfieldWidget(
+                      //   controller: controller.lastnameController,
+                      //   validator: (value) => AppValidator.defaultvalidator(
+                      //     value: value,
+                      //     message: AppStrings.pleaseWriteYourLastName,
+                      //   ),
+                      //   label: AppStrings.lastName,
+                      // ),
                       SpaceWidget(height: 20),
-                      TextformfieldWidget(
-                        controller: controller.lastnameController,
-                        validator: (value) => AppValidator.defaultvalidator(
-                          value: value,
-                          message: AppStrings.pleaseWriteYourLastName,
-                        ),
-                        label: AppStrings.lastName,
+
+                      // TextformfieldWidget(
+                      //   controller: controller.dateOfBirthController,
+                      //   validator: (value) => AppValidator.defaultvalidator(
+                      //     value: value,
+                      //     message: AppStrings.dateofBirth,
+                      //   ),
+                      //   label: AppStrings.dateofBirth,
+                      //   suffixIcon: CalenderIconWidget(
+                      //     onPressed: () =>
+                      //         controller.onClickedCalender(context),
+                      //   ),
+                      // ),
+                      
+                      TextWidget(
+                        text: AppStrings.dateofBirth,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
                       ),
-                      SpaceWidget(height: 20),
-                      TextformfieldWidget(
-                        controller: controller.dateOfBirthController,
-                        validator: (value) => AppValidator.defaultvalidator(
-                          value: value,
-                          message: AppStrings.dateofBirth,
-                        ),
-                        label: AppStrings.dateofBirth,
-                        suffixIcon: CalenderIconWidget(
-                          onPressed: () =>
-                              controller.onClickedCalender(context),
-                        ),
+                      SpaceWidget(height: 8),
+                      Row(
+                        children: [
+                          AgeFieldWidget(
+                            hintText: "M",
+                            focusNode1: controller.focusNode[0],
+                            focusNode2: controller.focusNode[1],
+                            controller: controller.ageController[0],
+                          ),
+                          SpaceWidget(width: 3),
+                          AgeFieldWidget(
+                            hintText: "M",
+                            controller: controller.ageController[1],
+                            focusNode1: controller.focusNode[1],
+                            focusNode2: controller.focusNode[2],
+                          ),
+                          SpaceWidget(width: 30),
+                          AgeFieldWidget(
+                            hintText: "D",
+
+                            focusNode1: controller.focusNode[2],
+                            focusNode2: controller.focusNode[3],
+                            controller: controller.ageController[2],
+                          ),
+                          SpaceWidget(width: 3),
+                          AgeFieldWidget(
+                            hintText: "D",
+
+                            focusNode1: controller.focusNode[3],
+                            focusNode2: controller.focusNode[4],
+                            controller: controller.ageController[3],
+                          ),
+                          SpaceWidget(width: 30),
+                          AgeFieldWidget(
+                            hintText: "Y",
+
+                            focusNode1: controller.focusNode[4],
+                            focusNode2: controller.focusNode[5],
+                            controller: controller.ageController[4],
+                          ),
+                          SpaceWidget(width: 3),
+                          AgeFieldWidget(
+                            hintText: "Y",
+
+                            focusNode1: controller.focusNode[5],
+                            focusNode2: controller.focusNode[6],
+                            controller: controller.ageController[5],
+                          ),
+                          SpaceWidget(width: 3),
+                          AgeFieldWidget(
+                            hintText: "Y",
+
+                            focusNode1: controller.focusNode[6],
+                            focusNode2: controller.focusNode[7],
+                            controller: controller.ageController[6],
+                          ),
+                          SpaceWidget(width: 3),
+                          AgeFieldWidget(
+                            hintText: "Y",
+
+                            focusNode1: controller.focusNode[7],
+                            focusNode2: controller.focusNode[7],
+                            controller: controller.ageController[7],
+                          ),
+                        ],
                       ),
-                      SpaceWidget(height: 20),
-                      TextformfieldWidget(
-                        controller: controller.emailController,
-                        validator: (value) => AppValidator.defaultvalidator(
-                          value: value,
-                          message: AppStrings.pleaseEnterEmailAddress,
-                        ),
-                        label: AppStrings.email,
-                      ),
+                      // SpaceWidget(height: 20),
+                      // TextformfieldWidget(
+                      //   controller: controller.emailController,
+                      //   validator: (value) => AppValidator.defaultvalidator(
+                      //     value: value,
+                      //     message: AppStrings.pleaseEnterEmailAddress,
+                      //   ),
+                      //   label: AppStrings.email,
+                      // ),
                     ],
                   ),
                 ),

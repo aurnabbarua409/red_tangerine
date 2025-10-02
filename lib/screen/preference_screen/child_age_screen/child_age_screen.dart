@@ -24,8 +24,8 @@ class _ChildAgeScreenState extends State<ChildAgeScreen> {
       builder: (controller) {
         return CommonScreenWidget(
           showLeading: true,
-          showProgressbar: true,
-          progress: controller.isChild.value ? 1 : 0.65,
+          showProgressbar: !controller.fromUpdate.value,
+          progress: controller.isChild.value ? 0.95 : 0.65,
           fromUpdate: controller.fromUpdate.value,
           appbarTitle: AppStrings.childAge,
           title: controller.isChild.value

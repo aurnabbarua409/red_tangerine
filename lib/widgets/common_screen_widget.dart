@@ -83,12 +83,25 @@ class CommonScreenWidget extends StatelessWidget {
                           children: [
                             Container(
                               height: 30,
+
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(25),
+                                color: AppColors.white_500,
+                              ),
+                            ),
+                            Container(
+                              height: 30,
                               width:
                                   MediaQuery.of(context).size.width -
                                   (MediaQuery.of(context).size.width *
                                       progress),
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(25),
+                                borderRadius: progress == 0
+                                    ? BorderRadius.circular(25)
+                                    : BorderRadius.only(
+                                        topLeft: Radius.circular(25),
+                                        bottomLeft: Radius.circular(25),
+                                      ),
                                 gradient: LinearGradient(
                                   colors: [
                                     AppColors.orange,
@@ -102,7 +115,8 @@ class CommonScreenWidget extends StatelessWidget {
 
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(25),
-                                border: Border.all(color: AppColors.claySolid),
+                                color: Colors.transparent,
+                                // border: Border.all(color: AppColors.claySolid),
                               ),
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(
@@ -112,19 +126,19 @@ class CommonScreenWidget extends StatelessWidget {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    TextWidget.white(text: 'Child'),
-                                    Container(
-                                      height: 30,
-                                      width: 1,
-                                      color: AppColors.claySolid,
-                                    ),
-                                    TextWidget.white(text: 'You'),
-                                    Container(
-                                      height: 30,
-                                      width: 1,
-                                      color: AppColors.claySolid,
-                                    ),
-                                    TextWidget.white(text: 'Profile'),
+                                    TextWidget.black(text: 'Child'),
+                                    // Container(
+                                    //   height: 30,
+                                    //   width: 1,
+                                    //   color: AppColors.claySolid,
+                                    // ),
+                                    TextWidget.black(text: 'You'),
+                                    // Container(
+                                    //   height: 30,
+                                    //   width: 1,
+                                    //   color: AppColors.claySolid,
+                                    // ),
+                                    TextWidget.black(text: 'Profile'),
                                   ],
                                 ),
                               ),

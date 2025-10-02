@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:red_tangerine/constant/app_images.dart';
 import 'package:red_tangerine/model/chat_model.dart';
+import 'package:red_tangerine/screen/main_layout_screens/chats_screen/chat_message_screen/controller/chat_message_controller.dart';
 
 class ChatsController extends GetxController {
   final searchController = TextEditingController();
@@ -22,27 +23,41 @@ class ChatsController extends GetxController {
         image: AppDevImages.chatSampleImage1,
         message: "Is the problem really serious?",
         name: "Kamlia",
-        time: "9:01 AM",
+        time: "20 min",
         unseen: true,
       ),
       ChatModel(
         image: AppDevImages.chatSampleImage1,
         message: "Is the problem really serious?",
         name: "Kamlia",
-        time: "9:01 AM",
+        time: "20 min",
         unseen: false,
       ),
       ChatModel(
         image: AppDevImages.chatSampleImage1,
         message: "Is the problem really serious?",
         name: "Kamlia",
-        time: "9:01 AM",
+        time: "20 min",
         unseen: false,
       ),
     ];
   }
 
-  void onSearch(){}
+  void onSearch() {}
+  // inside ChatsController
+  void onEndChat(int index) {
+    final c = chats[index];
+    print('End chat with ${c.name}');
+    update();
+    // TODO: implement end-chat logic
+  }
+
+  void onBlock(int index) {
+    final c = chats[index];
+    print('Block user ${c.name}');
+    update();
+    // TODO: implement block logic
+  }
 
   @override
   void onClose() {

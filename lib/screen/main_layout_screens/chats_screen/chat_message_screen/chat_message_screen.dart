@@ -44,27 +44,8 @@ class ChatMessageScreen extends StatelessWidget {
                 ),
                 Spacer(),
                 GestureDetector(
-                  onTap: () async {
-                    final selected = await showMenu<String>(
-                      context: context,
-                      position: RelativeRect.fromLTRB(
-                        100,
-                        100,
-                        0,
-                        0,
-                      ), // adjust position
-                      items: [
-                        PopupMenuItem(value: "1", child: Text('End Chat')),
-                        PopupMenuItem(value: "2", child: Text('Block')),
-                      ],
-                    );
-                    if (selected != null) {
-                      if (selected == '1') {
-                        controller.isEndChat.value = true;
-                      }
-
-                      if (selected == '2') debugPrint('Block clicked');
-                    }
+                  onTap: () {
+                    controller.onShowMenu(context);
                   },
                   child: Icon(Icons.more_vert, size: 24),
                 ),
@@ -93,36 +74,33 @@ class ChatMessageScreen extends StatelessWidget {
               ),
             ),
 
-            Obx(() {
-              if (controller.isEndChat.value) {
-                return SizedBox(
-                  height: 50,
-                  child: Center(
-                    child: TextWidget.blackLight(
-                      text: AppStrings.chatEnded,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600,
+            controller.isEndChat.value
+                ? SizedBox(
+                    height: 50,
+                    child: Center(
+                      child: TextWidget.blackLight(
+                        text: AppStrings.chatEnded,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
+                  )
+                : Row(
+                    children: [
+                      Expanded(
+                        child: ChatboxWidget(
+                          controller: controller.messageController,
+                          ontap: controller.onSelectImage,
+                        ),
+                      ),
+                      SpaceWidget(width: 10),
+                      CircleAvatar(
+                        radius: 24,
+                        backgroundColor: AppColors.orange,
+                        child: IconWidget(icon: AppIcons.sendIcon),
+                      ),
+                    ],
                   ),
-                );
-              }
-              return Row(
-                children: [
-                  Expanded(
-                    child: ChatboxWidget(
-                      controller: controller.messageController,
-                      ontap: controller.onSelectImage,
-                    ),
-                  ),
-                  SpaceWidget(width: 10),
-                  CircleAvatar(
-                    radius: 24,
-                    backgroundColor: AppColors.orange,
-                    child: IconWidget(icon: AppIcons.sendIcon),
-                  ),
-                ],
-              );
-            }),
           ],
         ),
       ),

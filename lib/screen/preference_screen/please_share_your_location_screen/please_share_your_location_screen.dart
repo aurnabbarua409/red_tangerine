@@ -28,7 +28,7 @@ class _PleaseShareYourLocationScreenState
       builder: (controller) {
         return CommonScreenWidget(
           showLeading: true,
-          showProgressbar: true,
+          showProgressbar: !controller.fromUpdate.value,
           progress: 0.12,
           fromUpdate: controller.fromUpdate.value,
           appbarTitle: AppStrings.location,

@@ -8,6 +8,11 @@ class EditProfileController extends GetxController {
   var dateOfBirthController = TextEditingController();
   var emailController = TextEditingController();
   final formKey = GlobalKey<FormState>();
+  final List<TextEditingController> ageController = List.generate(
+    8,
+    (index) => TextEditingController(),
+  );
+  final List<FocusNode> focusNode = List.generate(8, (index) => FocusNode());
 
   void onUpdate() {}
   void onClickedCalender(BuildContext context) async {
@@ -15,13 +20,23 @@ class EditProfileController extends GetxController {
         await AppCommonFunctions.onClickedCalender(context) ?? "";
   }
 
-  @override
-  void onClose() {
-    // TODO: implement onClose
-    super.onClose();
+  void onClear() {
     firstNameController.dispose();
     lastnameController.dispose();
     dateOfBirthController.dispose();
     emailController.dispose();
+    for (final item in ageController) {
+      item.dispose();
+    }
+    for (final item in focusNode) {
+      item.dispose();
+    }
+  }
+
+  @override
+  void onClose() {
+    // TODO: implement onClose
+    super.onClose();
+    onClear();
   }
 }
