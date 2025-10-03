@@ -167,6 +167,8 @@ class AppStrings {
   static const recentMatches = "Recent matches";
   static const active = "Active";
   static const archive = "Archive";
+  static const chatTip1 = "Try focusing on 5 chats at a time";
+  static const chatTip2 = "You can close one to start a new chat";
 
   // Chat message screen
   static const chatEnded = "Chat Ended";

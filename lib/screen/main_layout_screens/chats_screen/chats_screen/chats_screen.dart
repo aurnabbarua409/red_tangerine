@@ -64,6 +64,29 @@ class _ChatsScreenState extends State<ChatsScreen> {
             ),
           ),
           SpaceWidget(height: 15),
+          Container(
+            width: double.infinity,
+            padding: EdgeInsets.symmetric(vertical: 10),
+            decoration: BoxDecoration(
+              color: AppColors.orangeLight,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Column(
+              children: [
+                TextWidget(
+                  text: AppStrings.chatTip1,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                ),
+                TextWidget(
+                  text: AppStrings.chatTip2,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                ),
+              ],
+            ),
+          ),
+          SpaceWidget(height: 15),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
