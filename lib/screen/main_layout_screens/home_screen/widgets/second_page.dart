@@ -13,133 +13,110 @@ class SecondPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        SizedBox(
-          width: double.infinity,
-          height: double.infinity,
-          child: Image.asset(AppDevImages.profilePicture, fit: BoxFit.cover),
-        ),
-        Positioned.fill(
-          child: BackdropFilter(
-            filter: ImageFilter.blur(
-              sigmaX: 8,
-              sigmaY: 8,
-            ), // adjust blur strength
-            child: Container(
-              color: Colors.black.withOpacity(0), // transparent but required
+    return Container(
+      width: double.infinity,
+      color: AppColors.white,
+      child: Padding(
+        padding: const EdgeInsets.only(top: 40, left: 15, right: 15),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            TextWidget.black(
+              text: 'Samuel Johnson, 32',
+              fontSize: 28,
+              fontWeight: FontWeight.w600,
             ),
-          ),
-        ),
-        Container(
-          width: double.infinity,
-          color: AppColors.lightTransparent,
-          child: Padding(
-            padding: const EdgeInsets.only(top: 40, left: 15, right: 15),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            Row(
               children: [
-                TextWidget.white(
-                  text: 'Samuel Johnson, 32',
-                  fontSize: 28,
-                  fontWeight: FontWeight.w600,
+                IconWidget(
+                  icon: AppIcons.mapPinIcon,
+                  color: AppColors.grey_500,
                 ),
-                Row(
-                  children: [
-                    IconWidget(icon: AppIcons.mapPinIcon),
-                    TextWidget(
-                      text: '2 Miles away',
-                      fontSize: 14,
-                      fontColor: AppColors.grey_100,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ],
-                ),
-                TextWidget.white(text: "Child's Age: 12"),
-                SpaceWidget(height: 20),
-                TextWidget.white(
-                  text: "About",
-                  fontWeight: FontWeight.w600,
+                TextWidget(
+                  text: '2 Miles away',
                   fontSize: 14,
-                ),
-                TextWidget.white(
-                  textAlign: TextAlign.left,
-                  text:
-                      "Hi, I'm Samuel, dad to a wonderful 5-year-old girl with ASD. I'd love to connect with other parents who understand this journey.",
+                  fontColor: AppColors.grey_500,
                   fontWeight: FontWeight.w400,
-                ),
-                SpaceWidget(height: 20),
-                TextWidget.white(
-                  text: "Parenting Journey",
-                  fontWeight: FontWeight.w600,
-                  fontSize: 14,
-                ),
-                TextWidget.white(
-                  text: "Managing Day-to-Day ",
-                  fontWeight: FontWeight.w400,
-                ),
-                SpaceWidget(height: 20),
-                TextWidget.white(
-                  text: "Diagnosis",
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                ),
-                TextWidget.white(
-                  text:
-                      "🌱 Intellectual Disability / Global Delay \n💥 Traumatic Brain Injury",
-                  fontWeight: FontWeight.w400,
-                  textAlign: TextAlign.left,
-                ),
-                SpaceWidget(height: 20),
-                TextWidget.white(
-                  text: "Therapy",
-                  fontWeight: FontWeight.w600,
-                  fontSize: 14,
-                ),
-                TextWidget.white(
-                  text: "🎶 Music Therapy \n ",
-                  fontWeight: FontWeight.w400,
-                ),
-                SpaceWidget(height: 20),
-                TextWidget.white(
-                  text: "Interests",
-                  fontWeight: FontWeight.w600,
-                  fontSize: 14,
-                ),
-                Column(
-                  children: [
-                    Container(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 10,
-                        vertical: 5,
-                      ),
-                      decoration: BoxDecoration(
-                        border: Border.all(color: AppColors.white),
-                        // color: AppColors.white,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: TextWidget.white(text: "📅 Structured routines"),
-                    ),
-                    SpaceWidget(height: 10),
-                    Container(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 10,
-                        vertical: 5,
-                      ),
-                      decoration: BoxDecoration(
-                        border: Border.all(color: AppColors.white),
-                        // color: AppColors.white,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: TextWidget.white(text: "🔍 Always researching"),
-                    ),
-                  ],
                 ),
               ],
             ),
-          ),
+            TextWidget.black(text: "Child's Age: 12"),
+            SpaceWidget(height: 20),
+            TextWidget.black(
+              text: "About",
+              fontWeight: FontWeight.w600,
+              fontSize: 14,
+            ),
+            TextWidget.black(
+              textAlign: TextAlign.left,
+              text:
+                  "Hi, I'm Samuel, dad to a wonderful 5-year-old girl with ASD. I'd love to connect with other parents who understand this journey.",
+              fontWeight: FontWeight.w400,
+            ),
+            SpaceWidget(height: 20),
+            TextWidget.black(
+              text: "Parenting Journey",
+              fontWeight: FontWeight.w600,
+              fontSize: 14,
+            ),
+            TextWidget.black(
+              text: "Managing Day-to-Day ",
+              fontWeight: FontWeight.w400,
+            ),
+            SpaceWidget(height: 20),
+            TextWidget.black(
+              text: "Diagnosis",
+              fontSize: 14,
+              fontWeight: FontWeight.w600,
+            ),
+            TextWidget.black(
+              text:
+                  "🌱 Intellectual Disability / Global Delay \n💥 Traumatic Brain Injury",
+              fontWeight: FontWeight.w400,
+              textAlign: TextAlign.left,
+            ),
+            SpaceWidget(height: 20),
+            TextWidget.black(
+              text: "Therapy",
+              fontWeight: FontWeight.w600,
+              fontSize: 14,
+            ),
+            TextWidget.black(
+              text: "🎶 Music Therapy \n ",
+              fontWeight: FontWeight.w400,
+            ),
+            SpaceWidget(height: 20),
+            TextWidget.black(
+              text: "Interests",
+              fontWeight: FontWeight.w600,
+              fontSize: 14,
+            ),
+            Column(
+              children: [
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: AppColors.grey_800),
+                    // color: AppColors.black,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: TextWidget.black(text: "📅 Structured routines"),
+                ),
+                SpaceWidget(height: 10),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: AppColors.grey_800),
+                    // color: AppColors.black,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: TextWidget.black(text: "🔍 Always researching"),
+                ),
+              ],
+            ),
+          ],
         ),
-      ],
+      ),
     );
   }
 }

@@ -90,7 +90,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                         width: 40, // active wider
                                         decoration: BoxDecoration(
                                           color: isActive
-                                              ? AppColors.white
+                                              ? controller.currentIndex.value ==
+                                                        0
+                                                    ? AppColors.white
+                                                    : AppColors.grey_700
                                               : AppColors.grey_100,
                                           borderRadius: BorderRadius.circular(
                                             6,
@@ -103,13 +106,22 @@ class _HomeScreenState extends State<HomeScreen> {
                               ],
                             ),
                             Positioned(
-                              bottom: 20,
-                              right: 20,
+                              bottom: controller.currentIndex.value == 0
+                                  ? 60
+                                  : 10,
+                              right: 10,
                               child: CircleAvatar(
-                                backgroundColor: AppColors.white,
+                                backgroundColor:
+                                    controller.currentIndex.value == 0
+                                    ? AppColors.white
+                                    : AppColors.claySolid,
                                 radius: 30,
                                 child: TapToWave(
-                                  child: IconWidget(icon: AppIcons.handIcon),
+                                  child: IconWidget(
+                                    icon: controller.currentIndex.value == 0
+                                        ? AppIcons.handIcon
+                                        : AppIcons.whiteHandIcon,
+                                  ),
                                 ),
                               ),
                             ),

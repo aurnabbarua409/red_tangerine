@@ -35,4 +35,5 @@ class AppIcons {
   static const swipeLeftImage = "assets/icons/swipe_left.png";
   static const menuHorizontalIcon = "assets/icons/menu_horizontal.png";
   static const handIcon = "assets/icons/hand_icon.png";
+  static const whiteHandIcon = "assets/icons/white_hand.png";
 }
