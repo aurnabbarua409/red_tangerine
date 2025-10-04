@@ -4,6 +4,7 @@ import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/screen/main_layout_screens/profile_screen/profile_screen_datails/widgets/footer_button_widget.dart';
 import 'package:red_tangerine/screen/main_layout_screens/profile_screen/profile_screen_datails/edit_profile_screen/controller/edit_profile_controller.dart';
 import 'package:red_tangerine/screen/main_layout_screens/profile_screen/profile_screen_datails/widgets/app_bar_widget.dart';
+import 'package:red_tangerine/screen/preference_screen/child_age_screen/controller/child_age_controller.dart';
 import 'package:red_tangerine/screen/preference_screen/child_age_screen/widget/age_field_widget.dart';
 import 'package:red_tangerine/utils/app_validator.dart';
 import 'package:red_tangerine/widgets/app_background_widget.dart';
@@ -71,78 +72,32 @@ class EditProfileScreen extends StatelessWidget {
                       //         controller.onClickedCalender(context),
                       //   ),
                       // ),
-                      
                       TextWidget(
                         text: AppStrings.dateofBirth,
                         fontSize: 14,
                         fontWeight: FontWeight.w500,
                       ),
-                      SpaceWidget(height: 8),
-                      Row(
-                        children: [
-                          AgeFieldWidget(
-                            hintText: "M",
-                            focusNode1: controller.focusNode[0],
-                            focusNode2: controller.focusNode[1],
-                            controller: controller.ageController[0],
+                      // SpaceWidget(height: 8),
+                      SizedBox(
+                        height: 60,
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: List.generate(
+                              controller.ageController.length,
+                              (index) => AgeFieldWidget(
+                                hintText: controller.getHintText(index),
+                                focusNode: controller.focusNode,
+                                index: index,
+                                onChange: () {},
+                                controller: controller.ageController[index],
+                              ),
+                            ),
                           ),
-                          SpaceWidget(width: 3),
-                          AgeFieldWidget(
-                            hintText: "M",
-                            controller: controller.ageController[1],
-                            focusNode1: controller.focusNode[1],
-                            focusNode2: controller.focusNode[2],
-                          ),
-                          SpaceWidget(width: 30),
-                          AgeFieldWidget(
-                            hintText: "D",
-
-                            focusNode1: controller.focusNode[2],
-                            focusNode2: controller.focusNode[3],
-                            controller: controller.ageController[2],
-                          ),
-                          SpaceWidget(width: 3),
-                          AgeFieldWidget(
-                            hintText: "D",
-
-                            focusNode1: controller.focusNode[3],
-                            focusNode2: controller.focusNode[4],
-                            controller: controller.ageController[3],
-                          ),
-                          SpaceWidget(width: 30),
-                          AgeFieldWidget(
-                            hintText: "Y",
-
-                            focusNode1: controller.focusNode[4],
-                            focusNode2: controller.focusNode[5],
-                            controller: controller.ageController[4],
-                          ),
-                          SpaceWidget(width: 3),
-                          AgeFieldWidget(
-                            hintText: "Y",
-
-                            focusNode1: controller.focusNode[5],
-                            focusNode2: controller.focusNode[6],
-                            controller: controller.ageController[5],
-                          ),
-                          SpaceWidget(width: 3),
-                          AgeFieldWidget(
-                            hintText: "Y",
-
-                            focusNode1: controller.focusNode[6],
-                            focusNode2: controller.focusNode[7],
-                            controller: controller.ageController[6],
-                          ),
-                          SpaceWidget(width: 3),
-                          AgeFieldWidget(
-                            hintText: "Y",
-
-                            focusNode1: controller.focusNode[7],
-                            focusNode2: controller.focusNode[7],
-                            controller: controller.ageController[7],
-                          ),
-                        ],
+                        ),
                       ),
+
                       // SpaceWidget(height: 20),
                       // TextformfieldWidget(
                       //   controller: controller.emailController,

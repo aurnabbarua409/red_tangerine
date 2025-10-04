@@ -87,7 +87,7 @@ class _CreateNewPasswordScreenState extends State<CreateNewPasswordScreen> {
             ),
             SpaceWidget(height: 30),
             ButtonWidget(
-              text: AppStrings.resetPassword,
+              text: AppStrings.saveNewPassword,
               ontap: controller.onResetPassword,
             ),
           ],

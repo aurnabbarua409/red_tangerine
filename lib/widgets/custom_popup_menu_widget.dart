@@ -23,6 +23,9 @@ class CustomPopupMenuWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadiusGeometry.circular(15),
+      ),
       backgroundColor: AppColors.white,
       child: Container(
         padding: EdgeInsets.all(30),

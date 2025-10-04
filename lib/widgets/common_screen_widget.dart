@@ -159,7 +159,12 @@ class CommonScreenWidget extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   if (title != null)
-                                    TextWidget.header(text: title!),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 20,
+                                      ),
+                                      child: TextWidget.header(text: title!),
+                                    ),
                                   SpaceWidget(height: 10),
                                   if (subtitle != null)
                                     Padding(

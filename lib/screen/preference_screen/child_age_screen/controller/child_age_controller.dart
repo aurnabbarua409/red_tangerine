@@ -4,7 +4,6 @@ import 'package:red_tangerine/routes/app_routes.dart';
 import 'package:red_tangerine/utils/app_log.dart';
 
 class ChildAgeController extends GetxController {
- 
   var fromUpdate = false.obs;
   final isChild = true.obs;
   final List<TextEditingController> ageController = List.generate(
@@ -31,7 +30,10 @@ class ChildAgeController extends GetxController {
     var args = Get.arguments;
     fromUpdate.value = args['fromUpdate'];
     isChild.value = args['isChild'];
-    appLogger(title: "Is Child", message: isChild.value);
+    appLogger(
+      title: "Child age screen",
+      message: "IsChild : ${isChild.value}, fromUpdate: ${fromUpdate.value}",
+    );
   }
 
   void onClear() {
@@ -56,12 +58,26 @@ class ChildAgeController extends GetxController {
         arguments: {'fromUpdate': false},
       );
     } else {
+      isChild.value = true;
       Get.toNamed(
         AppRoutes.whereParentingJourneyScreen,
         arguments: {'fromUpdate': false},
       );
     }
     // }
+  }
+
+  String getHintText(int index) {
+    switch (index) {
+      case 0:
+      case 1:
+        return "M";
+      case 2:
+      case 3:
+        return "D";
+      default:
+        return "Y";
+    }
   }
 
   void onUpdate() {

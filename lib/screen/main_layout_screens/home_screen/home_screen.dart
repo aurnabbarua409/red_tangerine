@@ -6,6 +6,7 @@ import 'package:red_tangerine/constant/app_icons.dart';
 import 'package:red_tangerine/constant/app_images.dart';
 import 'package:red_tangerine/screen/main_layout_screens/home_screen/controller/home_controller.dart';
 import 'package:red_tangerine/screen/main_layout_screens/home_screen/widgets/first_page.dart';
+import 'package:red_tangerine/screen/main_layout_screens/home_screen/widgets/flipping_widget.dart';
 import 'package:red_tangerine/screen/main_layout_screens/home_screen/widgets/second_page.dart';
 import 'package:red_tangerine/screen/main_layout_screens/home_screen/widgets/third_page.dart';
 import 'package:red_tangerine/utils/responsive_size.dart';
@@ -15,6 +16,7 @@ import 'package:red_tangerine/widgets/app_bar_widget.dart';
 import 'package:red_tangerine/widgets/icon_widget.dart';
 import 'package:red_tangerine/widgets/image_widget.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
+import 'package:red_tangerine/widgets/tap_to_wave_widget.dart';
 import 'package:red_tangerine/widgets/text_widget.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -106,7 +108,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               child: CircleAvatar(
                                 backgroundColor: AppColors.white,
                                 radius: 30,
-                                child: AnimatedHeartButton(),
+                                child: TapToWave(
+                                  child: IconWidget(icon: AppIcons.handIcon),
+                                ),
                               ),
                             ),
                             if (controller.showDemo1.value)
@@ -125,13 +129,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   // mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    IconWidget(icon: AppIcons.swipUpImage),
+                                    SwipeUpHint(
+                                      icon: IconWidget(
+                                        icon: AppIcons.swipUpImage,
+                                      ),
+                                    ),
+                                    SpaceWidget(height: 50),
+                                    // IconWidget(icon: AppIcons.swipUpImage),
                                     TextWidget(
                                       text: "Discover more parents",
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
                                     ),
-                                    SpaceWidget(height: 10),
+                                    SpaceWidget(height: 20),
                                     ButtonWidget.normal(
                                       text: "Next",
                                       width: 30,
@@ -157,13 +167,18 @@ class _HomeScreenState extends State<HomeScreen> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   // mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    IconWidget(icon: AppIcons.swipeLeftImage),
+                                    SwipeLeftHint(
+                                      icon: IconWidget(
+                                        icon: AppIcons.swipeLeftImage,
+                                      ),
+                                    ),
+                                    // IconWidget(icon: AppIcons.swipeLeftImage),
                                     TextWidget(
                                       text: "Learn more about a parent",
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
                                     ),
-                                    SpaceWidget(height: 10),
+                                    SpaceWidget(height: 20),
                                     ButtonWidget.normal(
                                       text: "Okay",
                                       width: 30,

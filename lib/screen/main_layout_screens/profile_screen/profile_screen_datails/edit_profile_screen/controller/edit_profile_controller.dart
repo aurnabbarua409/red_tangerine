@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:red_tangerine/screen/preference_screen/child_age_screen/controller/child_age_controller.dart';
 import 'package:red_tangerine/utils/app_common_functions.dart';
 
 class EditProfileController extends GetxController {
@@ -30,6 +31,19 @@ class EditProfileController extends GetxController {
     }
     for (final item in focusNode) {
       item.dispose();
+    }
+  }
+
+  String getHintText(int index) {
+    switch (index) {
+      case 0:
+      case 1:
+        return "M";
+      case 2:
+      case 3:
+        return "D";
+      default:
+        return "Y";
     }
   }
 

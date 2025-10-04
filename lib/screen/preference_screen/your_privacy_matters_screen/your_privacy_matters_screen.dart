@@ -16,11 +16,7 @@ class YourPrivacyMattersScreen extends StatelessWidget {
       showProgressbar: true,
       progress: 0,
       title: AppStrings.yourPrivacyMatters,
-      body: [
-        TextWidget.blackLight(text: AppStrings.toHelpConnectYou),
-        SpaceWidget(height: 20),
-        TextWidget.blackLight(text: AppStrings.weWillNeverShare),
-      ],
+      body: [TextWidget.blackLight(text: AppStrings.toHelpConnectYou)],
 
       footerButtonText: AppStrings.underStandAgree,
       onTap: () {

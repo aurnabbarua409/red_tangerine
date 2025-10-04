@@ -1,22 +1,9 @@
 # red_tangerine (Incomplete Project, need a lot of modification)
 
-A new Flutter project. If you can modify, do it. I have kept a lot of bugs in this project willingly. Find them and solve like a puzzle game. You may find some, others are hidden. 
+A new Flutter project for parent matching. You need to modify. If you can, do it. I have kept a lot of bugs in this project willingly. Find them and solve like a puzzle game. You may find some, others are hidden. 
 
 ** A little hint: To find the hidden bugs, act like a user. 
 
-## Getting Started
+Ha ha, got afraid!!!!!
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-
-
-pending:
-1. child diagnosis page
+I like it. If you think, you can solve all the bugs, then you are wrong. You can't. User will face the error at anytime while using this app. So, don't try too much. ha ha ha 

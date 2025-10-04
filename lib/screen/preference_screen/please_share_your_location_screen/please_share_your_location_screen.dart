@@ -4,23 +4,14 @@ import 'package:red_tangerine/constant/app_colors.dart';
 import 'package:red_tangerine/constant/app_icons.dart';
 import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/screen/preference_screen/please_share_your_location_screen/controller/please_share_your_location_controller.dart';
-import 'package:red_tangerine/utils/app_common_functions.dart';
 import 'package:red_tangerine/utils/app_validator.dart';
 import 'package:red_tangerine/widgets/Button_widget.dart';
 import 'package:red_tangerine/widgets/common_screen_widget.dart';
 import 'package:red_tangerine/widgets/text_widget.dart';
-import 'package:red_tangerine/widgets/textformfield_widget.dart';
 
-class PleaseShareYourLocationScreen extends StatefulWidget {
+class PleaseShareYourLocationScreen extends StatelessWidget {
   const PleaseShareYourLocationScreen({super.key});
 
-  @override
-  State<PleaseShareYourLocationScreen> createState() =>
-      _PleaseShareYourLocationScreenState();
-}
-
-class _PleaseShareYourLocationScreenState
-    extends State<PleaseShareYourLocationScreen> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder(
@@ -76,7 +67,7 @@ class _PleaseShareYourLocationScreenState
               ),
             ),
           ],
-          footerButtonText: "Allow",
+          footerButtonText: AppStrings.shareMyLocation,
           onTap: controller.onNext,
           onUpdate: controller.onUpdate,
         );

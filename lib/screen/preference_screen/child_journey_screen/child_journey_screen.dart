@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:red_tangerine/constant/app_colors.dart';
 import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/screen/preference_screen/child_journey_screen/controller/child_journey_controller.dart';
 import 'package:red_tangerine/screen/preference_screen/child_journey_screen/widget/child_journey_item.dart';
@@ -124,6 +125,7 @@ class ChildJourneyScreen extends StatelessWidget {
                     child: Checkbox.adaptive(
                       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                       value: controller.isWaiting.value,
+                      activeColor: AppColors.orange,
                       onChanged: (value) {
                         controller.onClickIsWaiting();
                       },

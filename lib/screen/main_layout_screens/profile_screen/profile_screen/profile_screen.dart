@@ -6,6 +6,7 @@ import 'package:red_tangerine/constant/app_icons.dart';
 import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/routes/app_routes.dart';
 import 'package:red_tangerine/screen/main_layout_screens/profile_screen/profile_screen/widgets/profile_item_widget.dart';
+import 'package:red_tangerine/service/local_storage.dart';
 import 'package:red_tangerine/widgets/Button_widget.dart';
 import 'package:red_tangerine/widgets/app_bar_widget.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
@@ -72,6 +73,7 @@ class ProfileScreen extends StatelessWidget {
           icon: AppIcons.babyIcon,
           text: AppStrings.childAge,
           onTap: () {
+            Localstorage.fromUpdate = true;
             Get.toNamed(
               AppRoutes.childAgeScreen,
               arguments: {'fromUpdate': true, 'isChild': true},

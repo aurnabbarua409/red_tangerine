@@ -38,6 +38,7 @@ import 'package:red_tangerine/screen/preference_screen/where_parenting_journey_s
 import 'package:red_tangerine/screen/preference_screen/your_first_name_screen/your_first_name_screen.dart';
 import 'package:red_tangerine/screen/preference_screen/your_privacy_matters_screen/your_privacy_matters_screen.dart';
 import 'package:red_tangerine/screen/splash_screen/splash_screen.dart';
+import 'package:red_tangerine/service/local_storage.dart';
 import 'package:red_tangerine/widgets/custom_transition_widget.dart';
 
 class RouteManager {

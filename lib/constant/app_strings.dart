@@ -52,6 +52,7 @@ class AppStrings {
   static const confirNewPassword = "Confirm new password";
   static const resetPassword = 'Reset Password';
   static const setPassword = 'Set A Password';
+  static const saveNewPassword = "Save New Password";
 
   // Preference Screen
   static const welcomeToZZZZ = 'Welcome to Reah';
@@ -98,13 +99,13 @@ class AppStrings {
   static const shortIntroHelpsOther =
       'A short intro helps parents connect with you faster. Here are a few ideas to get you started:';
   static const skip = 'Skip';
-  static const seeParentstitle = 'See parents nearby';
+  static const seeParentstitle = 'Connect with parents nearby';
   static const seeParentSubtitle =
-      'To connect you with local parents and groups, we’ll need to know your location. You’ll always stay in control of what you share.';
+      "We'll use your city to show you local parents and groups. Your exact address is never shared.";
   static const useMyCurrentLocation = 'Use My Current Location';
   static const yourPrivacyMatters = 'Your Privacy Matters';
   static const toHelpConnectYou =
-      'To help connect you with other parents in similar situations, we\'ll ask for details about your child\'s condition and related needs. This information is considered sensitive health data, and we will only use it to provide better matches and improve your experience in the app.';
+      'To help connect you with other parents, we’ll ask about your child’s needs and your journey. This information is private and only used to improve your experience. You’re always in control of your information.';
   static const weWillNeverShare =
       'We will never share your personal details publicly without your consent, and you can update or delete this information at any time.';
   static const underStandAgree = 'I Understand and Agree';
@@ -133,6 +134,7 @@ class AppStrings {
   static const whatYourDateOfBirthTitle = "What is your date of birth?";
   static const whatYourDateOfBirthSubtitle =
       "Your profile shows your age ,not your date of birth.";
+  static const shareMyLocation = "Share my location";
 
   // bottom nav bar
   static const home = 'Home';
