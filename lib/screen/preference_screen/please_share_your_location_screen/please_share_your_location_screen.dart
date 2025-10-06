@@ -5,7 +5,6 @@ import 'package:red_tangerine/constant/app_icons.dart';
 import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/screen/preference_screen/please_share_your_location_screen/controller/please_share_your_location_controller.dart';
 import 'package:red_tangerine/utils/app_validator.dart';
-import 'package:red_tangerine/widgets/Button_widget.dart';
 import 'package:red_tangerine/widgets/common_screen_widget.dart';
 import 'package:red_tangerine/widgets/text_widget.dart';
 
@@ -44,9 +43,9 @@ class PleaseShareYourLocationScreen extends StatelessWidget {
                   vertical: 15,
                 ),
 
-                suffixIcon: ButtonWidget.icon(
-                  icon: AppIcons.locationFixedIcon,
-                  ontap: () {},
+                suffixIcon: GestureDetector(
+                  onTap: () {},
+                  child: Image.asset(AppIcons.locationFixedIcon),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(25),

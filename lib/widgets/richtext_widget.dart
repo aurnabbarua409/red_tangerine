@@ -23,9 +23,10 @@ class RichtextWidget extends StatelessWidget {
           TextSpan(
             text: title,
             style: TextStyle(
-              fontSize: 12,
+              fontSize: 14,
               color: fontColor ?? AppColors.white_900,
-              fontWeight: FontWeight.w400,        fontFamily: 'Manrope',
+              fontWeight: FontWeight.w400,
+              fontFamily: 'Manrope',
             ),
           ),
           TextSpan(text: ' '),
@@ -33,8 +34,9 @@ class RichtextWidget extends StatelessWidget {
             text: buttonTitle,
             style: TextStyle(
               decoration: TextDecoration.underline,
-              fontSize: 12,
-              color: fontColor ?? AppColors.white_900,        fontFamily: 'Manrope',
+              fontSize: 14,
+              color: fontColor ?? AppColors.white_900,
+              fontFamily: 'Manrope',
             ),
             recognizer: TapGestureRecognizer()..onTap = ontap,
           ),

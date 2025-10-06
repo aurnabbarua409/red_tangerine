@@ -68,7 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   text: AppStrings.forgotPassword,
                   textColor: AppColors.red_700,
                   ontap: controller.onForgetPassword,
-                  fontSize: 10,
+                  fontSize: 12,
                 ),
               ],
             ),

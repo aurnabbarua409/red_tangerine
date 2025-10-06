@@ -186,20 +186,25 @@ class CommonScreenWidget extends StatelessWidget {
 
                       if (footerTextTitle != null && footerTextSubtitle != null)
                         Center(
-                          child: RichtextWidget(
-                            title: footerTextTitle!,
-                            buttonTitle: footerTextSubtitle!,
-                            fontColor: AppColors.grey_900,
-
-                            ontap: onTapSign!,
+                          child: Padding(
+                            padding: const EdgeInsets.only(bottom: 30.0),
+                            child: RichtextWidget(
+                              title: footerTextTitle!,
+                              buttonTitle: footerTextSubtitle!,
+                              fontColor: AppColors.grey_900,
+                              ontap: onTapSign!,
+                            ),
                           ),
                         ),
                       if (onTap != null && !fromUpdate)
-                        ButtonWidget(
-                          text: footerButtonText ?? AppStrings.continue_,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                          ontap: onTap!,
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 30.0),
+                          child: ButtonWidget(
+                            text: footerButtonText ?? AppStrings.continue_,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            ontap: onTap!,
+                          ),
                         ),
                       if (fromUpdate)
                         Padding(

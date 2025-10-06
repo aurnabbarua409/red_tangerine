@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
+import 'package:red_tangerine/constant/app_colors.dart';
 import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/routes/route_manager.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -16,6 +17,7 @@ class MainAppEntry extends StatelessWidget {
           theme: ThemeData(
             brightness: Brightness.light,
             scaffoldBackgroundColor: Colors.white,
+            colorSchemeSeed: AppColors.claySolid,
           ),
           title: AppStrings.appName,
           debugShowCheckedModeBanner: false,

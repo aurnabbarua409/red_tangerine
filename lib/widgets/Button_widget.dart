@@ -112,7 +112,8 @@ class ButtonWidget extends StatelessWidget {
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: textColor ?? AppColors.grey_900,
-                fontSize: fontSize ?? 16,        fontFamily: 'Manrope',
+                fontSize: fontSize ?? 16,
+                fontFamily: 'Manrope',
               ),
             ),
           ),

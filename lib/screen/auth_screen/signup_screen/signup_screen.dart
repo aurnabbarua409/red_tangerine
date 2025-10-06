@@ -61,32 +61,46 @@ class SignupScreen extends StatelessWidget {
                 fontColor: AppColors.claySolid,
               ),
             ),
-            SpaceWidget(height: 20),
+            SpaceWidget(height: 30),
             RichText(
               text: TextSpan(
                 children: [
                   TextSpan(
                     text: 'By continuing, you agree to the ',
-                    style: TextStyle(color: AppColors.grey_800,        fontFamily: 'Manrope',),
+                    style: TextStyle(
+                      color: AppColors.grey_800,
+                      fontFamily: 'Manrope',
+                    ),
                   ),
                   TextSpan(
-                    text: 'Term & Conditions ',
+                    text: 'Terms & Conditions',
                     style: TextStyle(
                       color: AppColors.claySolid,
-                      decoration: TextDecoration.underline,        fontFamily: 'Manrope',
+                      decoration: TextDecoration.underline,
+                      decorationColor: AppColors.claySolid,
+                      decorationStyle: TextDecorationStyle.solid,
+                      decorationThickness: 2.0,
+                      fontFamily: 'Manrope',
                     ),
                     recognizer: TapGestureRecognizer()
                       ..onTap = controller.onClickTermCondition,
                   ),
                   TextSpan(
-                    text: 'and ',
-                    style: TextStyle(color: AppColors.grey_800,        fontFamily: 'Manrope',),
+                    text: ' and ',
+                    style: TextStyle(
+                      color: AppColors.grey_800,
+                      fontFamily: 'Manrope',
+                    ),
                   ),
                   TextSpan(
-                    text: 'Privacy Policy',
+                    text: '\nPrivacy Policy',
                     style: TextStyle(
                       color: AppColors.claySolid,
-                      decoration: TextDecoration.underline,        fontFamily: 'Manrope',
+                      decoration: TextDecoration.underline,
+                      decorationColor: AppColors.claySolid,
+                      decorationStyle: TextDecorationStyle.solid,
+                      decorationThickness: 2.0,
+                      fontFamily: 'Manrope',
                     ),
                     recognizer: TapGestureRecognizer()
                       ..onTap = controller.onClickTermCondition,

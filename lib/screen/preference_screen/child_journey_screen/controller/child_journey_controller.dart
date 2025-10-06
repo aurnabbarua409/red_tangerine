@@ -33,7 +33,6 @@ class ChildJourneyController extends GetxController {
 
   @override
   void onInit() {
-    // TODO: implement onInit
     super.onInit();
     isSelectedInterest.value = List.generate(
       interests.length,
@@ -111,8 +110,17 @@ class ChildJourneyController extends GetxController {
 
   void onClickIsWaiting() {
     isWaiting.value = !isWaiting.value;
+
+    // if (isWaiting.value) {
+    //   clearSelection();
+    // }
     update();
   }
+
+  // void clearSelection() {
+  //   selectedInterests.clear();
+  //   isSelectedInterest.clear();
+  // }
 
   void onUpdate() {
     Get.back();

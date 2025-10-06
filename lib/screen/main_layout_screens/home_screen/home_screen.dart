@@ -9,6 +9,7 @@ import 'package:red_tangerine/screen/main_layout_screens/home_screen/widgets/fir
 import 'package:red_tangerine/screen/main_layout_screens/home_screen/widgets/flipping_widget.dart';
 import 'package:red_tangerine/screen/main_layout_screens/home_screen/widgets/second_page.dart';
 import 'package:red_tangerine/screen/main_layout_screens/home_screen/widgets/third_page.dart';
+import 'package:red_tangerine/utils/app_size.dart';
 import 'package:red_tangerine/widgets/Button_widget.dart';
 import 'package:red_tangerine/widgets/app_bar_widget.dart';
 import 'package:red_tangerine/widgets/icon_widget.dart';
@@ -33,6 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
   @override
   Widget build(BuildContext context) {
+    AppSize.size = MediaQuery.of(context).size;
     return GetBuilder(
       init: HomeController(),
       builder: (controller) {
@@ -55,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               items: [FirstPage(), SecondPage(), ThirdPage()],
                               carouselController: _controller,
                               options: CarouselOptions(
-                                height: 690,
+                                height: AppSize.height(value: 680),
                                 viewportFraction: 1,
                                 autoPlay: false,
                                 onPageChanged: (index, reason) {
@@ -125,19 +127,21 @@ class _HomeScreenState extends State<HomeScreen> {
                             if (controller.showDemo1.value)
                               Container(
                                 width: double.infinity,
-                                height: 690,
+                                height: AppSize.height(value: 680),
                                 decoration: BoxDecoration(
-                                  color: const Color.fromARGB(
-                                    169,
-                                    255,
-                                    218,
-                                    178,
-                                  ),
+                                  color: AppColors.orangeLight,
                                 ),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   // mainAxisSize: MainAxisSize.min,
                                   children: [
+                                    TextWidget(
+                                      text: "Swipe Up",
+                                      fontSize: 16,
+                                      fontColor: AppColors.white_900,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                    SizedBox(height: 20),
                                     SwipeUpHint(
                                       icon: IconWidget(
                                         icon: AppIcons.swipUpImage,
@@ -145,15 +149,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ),
                                     SpaceWidget(height: 50),
                                     // IconWidget(icon: AppIcons.swipUpImage),
+                                    SizedBox(height: 20),
                                     TextWidget(
                                       text: "Discover more parents",
-                                      fontSize: 20,
+                                      fontSize: 24,
                                       fontWeight: FontWeight.bold,
                                     ),
                                     SpaceWidget(height: 20),
                                     ButtonWidget.normal(
                                       text: "Next",
                                       width: 30,
+                                      height: 40,
+                                      textColor: AppColors.white,
+                                      backgroundColor: AppColors.claySolid,
                                       borderColor: AppColors.claySolid,
                                       ontap: controller.onShowDemo2,
                                     ),
@@ -163,34 +171,40 @@ class _HomeScreenState extends State<HomeScreen> {
                             if (controller.showDemo2.value)
                               Container(
                                 width: double.infinity,
-                                height: 690,
+                                height: AppSize.height(value: 680),
                                 decoration: BoxDecoration(
-                                  color: const Color.fromARGB(
-                                    169,
-                                    255,
-                                    218,
-                                    178,
-                                  ),
+                                  color: AppColors.orangeLight,
                                 ),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   // mainAxisSize: MainAxisSize.min,
                                   children: [
+                                    TextWidget(
+                                      text: "Swipe Left",
+                                      fontSize: 16,
+                                      fontColor: AppColors.white_900,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                    SizedBox(height: 20),
                                     SwipeLeftHint(
                                       icon: IconWidget(
                                         icon: AppIcons.swipeLeftImage,
                                       ),
                                     ),
                                     // IconWidget(icon: AppIcons.swipeLeftImage),
+                                    SizedBox(height: 20),
                                     TextWidget(
                                       text: "Learn more about a parent",
-                                      fontSize: 20,
+                                      fontSize: 24,
                                       fontWeight: FontWeight.bold,
                                     ),
                                     SpaceWidget(height: 20),
                                     ButtonWidget.normal(
                                       text: "Okay",
+                                      height: 40,
                                       width: 30,
+                                      textColor: AppColors.white,
+                                      backgroundColor: AppColors.claySolid,
                                       borderColor: AppColors.claySolid,
                                       ontap: controller.onOkayDemo2,
                                     ),
