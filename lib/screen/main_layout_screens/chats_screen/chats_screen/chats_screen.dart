@@ -6,13 +6,11 @@ import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/routes/app_routes.dart';
 import 'package:red_tangerine/screen/main_layout_screens/chats_screen/chats_screen/controller/chats_controller.dart';
 import 'package:red_tangerine/screen/main_layout_screens/chats_screen/chats_screen/widgets/chat_button_widget.dart';
-import 'package:red_tangerine/widgets/Button_widget.dart';
 import 'package:red_tangerine/widgets/app_bar_widget.dart';
 import 'package:red_tangerine/widgets/icon_widget.dart';
 import 'package:red_tangerine/widgets/searchbar_widget.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
 import 'package:red_tangerine/widgets/text_widget.dart';
-import 'package:red_tangerine/widgets/textformfield_widget.dart';
 
 class ChatsScreen extends StatefulWidget {
   const ChatsScreen({super.key});

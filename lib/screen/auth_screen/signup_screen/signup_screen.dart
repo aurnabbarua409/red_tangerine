@@ -56,7 +56,7 @@ class SignupScreen extends StatelessWidget {
               alignment: Alignment.centerLeft,
               child: TextWidget(
                 text: AppStrings.passwordWarning,
-                fontSize: 10,
+                fontSize: 12,
                 fontWeight: FontWeight.w400,
                 fontColor: AppColors.claySolid,
               ),
@@ -67,26 +67,26 @@ class SignupScreen extends StatelessWidget {
                 children: [
                   TextSpan(
                     text: 'By continuing, you agree to the ',
-                    style: TextStyle(color: AppColors.grey_800),
+                    style: TextStyle(color: AppColors.grey_800,        fontFamily: 'Manrope',),
                   ),
                   TextSpan(
                     text: 'Term & Conditions ',
                     style: TextStyle(
                       color: AppColors.claySolid,
-                      decoration: TextDecoration.underline,
+                      decoration: TextDecoration.underline,        fontFamily: 'Manrope',
                     ),
                     recognizer: TapGestureRecognizer()
                       ..onTap = controller.onClickTermCondition,
                   ),
                   TextSpan(
                     text: 'and ',
-                    style: TextStyle(color: AppColors.grey_800),
+                    style: TextStyle(color: AppColors.grey_800,        fontFamily: 'Manrope',),
                   ),
                   TextSpan(
                     text: 'Privacy Policy',
                     style: TextStyle(
                       color: AppColors.claySolid,
-                      decoration: TextDecoration.underline,
+                      decoration: TextDecoration.underline,        fontFamily: 'Manrope',
                     ),
                     recognizer: TapGestureRecognizer()
                       ..onTap = controller.onClickTermCondition,

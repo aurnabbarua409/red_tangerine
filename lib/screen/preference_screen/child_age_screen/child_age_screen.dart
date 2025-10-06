@@ -5,9 +5,7 @@ import 'package:red_tangerine/screen/preference_screen/child_age_screen/controll
 import 'package:red_tangerine/screen/preference_screen/child_age_screen/widget/age_field_widget.dart';
 import 'package:red_tangerine/service/local_storage.dart';
 import 'package:red_tangerine/utils/app_log.dart';
-
 import 'package:red_tangerine/widgets/common_screen_widget.dart';
-import 'package:red_tangerine/widgets/space_widget.dart';
 
 class ChildAgeScreen extends StatefulWidget {
   const ChildAgeScreen({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:red_tangerine/constant/app_colors.dart';
-import 'package:red_tangerine/utils/responsive_size.dart';
 
+// ignore: must_be_immutable
 class TextWidget extends StatelessWidget {
   TextWidget({
     super.key,
@@ -68,6 +68,7 @@ class TextWidget extends StatelessWidget {
       style: TextStyle(
         fontSize: fontSize,
         color: fontColor,
+        fontFamily: 'Manrope',
         decoration: textDecoration ?? TextDecoration.none,
         fontWeight: fontWeight ?? FontWeight.normal,
         decorationColor: AppColors.red,

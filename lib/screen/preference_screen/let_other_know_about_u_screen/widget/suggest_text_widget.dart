@@ -16,7 +16,7 @@ class SuggestTextWidget extends StatelessWidget {
           style: TextStyle(
             fontSize: 12,
             fontWeight: FontWeight.w500,
-            color: AppColors.claySolid,
+            color: AppColors.claySolid,        fontFamily: 'Manrope',
             fontStyle: FontStyle.italic,
           ),
         ),

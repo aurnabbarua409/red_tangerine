@@ -31,7 +31,7 @@ class SupportJourneyItem extends StatelessWidget {
         child: Text(
           label,
           textAlign: TextAlign.center,
-          style: TextStyle(color: AppColors.grey_900),
+          style: TextStyle(color: AppColors.grey_900,        fontFamily: 'Manrope',),
         ),
       ),
     );

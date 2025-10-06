@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:red_tangerine/constant/app_colors.dart';
-import 'package:red_tangerine/screen/preference_screen/where_parenting_journey_screen/controller/where_parenting_journey_controller.dart';
 import 'package:red_tangerine/utils/responsive_size.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
 
@@ -35,7 +34,7 @@ class ParentingJourneyItem extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Text(icon, style: TextStyle(fontSize: 20)),
+            Text(icon, style: TextStyle(fontSize: 20,        fontFamily: 'Manrope',)),
             SpaceWidget(width: 10),
             Expanded(
               child: Text(
@@ -44,7 +43,7 @@ class ParentingJourneyItem extends StatelessWidget {
                 style: TextStyle(
                   color: AppColors.grey_700,
                   fontSize: 14,
-                  fontWeight: FontWeight.w400,
+                  fontWeight: FontWeight.w400,        fontFamily: 'Manrope',
                 ),
               ),
             ),

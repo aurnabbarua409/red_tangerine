@@ -34,7 +34,7 @@ class AgeFieldWidget extends StatelessWidget {
         },
         decoration: InputDecoration(
           hintText: hintText,
-          hintStyle: TextStyle(color: AppColors.white_700),
+          hintStyle: TextStyle(color: AppColors.white_700,        fontFamily: 'Manrope',),
           border: UnderlineInputBorder(
             borderSide: BorderSide(color: AppColors.white_700),
           ),

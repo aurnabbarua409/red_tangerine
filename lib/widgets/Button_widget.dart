@@ -5,6 +5,7 @@ import 'package:red_tangerine/widgets/text_widget.dart';
 
 enum ButtonType { elevated, icon, text, normal }
 
+// ignore: must_be_immutable
 class ButtonWidget extends StatelessWidget {
   ButtonWidget({
     super.key,
@@ -111,7 +112,7 @@ class ButtonWidget extends StatelessWidget {
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: textColor ?? AppColors.grey_900,
-                fontSize: fontSize ?? 16,
+                fontSize: fontSize ?? 16,        fontFamily: 'Manrope',
               ),
             ),
           ),
@@ -137,6 +138,7 @@ class ButtonWidget extends StatelessWidget {
             style: TextStyle(
               fontWeight: fontWeight,
               color: textColor ?? AppColors.white,
+              fontFamily: 'Manrope',
               fontSize: fontSize,
             ),
           ),

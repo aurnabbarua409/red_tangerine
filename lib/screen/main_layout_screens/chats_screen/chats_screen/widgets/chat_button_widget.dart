@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:red_tangerine/constant/app_colors.dart';
-import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/widgets/Button_widget.dart';
 
 class ChatButtonWidget extends StatelessWidget {

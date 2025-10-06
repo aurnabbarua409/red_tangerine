@@ -9,12 +9,9 @@ import 'package:red_tangerine/screen/main_layout_screens/home_screen/widgets/fir
 import 'package:red_tangerine/screen/main_layout_screens/home_screen/widgets/flipping_widget.dart';
 import 'package:red_tangerine/screen/main_layout_screens/home_screen/widgets/second_page.dart';
 import 'package:red_tangerine/screen/main_layout_screens/home_screen/widgets/third_page.dart';
-import 'package:red_tangerine/utils/responsive_size.dart';
 import 'package:red_tangerine/widgets/Button_widget.dart';
-import 'package:red_tangerine/widgets/animated_heart_button.dart';
 import 'package:red_tangerine/widgets/app_bar_widget.dart';
 import 'package:red_tangerine/widgets/icon_widget.dart';
-import 'package:red_tangerine/widgets/image_widget.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
 import 'package:red_tangerine/widgets/tap_to_wave_widget.dart';
 import 'package:red_tangerine/widgets/text_widget.dart';

@@ -7,7 +7,6 @@ import 'package:red_tangerine/screen/auth_screen/verification_screen/widgets/cus
 import 'package:red_tangerine/widgets/Button_widget.dart';
 import 'package:red_tangerine/widgets/common_screen_widget.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
-import 'package:red_tangerine/widgets/text_widget.dart';
 
 class VerificationScreen extends StatelessWidget {
   const VerificationScreen({super.key});

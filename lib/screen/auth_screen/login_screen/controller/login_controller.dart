@@ -1,7 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:red_tangerine/routes/app_routes.dart';
-import 'package:red_tangerine/screen/main_layout_screens/bottom_nav_bar_screen/botton_navbar.dart';
 import 'package:red_tangerine/service/local_storage.dart';
 
 class LoginController extends GetxController {

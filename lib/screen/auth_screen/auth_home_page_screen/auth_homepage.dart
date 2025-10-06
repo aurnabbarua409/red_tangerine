@@ -6,7 +6,6 @@ import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/routes/app_routes.dart';
 import 'package:red_tangerine/widgets/Button_widget.dart';
 import 'package:red_tangerine/widgets/image_widget.dart';
-import 'package:red_tangerine/widgets/richtext_widget.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
 import 'package:red_tangerine/widgets/text_widget.dart';
 

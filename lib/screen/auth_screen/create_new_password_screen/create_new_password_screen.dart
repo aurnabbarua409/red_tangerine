@@ -80,7 +80,7 @@ class _CreateNewPasswordScreenState extends State<CreateNewPasswordScreen> {
               alignment: Alignment.centerLeft,
               child: TextWidget(
                 text: AppStrings.passwordWarning,
-                fontSize: 10,
+                fontSize: 12,
                 fontWeight: FontWeight.w400,
                 fontColor: AppColors.claySolid,
               ),

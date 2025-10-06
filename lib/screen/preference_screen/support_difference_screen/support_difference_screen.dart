@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:red_tangerine/constant/app_colors.dart';
 import 'package:red_tangerine/constant/app_strings.dart';
-import 'package:red_tangerine/screen/preference_screen/child_journey_screen/controller/child_journey_controller.dart';
 import 'package:red_tangerine/screen/preference_screen/support_difference_screen/controller/support_journey_controller.dart';
 import 'package:red_tangerine/screen/preference_screen/support_difference_screen/widget/support_journey_item.dart';
 import 'package:red_tangerine/widgets/common_screen_widget.dart';

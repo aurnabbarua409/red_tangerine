@@ -5,7 +5,6 @@ import 'package:red_tangerine/screen/main_layout_screens/chats_screen/chats_scre
 import 'package:red_tangerine/screen/main_layout_screens/home_screen/home_screen.dart';
 import 'package:red_tangerine/screen/main_layout_screens/matches_screen/matches_screen.dart';
 import 'package:red_tangerine/screen/main_layout_screens/profile_screen/profile_screen/profile_screen.dart';
-import 'package:red_tangerine/utils/responsive_size.dart';
 import 'package:red_tangerine/widgets/icon_widget.dart';
 
 class BottomNavbar extends StatefulWidget {

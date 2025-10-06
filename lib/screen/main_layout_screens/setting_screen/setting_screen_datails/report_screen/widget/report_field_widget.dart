@@ -40,7 +40,7 @@ class ReportFieldWidget extends StatelessWidget {
           obscureText: obscureText,
           keyboardType: keyboardType,
           autofillHints: autofillHints,
-          style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
+          style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400,        fontFamily: 'Manrope',),
           decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
             hintText: hintText,

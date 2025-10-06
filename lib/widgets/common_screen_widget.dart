@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:red_tangerine/constant/app_colors.dart';
 import 'package:red_tangerine/constant/app_icons.dart';
-import 'package:red_tangerine/constant/app_images.dart';
 import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/screen/main_layout_screens/profile_screen/profile_screen_datails/widgets/app_bar_widget.dart';
 import 'package:red_tangerine/widgets/Button_widget.dart';
@@ -10,6 +9,7 @@ import 'package:red_tangerine/widgets/richtext_widget.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
 import 'package:red_tangerine/widgets/text_widget.dart';
 
+// ignore: must_be_immutable
 class CommonScreenWidget extends StatelessWidget {
   CommonScreenWidget({
     super.key,

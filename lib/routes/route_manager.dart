@@ -7,7 +7,6 @@ import 'package:red_tangerine/screen/auth_screen/forgot_password_screen/forgot_p
 import 'package:red_tangerine/screen/auth_screen/login_screen/login_screen.dart';
 import 'package:red_tangerine/screen/auth_screen/signup_screen/signup_screen.dart';
 import 'package:red_tangerine/screen/auth_screen/verification_screen/verification_screen.dart';
-import 'package:red_tangerine/screen/main_layout_screens/bottom_nav_bar_screen/bottom_nav_bar_screen.dart';
 import 'package:red_tangerine/screen/main_layout_screens/bottom_nav_bar_screen/botton_navbar.dart';
 import 'package:red_tangerine/screen/main_layout_screens/chats_screen/chat_message_screen/chat_message_screen.dart';
 import 'package:red_tangerine/screen/main_layout_screens/notification_screen/notification_screen.dart';
@@ -38,7 +37,6 @@ import 'package:red_tangerine/screen/preference_screen/where_parenting_journey_s
 import 'package:red_tangerine/screen/preference_screen/your_first_name_screen/your_first_name_screen.dart';
 import 'package:red_tangerine/screen/preference_screen/your_privacy_matters_screen/your_privacy_matters_screen.dart';
 import 'package:red_tangerine/screen/splash_screen/splash_screen.dart';
-import 'package:red_tangerine/service/local_storage.dart';
 import 'package:red_tangerine/widgets/custom_transition_widget.dart';
 
 class RouteManager {

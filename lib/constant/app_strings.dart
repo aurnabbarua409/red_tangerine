@@ -5,7 +5,7 @@ class AppStrings {
   // Auth Screen
   static const createAccount = 'Create Account';
   static const login = "Log in";
-  static const authHomePageTitle = 'Connect with parents who get it.';
+  static const authHomePageTitle = 'Connect with parents \nwho get it.';
   static const register = 'Register';
   static const welcomeBack = "Welcome Back";
   static const loginDetails = "Let's keep building your circle.";

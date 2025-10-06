@@ -21,7 +21,7 @@ class ChatboxWidget extends StatelessWidget {
         hintStyle: TextStyle(
           color: AppColors.white_700,
           fontSize: 14,
-          fontWeight: FontWeight.w400,
+          fontWeight: FontWeight.w400,        fontFamily: 'Manrope',
         ),
         suffixIcon: ButtonWidget.icon(
           icon: AppIcons.imageIcon,

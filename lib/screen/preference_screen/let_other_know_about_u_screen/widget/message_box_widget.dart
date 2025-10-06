@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:red_tangerine/constant/app_colors.dart';
-import 'package:red_tangerine/widgets/text_widget.dart';
 
 class MessageBoxWidget extends StatelessWidget {
   const MessageBoxWidget({super.key, required this.controller});
@@ -15,7 +14,7 @@ class MessageBoxWidget extends StatelessWidget {
         TextFormField(
           controller: controller,
           maxLines: 10,
-          style: TextStyle(fontSize: 12),
+          style: TextStyle(fontSize: 12,        fontFamily: 'Manrope',),
           decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
             hintText: "Type your intro here...",

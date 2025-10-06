@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:red_tangerine/screen/preference_screen/child_age_screen/controller/child_age_controller.dart';
 import 'package:red_tangerine/utils/app_common_functions.dart';
 
 class EditProfileController extends GetxController {
@@ -18,7 +17,8 @@ class EditProfileController extends GetxController {
   void onUpdate() {}
   void onClickedCalender(BuildContext context) async {
     dateOfBirthController.text =
-        await AppCommonFunctions.onClickedCalender(context) ?? "";
+        await AppCommonFunctions.onClickedCalender(context) ;
+        // await AppCommonFunctions.onClickedCalender(context) ?? "";
   }
 
   void onClear() {

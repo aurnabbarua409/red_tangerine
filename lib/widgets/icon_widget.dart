@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:red_tangerine/utils/responsive_size.dart';
 
+// ignore: must_be_immutable
 class IconWidget extends StatelessWidget {
   IconWidget({super.key, required this.icon, this.scale, this.color})
     : isCustom = false;

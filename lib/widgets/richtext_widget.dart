@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:red_tangerine/constant/app_colors.dart';
 
+// ignore: must_be_immutable
 class RichtextWidget extends StatelessWidget {
   RichtextWidget({
     super.key,
@@ -24,7 +25,7 @@ class RichtextWidget extends StatelessWidget {
             style: TextStyle(
               fontSize: 12,
               color: fontColor ?? AppColors.white_900,
-              fontWeight: FontWeight.w400,
+              fontWeight: FontWeight.w400,        fontFamily: 'Manrope',
             ),
           ),
           TextSpan(text: ' '),
@@ -33,7 +34,7 @@ class RichtextWidget extends StatelessWidget {
             style: TextStyle(
               decoration: TextDecoration.underline,
               fontSize: 12,
-              color: fontColor ?? AppColors.white_900,
+              color: fontColor ?? AppColors.white_900,        fontFamily: 'Manrope',
             ),
             recognizer: TapGestureRecognizer()..onTap = ontap,
           ),

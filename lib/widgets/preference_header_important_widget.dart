@@ -16,14 +16,14 @@ class PreferenceHeaderImportantWidget extends StatelessWidget {
             style: TextStyle(
               color: AppColors.grey_900,
               fontSize: ResponsiveSize.fontSize(0.35),
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w600,        fontFamily: 'Manrope',
             ),
           ),
           TextSpan(
             text: ' *',
             style: TextStyle(
               color: AppColors.red,
-              fontSize: ResponsiveSize.fontSize(0.35),
+              fontSize: ResponsiveSize.fontSize(0.35),        fontFamily: 'Manrope',
             ),
           ),
         ],

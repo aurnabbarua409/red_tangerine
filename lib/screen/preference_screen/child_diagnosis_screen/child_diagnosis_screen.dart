@@ -49,6 +49,7 @@ class _ChildDiagnosisScreenState extends State<ChildDiagnosisScreen> {
         SpaceWidget(height: 20),
         Obx(
           () => DropdownMultiselectWidget(
+            // ignore: invalid_use_of_protected_member
             options: _controller.allDiagnosisType.value,
             selectedValues: _controller.selectedDiagnosisType,
             onChanged: (value) =>

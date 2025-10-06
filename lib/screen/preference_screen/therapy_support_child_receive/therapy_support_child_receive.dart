@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:multiselect/multiselect.dart';
-import 'package:red_tangerine/constant/app_colors.dart';
 import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/screen/preference_screen/therapy_support_child_receive/controller/therapy_support_controller.dart';
 import 'package:red_tangerine/widgets/common_screen_widget.dart';
@@ -47,6 +45,7 @@ class _TherapySupportChildReceiveState
         SpaceWidget(height: 20),
         Obx(
           () => DropdownMultiselectWidget(
+            // ignore: invalid_use_of_protected_member
             options: _controller.allTherapyType.value,
             selectedValues: _controller.selectedTherapyType,
             onChanged: (value) => _controller.selectedTherapyType.value = value,
