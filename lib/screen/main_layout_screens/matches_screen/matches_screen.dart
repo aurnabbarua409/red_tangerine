@@ -32,6 +32,7 @@ class _MatchesScreenState extends State<MatchesScreen> {
                     fontSize: 18,
                     fontWeight: FontWeight.w600,
                   ),
+                  SpaceWidget(height: 8),
                   SearchbarWidget(
                     controller: controller.searchController,
                     validator: (value) => null,
@@ -39,7 +40,7 @@ class _MatchesScreenState extends State<MatchesScreen> {
                     hintText: AppStrings.searchHere,
                     ontap: controller.onSearch,
                   ),
-                  SpaceWidget(height: 20),
+                  SpaceWidget(height: 10),
                   Expanded(
                     child: SingleChildScrollView(
                       child: Wrap(
@@ -62,7 +63,6 @@ class _MatchesScreenState extends State<MatchesScreen> {
                               name: controller.matches[index].name,
                               age: controller.matches[index].childAge
                                   .toString(),
-                              distance: controller.matches[index].distance,
                               diagnosis: controller.matches[index].diagnosis,
                               ontap: controller.onMessage,
                             ),

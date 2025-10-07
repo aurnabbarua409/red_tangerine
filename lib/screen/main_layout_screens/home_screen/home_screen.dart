@@ -57,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               items: [FirstPage(), SecondPage(), ThirdPage()],
                               carouselController: _controller,
                               options: CarouselOptions(
-                                height: AppSize.height(value: 680),
+                                height: AppSize.height(value: 670),
                                 viewportFraction: 1,
                                 autoPlay: false,
                                 onPageChanged: (index, reason) {
@@ -124,93 +124,93 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
                             ),
-                            if (controller.showDemo1.value)
-                              Container(
-                                width: double.infinity,
-                                height: AppSize.height(value: 680),
-                                decoration: BoxDecoration(
-                                  color: AppColors.orangeLight,
-                                ),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  // mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    TextWidget(
-                                      text: "Swipe Up",
-                                      fontSize: 16,
-                                      fontColor: AppColors.white_900,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                    SizedBox(height: 20),
-                                    SwipeUpHint(
-                                      icon: IconWidget(
-                                        icon: AppIcons.swipUpImage,
-                                      ),
-                                    ),
-                                    SpaceWidget(height: 50),
-                                    // IconWidget(icon: AppIcons.swipUpImage),
-                                    SizedBox(height: 20),
-                                    TextWidget(
-                                      text: "Discover more parents",
-                                      fontSize: 24,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                    SpaceWidget(height: 20),
-                                    ButtonWidget.normal(
-                                      text: "Next",
-                                      width: 30,
-                                      height: 40,
-                                      textColor: AppColors.white,
-                                      backgroundColor: AppColors.claySolid,
-                                      borderColor: AppColors.claySolid,
-                                      ontap: controller.onShowDemo2,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            if (controller.showDemo2.value)
-                              Container(
-                                width: double.infinity,
-                                height: AppSize.height(value: 680),
-                                decoration: BoxDecoration(
-                                  color: AppColors.orangeLight,
-                                ),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  // mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    TextWidget(
-                                      text: "Swipe Left",
-                                      fontSize: 16,
-                                      fontColor: AppColors.white_900,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                    SizedBox(height: 20),
-                                    SwipeLeftHint(
-                                      icon: IconWidget(
-                                        icon: AppIcons.swipeLeftImage,
-                                      ),
-                                    ),
-                                    // IconWidget(icon: AppIcons.swipeLeftImage),
-                                    SizedBox(height: 20),
-                                    TextWidget(
-                                      text: "Learn more about a parent",
-                                      fontSize: 24,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                    SpaceWidget(height: 20),
-                                    ButtonWidget.normal(
-                                      text: "Okay",
-                                      height: 40,
-                                      width: 30,
-                                      textColor: AppColors.white,
-                                      backgroundColor: AppColors.claySolid,
-                                      borderColor: AppColors.claySolid,
-                                      ontap: controller.onOkayDemo2,
-                                    ),
-                                  ],
-                                ),
-                              ),
+                            // if (controller.showDemo1.value)
+                            //   Container(
+                            //     width: double.infinity,
+                            //     height: AppSize.height(value: 670),
+                            //     decoration: BoxDecoration(
+                            //       color: AppColors.orangeLight,
+                            //     ),
+                            //     child: Column(
+                            //       mainAxisAlignment: MainAxisAlignment.center,
+                            //       // mainAxisSize: MainAxisSize.min,
+                            //       children: [
+                            //         TextWidget(
+                            //           text: "Swipe Up",
+                            //           fontSize: 16,
+                            //           fontColor: AppColors.white_900,
+                            //           fontWeight: FontWeight.w500,
+                            //         ),
+                            //         SizedBox(height: 20),
+                            //         SwipeUpHint(
+                            //           icon: IconWidget(
+                            //             icon: AppIcons.swipUpImage,
+                            //           ),
+                            //         ),
+                            //         SpaceWidget(height: 50),
+                            //         // IconWidget(icon: AppIcons.swipUpImage),
+                            //         SizedBox(height: 20),
+                            //         TextWidget(
+                            //           text: "Discover more parents",
+                            //           fontSize: 24,
+                            //           fontWeight: FontWeight.bold,
+                            //         ),
+                            //         SpaceWidget(height: 20),
+                            //         ButtonWidget.normal(
+                            //           text: "Next",
+                            //           width: 30,
+                            //           height: 40,
+                            //           textColor: AppColors.white,
+                            //           backgroundColor: AppColors.claySolid,
+                            //           borderColor: AppColors.claySolid,
+                            //           ontap: controller.onShowDemo2,
+                            //         ),
+                            //       ],
+                            //     ),
+                            //   ),
+                            // if (controller.showDemo2.value)
+                            //   Container(
+                            //     width: double.infinity,
+                            //     height: AppSize.height(value: 670),
+                            //     decoration: BoxDecoration(
+                            //       color: AppColors.orangeLight,
+                            //     ),
+                            //     child: Column(
+                            //       mainAxisAlignment: MainAxisAlignment.center,
+                            //       // mainAxisSize: MainAxisSize.min,
+                            //       children: [
+                            //         TextWidget(
+                            //           text: "Swipe Left",
+                            //           fontSize: 16,
+                            //           fontColor: AppColors.white_900,
+                            //           fontWeight: FontWeight.w500,
+                            //         ),
+                            //         SizedBox(height: 20),
+                            //         SwipeLeftHint(
+                            //           icon: IconWidget(
+                            //             icon: AppIcons.swipeLeftImage,
+                            //           ),
+                            //         ),
+                            //         // IconWidget(icon: AppIcons.swipeLeftImage),
+                            //         SizedBox(height: 20),
+                            //         TextWidget(
+                            //           text: "Learn more about a parent",
+                            //           fontSize: 24,
+                            //           fontWeight: FontWeight.bold,
+                            //         ),
+                            //         SpaceWidget(height: 20),
+                            //         ButtonWidget.normal(
+                            //           text: "Okay",
+                            //           height: 40,
+                            //           width: 30,
+                            //           textColor: AppColors.white,
+                            //           backgroundColor: AppColors.claySolid,
+                            //           borderColor: AppColors.claySolid,
+                            //           ontap: controller.onOkayDemo2,
+                            //         ),
+                            //       ],
+                            //     ),
+                            //   ),
                           ],
                         ),
                       ),

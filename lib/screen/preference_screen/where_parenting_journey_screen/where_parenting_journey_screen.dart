@@ -48,6 +48,7 @@ class WhereParentingJourneyScreen extends StatelessWidget {
                       "Just starting out We're new to this and learning as we go.",
                   ontap: controller.mentorReady,
                 ),
+                SpaceWidget(height: 5),
                 // ParentingJourneyItem(index: 1, controller: controller),
                 // ParentingJourneyItem(index: 2, controller: controller),
               ],

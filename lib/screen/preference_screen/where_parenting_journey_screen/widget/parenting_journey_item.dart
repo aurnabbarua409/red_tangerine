@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:red_tangerine/constant/app_colors.dart';
+import 'package:red_tangerine/utils/app_size.dart';
 import 'package:red_tangerine/utils/responsive_size.dart';
 import 'package:red_tangerine/widgets/space_widget.dart';
 
@@ -18,12 +19,13 @@ class ParentingJourneyItem extends StatelessWidget {
   final String icon;
   @override
   Widget build(BuildContext context) {
+    AppSize.size = MediaQuery.of(context).size;
     return InkWell(
       onTap: ontap,
       borderRadius: BorderRadius.circular(15),
       child: Container(
         width: ResponsiveSize.width(60),
-        height: 75,
+        height: AppSize.width(value: 75),
         padding: EdgeInsets.all(10),
         decoration: BoxDecoration(
           color: isParenting ? AppColors.orangeLight : AppColors.transparent,
@@ -34,7 +36,7 @@ class ParentingJourneyItem extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Text(icon, style: TextStyle(fontSize: 20,        fontFamily: 'Manrope',)),
+            Text(icon, style: TextStyle(fontSize: 20, fontFamily: 'Manrope')),
             SpaceWidget(width: 10),
             Expanded(
               child: Text(
@@ -42,8 +44,9 @@ class ParentingJourneyItem extends StatelessWidget {
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   color: AppColors.grey_700,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,        fontFamily: 'Manrope',
+                  fontSize: AppSize.width(value: 12),
+                  fontWeight: FontWeight.w400,
+                  fontFamily: 'Manrope',
                 ),
               ),
             ),

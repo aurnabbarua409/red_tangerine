@@ -3,6 +3,7 @@ import 'package:get/route_manager.dart';
 import 'package:red_tangerine/constant/app_colors.dart';
 import 'package:red_tangerine/constant/app_strings.dart';
 import 'package:red_tangerine/routes/route_manager.dart';
+import 'package:red_tangerine/utils/app_size.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class MainAppEntry extends StatelessWidget {
@@ -10,6 +11,7 @@ class MainAppEntry extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppSize.size = MediaQuery.of(context).size;
     return ResponsiveSizer(
       builder: (context, orientation, screenType) {
         return GetMaterialApp(
